@@ -1,0 +1,28 @@
+- name: Film
+  entities:
+    switch.sonoff4: true
+    light.koogeek_ls1_2062df:
+      state: true
+      xy_color: [0.677, 0.319]
+      brightness: 255
+    light.dario_sala: false
+    light.faretti: false
+    light.gina: false
+    light.mensola: false
+    light.tolomeo: false
+- name: Cena
+  entities:
+    switch.sonoff4: true
+    light.koogeek_ls1_2062df: false
+    light.dario_sala: false
+    light.faretti: false
+    light.gina:
+      state: true
+      xy_color: [0.422,0.321]
+      brightness: 255
+    light.tolomeo:
+      state: true
+      xy_color: [0.422,0.321]
+      brightness: 255
+    light.mensola: false
+  

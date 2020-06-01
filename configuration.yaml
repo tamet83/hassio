@@ -1,0 +1,178 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Allegronte
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Rome
+  # Customization file
+  customize: !include customize.yaml
+  packages: !include_dir_named packages
+  external_url: !secret external_url
+  internal_url: !secret internal_url
+  whitelist_external_dirs:
+    - /config/www/snapshot
+
+################################
+mobile_app:
+#map:
+group: !include groups.yaml
+automation: !include_dir_merge_list automations
+script: !include scripts.yaml
+http: !include http.yaml # Http configuration
+#tuya: !include tuya.yaml # Smart plug config
+speedtestdotnet: !include speedtest.yaml
+zone: !include zone.yaml # Home and Work
+sensor: !include_dir_merge_list sensors
+media_player: !include media_player.yaml
+light: !include light.yaml
+weather: !include weather.yaml
+device_tracker: !include device_tracker.yaml
+alarm_control_panel: !include alarm.yaml
+shell_command: !include shell_command.yaml
+scene: !include scene.yaml
+#breaking_changes:
+binary_sensor: !include ping.yaml
+sonos:
+  media_player:
+    hosts:
+      - !secret sonos_one
+
+recorder: !include recorder.yaml
+# Enables support for tracking state changes over time
+history: !include history.yaml
+# View all events in a logbook
+logbook: !include logbook.yaml
+
+#WOl
+switch: !include switch.yaml
+config:
+updater:
+#camera: !include camera.yaml
+cloud: !include cloud.yaml
+person:
+
+apcupsd:
+  host: a722577e-apcupsd
+
+#owntracks:
+
+input_select:
+  effetto_luci_preset:
+    name: Effetto luci natale
+    options:
+      - acceso
+      - spento
+    initial: spento
+  
+
+# Netatmo
+netatmo:
+  client_id: !secret netatmo_client_id
+  client_secret: !secret netatmo_client_secret
+
+#Proxmox
+proxmoxve:
+  - host: !secret proxmox_host
+    port: 8006
+    verify_ssl: false
+    username: !secret proxmox_user
+    password: !secret proxmox_password
+    nodes:
+      - node: pve
+        # vms:
+        #   - 100
+        containers:
+          - 100
+          - 101
+          - 102
+          - 103
+          - 104
+          - 105
+          - 106
+          - 107
+
+#Spotify:
+# spotify:
+#   client_id: !secret spotify_id
+#   client_secret: !secret spotify_secret
+
+#Transmission
+transmission:
+  host: !secret transmission_host
+  port: !secret transmission_port
+  username: !secret transmission_username
+  password: !secret transmission_password
+  scan_interval: 15
+  name: Transmission
+
+climate:
+  - platform: netatmo
+
+lovelace:
+  resources: !include_dir_list lovelace/resources
+  mode: yaml
+
+# Enables the frontend
+frontend:
+  javascript_version: latest
+  themes: !include_dir_merge_named themes
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables a map showing the location of tracked devices
+#map:
+
+# Track the sun
+sun:
+
+ios:
+  push:
+    categories:
+      - name: cameras
+        identifier: 'camera'
+        actions:
+
+# Discover some devices automatically
+stream:
+
+# samsungtv:
+#   - host: !secret samsung_tv_host
+#     port: 8001
+#     name: Samsung Tv
+
+ssdp:
+
+zeroconf:
+
+notify:
+  - name: cellulari
+    platform: group
+    services:
+      - service: mobile_app_iphonexr_matteo
+      - service: mobile_app_carlotta
+  - platform: alexa_media
+    name: alexa
+
+# Text to speech
+tts:
+  - platform: google_translate
+    service_name: google_say
+
+system_health:
+
+# hacs:
+#   token: !secret hacs_token
+#   themes: true
+
+panel_iframe:
+  torrent_page:
+    title: 'Transmission'
+    url: !secret transmission_iframe
+    icon: mdi:progress-download

@@ -1,0 +1,114 @@
+########## Prese e switch  ##########################
+visible:
+  - user: 5532872ad3ef4f9882e435a93fba71d3
+  - user: 6aa7803956c94f778e676e5be51899d0
+title: Prese
+path: prese
+icon: mdi:power-settings
+background: var(--background-image)
+cards:
+#Wake on Lan
+  - type: entities
+    title: WoL Switch
+    show_header_toggle: false
+    entities:
+      - entity: switch.samsung_tv
+        name: Samsung
+        icon: mdi:television-box
+      - entity: switch.nas
+        icon: mdi:nas
+  - type: vertical-stack
+    cards:
+    - type: entities
+      title: Salotto
+      show_header_toggle: false
+      entities:
+        - entity: switch.sonoff
+          name: Presa 1
+          icon: mdi:battery-charging
+        - entity: switch.sonoff2
+          name: Switch Netgear
+          icon: mdi:network-router
+        - entity: switch.sonoff3
+          name: Carica iPhone
+          icon: mdi:cellphone-iphone
+        - entity: switch.sonoff4
+          name: Presa TV
+          icon: mdi:power-plug
+        - entity: switch.sonoff_5
+          name: USB
+          icon: mdi:usb
+  # - type: vertical-stack
+  #   cards:
+  #     - type: entities
+  #       title: Camera
+  #       show_header_toggle: false
+  #       entities:
+  #         - entity: switch.smart_plug_1
+  #           name: Ventilatore
+  #           icon: mdi:fan
+  - type: entities
+    title: Automazioni
+    show_header_toggle: false
+    entities:
+      - type: 'custom:fold-entity-row'
+        head: 
+          type: divider
+        entities:
+          - entity: automation.accensione_led_corridoio_giorno_movimento
+            name: Led corridoio giorno
+            icon: mdi:home-automation
+          - entity: automation.accensione_led_corridoio_notte_movimento
+            name: Led corridoio notte
+            icon: mdi:home-automation
+          - entity: automation.allarme_finestra_aperta
+            name: Allarme finestra aperta
+            icon: mdi:home-automation
+          - entity: automation.avviso_luci_accese
+            name: Luci accese
+            icon: mdi:home-automation
+          - entity: automation.effetto_luci_natale_off
+            name: Effetto luci natale OFF
+            icon: mdi:home-automation
+          - entity: automation.effetto_luci_natale_on
+            name: Effetto luci natale ON
+            icon: mdi:home-automation
+          - entity: automation.interruzione_corrente
+            name: Interruzione corrente
+            icon: mdi:home-automation
+          - entity: automation.notifica_aggiornamento
+            name: Notifica aggiornamento Hass.io
+            icon: mdi:home-automation
+          - entity: automation.notifica_allarme
+            name: Notifica allarme
+            icon: mdi:home-automation
+          - entity: automation.plex
+            name: Plex
+            icon: mdi:home-automation
+          - entity: automation.riaccendi_nas
+            name: Riaccendi il NAS
+            icon: mdi:home-automation
+          - entity: automation.ripristino_corrente
+            name: Notifica ripristino corrente
+            icon: mdi:home-automation
+          - entity: automation.spegni_ha
+            name: Spegni Hass.io
+            icon: mdi:home-automation
+          - entity: automation.spegni_luci_camera
+            name: Spegni luci camera
+            icon: mdi:home-automation
+          - entity: automation.spegni_luci_sala
+            name: Spegni luci sala
+            icon: mdi:home-automation
+          - entity: automation.spegni_nas
+            name: Spegni NAS
+            icon: mdi:home-automation
+          - entity: automation.spegnimento_led_corridoio
+            name: Spegni led corridoio
+            icon: mdi:home-automation
+          - entity: automation.spegnimento_luce_camera
+            name: Spegni led camera
+            icon: mdi:home-automation
+          - entity: automation.trigger_allarme
+            name: Trigger allarme
+            icon: mdi:home-automation

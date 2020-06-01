@@ -1,0 +1,17 @@
+- id: '1553628541692'
+  alias: Spegnimento luce camera
+  trigger:
+  - entity_id: binary_sensor.motion_camera
+    for: 00:02:00
+    platform: state
+    to: 'off'
+  condition:
+    condition: or
+    conditions:
+    - condition: state
+      entity_id: light.dario_camera
+      state: 'on'
+  action:
+  - entity_id:
+    - light.dario_camera
+    service: light.turn_off

@@ -1,0 +1,4 @@
+push:
+  categories:
+    - name: cameras
+      identifier: 'camera'

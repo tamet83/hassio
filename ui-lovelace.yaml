@@ -1,0 +1,21 @@
+#resources: !include_dir_list lovelace/resources
+custom_header:
+  compact_mode: true
+  disable_sidebar: false
+  # exceptions:
+  #   - conditions:
+  #       user: 5532872ad3ef4f9882e435a93fba71d3
+preload:
+  - conditional
+
+title: Home
+theme: google_dark_theme
+views:
+  - !include lovelace/views/01_principale.yaml
+  #- !include lovelace/views/02_allarme.yaml
+  - !include lovelace/views/03_luci.yaml
+  - !include lovelace/views/04_prese.yaml
+  - !include lovelace/views/05_riscaldamento.yaml
+  - !include lovelace/views/06_upcoming.yaml
+ # - !include lovelace/views/07_plex.yaml
+  - !include lovelace/views/08_monitoring.yaml

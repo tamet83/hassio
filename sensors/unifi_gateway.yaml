@@ -1,0 +1,36 @@
+- platform: unifigateway
+  host: !secret unifi_host
+  username: !secret unifi_username
+  password: !secret unifi_password
+  port: !secret unifi_port
+  monitored_conditions:
+    - wan
+    - wlan
+    - lan
+    - firmware
+- platform: template
+  sensors:
+    # WAN Statistics
+    usg_cpu:
+      friendly_name: USG CPU
+      value_template: "{{state_attr('sensor.unifi_gateway_wan','gw_system-stats')['cpu']}}"
+      unit_of_measurement: '%'
+    usg_ram:
+      friendly_name: USG Ram
+      value_template: "{{state_attr('sensor.unifi_gateway_wan','gw_system-stats')['mem']}}"
+      unit_of_measurement: '%'
+    usg_uptime:
+      friendly_name: USG Uptime
+      value_template: "{{(state_attr('sensor.unifi_gateway_wan','gw_system-stats')['uptime']|float/86400)|int}}"
+      unit_of_measurement: days
+    usg_ip:
+      friendly_name: USG Wan IP
+      value_template: "{{state_attr('sensor.unifi_gateway_wan','wan_ip')}}"
+    # LAN Statistics
+    usg_lan_clients:
+      friendly_name: LAN Clients
+      value_template: "{{state_attr('sensor.unifi_gateway_lan','num_user')}}"
+    # WLAN Statistics
+    usg_wlan_clients:
+      friendly_name: WLAN Clients
+      value_template: "{{state_attr('sensor.unifi_gateway_wlan','num_user')}}"

@@ -1,0 +1,115 @@
+- id: '1552823946785'
+  alias: Notifica Allarme
+  trigger:
+    - entity_id: alarm_control_panel.allarme_casa
+      platform: state
+      from: 'pending'
+      to: 'triggered'
+  # - entity_id: binary_sensor.porta
+  #   from: 'off'
+  #   platform: state
+  #   to: 'on'
+  # - entity_id: binary_sensor.finestra_bagno
+  #   from: 'off'
+  #   platform: state
+  #   to: 'on'
+  # - entity_id: binary_sensor.finestra_camera
+  #   from: 'off'
+  #   platform: state
+  #   to: 'on'
+  # - entity_id: binary_sensor.finestra_cucina
+  #   from: 'off'
+  #   platform: state
+  #   to: 'on'
+  condition:
+    # condition: or
+    # conditions:
+    #   - condition: state
+    #     entity_id: alarm_control_panel.allarme_casa
+    #     state: armed_away
+    #   - condition: state
+    #     entity_id: alarm_control_panel.allarme_casa
+    #     state: triggered
+  # condition:
+  # - condition: state
+  #   entity_id: alarm_control_panel.allarme_casa
+  #   state: armed_away
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.led_corridoio
+  - data:
+      data:
+        attachment:
+          content-type: jpeg
+        push:
+          category: camera
+        entity_id: camera.corridoio
+          #thread-id: Allarme
+    data_template:
+      #message: >
+      #  È scattato l'allarme!!!!! Qualcuno ha aperto la {{trigger.to_state.attributes.friendly_name}}
+      message: >
+        È scattato l'allarme!!!!!
+      title: ALLARME
+    service: notify.cellulari
+  - delay: 1
+  - data:
+      entity_id: camera.corridoio
+      filename: /config/www/snapshot/corridorio_{{ now ().year }}_{{ now ().month
+        }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}_{{ now ().second }}.jpg
+    service: camera.snapshot
+  - delay: 1
+  - data:
+      entity_id: camera.corridoio
+      filename: /config/www/snapshot/corridorio_{{ now ().year }}_{{ now ().month
+        }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}_{{ now ().second }}.jpg
+    service: camera.snapshot
+  - delay: 1
+  - data:
+      entity_id: camera.corridoio
+      filename: /config/www/snapshot/corridorio_{{ now ().year }}_{{ now ().month
+        }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}_{{ now ().second }}.jpg
+    service: camera.snapshot
+  - delay: 1
+  - data:
+      entity_id: camera.corridoio
+      filename: /config/www/snapshot/corridorio_{{ now ().year }}_{{ now ().month
+        }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}_{{ now ().second }}.jpg
+    service: camera.snapshot
+  - delay: 1
+  - data:
+      entity_id: camera.corridoio
+      filename: /config/www/snapshot/corridorio_{{ now ().year }}_{{ now ().month
+        }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}_{{ now ().second }}.jpg
+    service: camera.snapshot
+  - delay: 1
+  - data:
+      entity_id: camera.corridoio
+      filename: /config/www/snapshot/corridorio_{{ now ().year }}_{{ now ().month
+        }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}_{{ now ().second }}.jpg
+    service: camera.snapshot
+  - delay: 1
+  - data:
+      entity_id: camera.corridoio
+      filename: /config/www/snapshot/corridorio_{{ now ().year }}_{{ now ().month
+        }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}_{{ now ().second }}.jpg
+    service: camera.snapshot
+  - delay: 1
+  - data:
+      entity_id: camera.corridoio
+      filename: /config/www/snapshot/corridorio_{{ now ().year }}_{{ now ().month
+        }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}_{{ now ().second }}.jpg
+    service: camera.snapshot
+  - delay: 1
+  - data:
+      entity_id: camera.corridoio
+      filename: /config/www/snapshot/corridorio_{{ now ().year }}_{{ now ().month
+        }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}_{{ now ().second }}.jpg
+    service: camera.snapshot
+  - delay: 1
+  - data:
+      entity_id: camera.corridoio
+      filename: /config/www/snapshot/corridorio_{{ now ().year }}_{{ now ().month
+        }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}_{{ now ().second }}.jpg
+    service: camera.snapshot

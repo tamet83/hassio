@@ -1,0 +1,343 @@
+### Home Page #################################
+visible:
+  - user: 5532872ad3ef4f9882e435a93fba71d3
+  - user: 6aa7803956c94f778e676e5be51899d0
+title: Principale
+id: principale
+icon: mdi:home-assistant
+background: var(--background-image)
+badges:
+  - person.matteo
+  - person.carlotta
+  - alarm_control_panel.allarme_casa
+cards:
+
+  # MEDIA PLAYERS
+  - type: vertical-stack
+    cards:
+      # SAMSUNG TV
+      - type: conditional
+        conditions:
+          - entity: media_player.samsung_ue49mu6400
+            state: "on"
+        card:
+          type: custom:mini-media-player
+          entity: media_player.samsung_ue49mu6400
+          artwork: cover
+          name: Samsung TV
+          icon: mdi:television-box
+          volume_stateless: true
+
+      # ECHO MULTIROOM
+      - type: conditional
+        conditions:
+          - entity: media_player.multiroom
+            state_not: "standby"
+        card:
+          type: entities
+          entities:
+            - type: custom:mini-media-player
+              entity: media_player.multiroom
+              name: Multiroom
+              icon: mdi:speaker-multiple
+              artwork: cover
+              group: true
+              source: icon
+              info: short
+              hide:
+                volume: false
+                power: true
+            - type: custom:mini-media-player
+              entity: media_player.echo_dot_salotto
+              name: Echo Salotto
+              icon: mdi:sofa
+              artwork: none
+              group: true
+              hide:
+                controls: true
+                progress: true
+                info: true
+                power: true
+                source: true   
+            - type: custom:mini-media-player
+              entity: media_player.echo_dot_camera
+              name: Echo Camera
+              artwork: none
+              icon: mdi:bed-empty
+              source: icon
+              group: true
+              idle_view: when_standby
+              hide:
+                controls: true
+                progress: true
+                info: true
+                power: true
+                source: true
+            - type: custom:mini-media-player
+              entity: media_player.echo_dot_bagno
+              name: Echo Bagno
+              artwork: none
+              icon: mdi:shower
+              source: icon
+              group: true
+              idle_view: when_standby
+              hide:
+                controls: true
+                progress: true
+                info: true
+                power: true
+                source: true
+
+      # ECHO SALOTTO
+      - type: conditional
+        conditions:
+          - entity: media_player.echo_dot_salotto
+            state_not: "standby"
+          - entity: media_player.multiroom
+            state: "standby"
+          - entity: media_player.echo_dot_camera
+            state: "standby"
+          - entity: media_player.echo_dot_bagno
+            state: "standby"
+        card:
+          type: custom:mini-media-player
+          entity: media_player.echo_dot_salotto
+          name: Echo Salotto
+          icon: mdi:sofa
+          artwork: cover
+          hide:
+            source: true
+
+      # ECHO CAMERA
+      - type: conditional
+        conditions:
+          - entity: media_player.echo_dot_camera
+            state_not: "standby"
+          - entity: media_player.multiroom
+            state: "standby"
+          - entity: media_player.echo_dot_salotto
+            state: "standby"
+          - entity: media_player.echo_dot_bagno
+            state: "standby"
+        card:
+          type: custom:mini-media-player
+          entity: media_player.echo_dot_camera
+          name: Echo Camera
+          artwork: cover
+          icon: mdi:bed-empty
+          source: icon
+          idle_view: when_standby
+          hide:
+            source: true
+
+      # ECHO Bagno
+      - type: conditional
+        conditions:
+          - entity: media_player.echo_dot_bagno
+            state_not: "standby"
+          - entity: media_player.multiroom
+            state: "standby"
+          - entity: media_player.echo_dot_salotto
+            state: "standby"
+          - entity: media_player.echo_dot_camera
+            state: "standby"
+        card:
+          type: custom:mini-media-player
+          entity: media_player.echo_dot_bagno
+          name: Echo Bagno
+          artwork: cover
+          icon: mdi:shower
+          source: icon
+          idle_view: when_standby
+          hide:
+            source: true
+
+  # LUCI
+  - type: vertical-stack
+    cards:
+      - type: entity-filter
+        entities:
+        # - entity: light.luci_di_natale
+          #   tap_action:
+          #     action: toggle
+          #   icon: mdi:pine-tree
+          - entity: light.gina
+            name: Gina
+            icon: mdi:floor-lamp-variant
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+          - entity: light.tolomeo
+            name: Tolomeo
+            icon: mdi:desk-lamp
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+          - entity: light.dario_sala
+            name: Dario Sala
+            icon: mdi:ceiling-light
+            tap_action:
+              action: toggle
+          - entity: light.faretti
+            name: Faretti
+            icon: mdi:vanity-light
+            tap_action:
+              action: toggle
+          - entity: light.koogeek_ls1_2062df
+            name: Led TV
+            icon: mdi:led-strip
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+          - entity: light.led_corridoio
+            name: Led corridoio
+            icon: mdi:led-strip
+            tap_action:
+              action: toggle
+          - entity: light.dario_camera
+            name: Dario Camera
+            icon: mdi:ceiling-light
+            tap_action:
+              action: toggle
+          - entity: light.led_camera
+            name: Led Camera
+            icon: mdi:led-strip
+            tap_action:
+              action: toggle
+        state_filter:
+          - "on"
+        card:
+          type: glance
+          #title: Luci
+          show_state: false
+          columns: 3
+      - type: horizontal-stack
+        cards:
+          - type: entities
+            show_state: false
+            show_header_toggle: false
+            entities:
+              - entity: input_select.effetto_luci_preset
+          - type: glance
+            show_state: false
+            show_header_toggle: false
+            columns: 1
+            entities:
+              - entity: light.luci_di_natale
+                icon: mdi:pine-tree
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
+                double_tap_action:
+                  action: call-service
+                  service: automation.trigger
+                  service_data:
+                    entity_id: automation.effetto_luci_natale_off
+  # PRESE
+  - type: vertical-stack
+    cards:
+      - type: entity-filter
+        entities:
+          - entity: switch.sonoff
+            name: Presa 1
+            icon: mdi:battery-charging
+            tap_action:
+              action: toggle
+          - entity: switch.sonoff2
+            name: Switch Netgear
+            icon: mdi:network-router
+            tap_action:
+              action: toggle
+          - entity: switch.sonoff3
+            name: Carica iPhone
+            icon: mdi:cellphone-iphone
+            tap_action:
+              action: toggle
+          - entity: switch.sonoff4
+            name: Presa TV
+            icon: mdi:power-plug
+            tap_action:
+              action: toggle
+          - entity: switch.sonoff_5
+            name: USB
+            icon: mdi:usb
+            tap_action:
+              action: toggle
+          - entity: switch.smart_plug_1
+            name: Ventilatore
+            icon: mdi:fan
+            tap_action:
+              action: toggle
+          - entity: switch.samsung_tv
+            name: Samsung
+            icon: mdi:television-box
+            tap_action:
+              action: toggle
+          - entity: switch.nas
+            name: Nas
+            icon: mdi:nas
+            tap_action:
+              action: toggle
+        state_filter:
+          - "on"
+        card:
+          type: glance
+          #title: Prese e Switch
+          show_state: false
+          columns: 3
+
+  # SENSORI PORTA FINESTRA
+  - type: entity-filter
+    entities:
+      - entity: binary_sensor.porta
+        name: Porta
+      - entity: binary_sensor.finestra_camera
+        name: Camera
+      - entity: binary_sensor.finestra_cucina
+        name: Cucina
+      - entity: binary_sensor.finestra_bagno
+        name: Bagno
+      - entity: binary_sensor.motion_camera
+        name: Camera
+      - entity: binary_sensor.motion_corridoio
+        name: Corridoio
+      - entity: sensor.ups_status
+        name: UPS
+    state_filter:
+      - "on"
+      - "ONBATT"
+    card:
+      type: glance
+      #title: Sensori
+      show_state: false
+      columns: 3
+
+  # METEO
+  - type: custom:weather-card
+    entity: weather.dark_sky
+    icons: "/local/icons/weather_icons/animated/"
+    compact: true
+
+  # TELECAMERA
+  - type: picture-glance
+    title: Corridoio
+    entities:
+      - light.led_corridoio
+      - binary_sensor.motion_corridoio
+      - switch.cam_restart
+    camera_image: camera.corridoio
+
+  # MAPPA
+  - type: map
+    aspect_ratio: 16:9
+    default_zoom: 12
+    dark_mode: true
+    hours_to_show: 24
+    entities:
+      - person.carlotta
+      - person.matteo
+

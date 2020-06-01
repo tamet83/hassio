@@ -1,0 +1,6 @@
+- platform: template
+  sensors:
+    ping_medio:
+      friendly_name: "Ping medio"
+      value_template: "{{state_attr('binary_sensor.ping_binary_sensor','round_trip_time_avg')|float|round(2)}}"
+      unit_of_measurement: ms

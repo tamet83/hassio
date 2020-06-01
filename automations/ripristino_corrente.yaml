@@ -1,0 +1,18 @@
+- id: '1556956294760'
+  alias: Ripristino Corrente
+  trigger:
+  - entity_id: sensor.ups_status
+    from: ONBATT
+    platform: state
+    to: ONLINE
+  condition: []
+  action:
+  - data:
+      data:
+        push:
+          thread-id: Stato corrente
+    data_template:
+      message: >
+        È ritornata la corrente
+      title: UPS
+    service: notify.cellulari

@@ -1,0 +1,45 @@
+- platform: wake_on_lan
+  mac: !secret samsung_tv_mac
+  name: "Samsung Tv"
+  host: !secret samsung_tv_host
+  turn_off:
+    service: switch.turn_off
+    entity_id: switch.tv_samsung_6_series_49
+- platform: wake_on_lan
+  mac: !secret nas_mac
+  name: "Nas"
+  host: !secret nas_host
+  turn_off:
+    service: shell_command.spegni_nas
+
+- platform: mqtt
+  name: shellycamera
+  icon: mdi:lightbulb
+  state_topic: "shellies/shelly1-55ECC2/relay/0"
+  command_topic: "shellies/shelly1-55ECC2/relay/0/command"
+  qos: 0
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: false
+
+- platform: mqtt
+  name: shelly_faretti
+  icon: mdi:lightbulb
+  state_topic: "shellies/shellyswitch25-00452C/relay/0"
+  command_topic: "shellies/shellyswitch25-00452C/relay/0/command"
+  qos: 0
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: false
+- platform: mqtt
+  name: shelly_dario_sala
+  icon: mdi:lightbulb
+  state_topic: "shellies/shellyswitch25-00452C/relay/1"
+  command_topic: "shellies/shellyswitch25-00452C/relay/1/command"
+  qos: 0
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: false

@@ -1,0 +1,17 @@
+# - id: '1552824242012'
+#   alias: Avviso luci accese
+#   trigger:
+#   - entity_id: group.all_lights
+#     platform: state
+#     to: 'on'
+#   condition:
+#     condition: template
+#     value_template: "{{not is_state('person.matteo', 'home') and not is_state('person.carlotta', 'home')}}"
+#   action:
+#   - data:
+#       data:
+#         push:
+#           thread-id: Notifica
+#       message: 'Hai lasciato le luci accese'
+#       title: LUCI
+#     service: notify.cellulari

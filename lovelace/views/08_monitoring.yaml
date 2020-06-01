@@ -1,0 +1,383 @@
+#### Monitoring Page #########################################
+visible:
+  - user: 5532872ad3ef4f9882e435a93fba71d3
+title: Monitoring
+path: monitoring
+icon: mdi:laptop
+background: var(--background-image)
+cards:
+# System Monitor ##########################################
+
+  # - type: vertical-stack
+  #   cards:
+  #   # UPS
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: UPS Stats
+        show_header_toggle: false
+        entities:
+          - entity: sensor.ups_model
+            name: Modello
+            icon: mdi:cassette
+          - entity: sensor.ups_status
+            name: Alimentazione
+          - entity: sensor.ups_battery
+            icon: mdi:car-battery
+            name: Stato Batteria
+          - entity: sensor.ups_load
+            name: Carico
+          - entity: sensor.ups_time_left
+            icon: mdi:timer
+            name: Durata Stimata
+  # PROXMOX
+  # - type: vertical-stack
+  #   cards:
+      - type: glance
+        title: Proxmox
+        show_header_toggle: false
+        show_state: false
+        state_color: true
+        show_name: true
+        columns: 4
+        entities:
+          - entity: binary_sensor.pve_apache_running
+            name: Apache
+            icon: mdi:apache-kafka
+          - entity: binary_sensor.pve_hassio_running
+            name: Hassio
+            icon: mdi:home-assistant
+          - entity: binary_sensor.pve_plex_running
+            name: Plex
+            icon: mdi:plex
+          - entity: binary_sensor.pve_bitwarden_running
+            name: Bitwarden
+            icon: mdi:key
+          - entity: binary_sensor.pve_sonarr_running
+            name: Sonarr-Radarr
+            icon: mdi:radar
+          - entity: binary_sensor.pve_amplifi_running
+            name: Ubiquiti Controller
+            icon: mdi:router-wireless
+          - entity: binary_sensor.pve_vpn_running
+            name: VPN
+            icon: mdi:vpn
+
+  # UNIFI CONTROLLER
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: UniFi Controller
+        show_header_toggle: false
+        entities:
+          - entity: sensor.usg_ip
+            name: IP wan
+            icon: mdi:ip
+          - entity: sensor.usg_lan_clients
+            name: Clienti LAN
+            icon: mdi:lan
+          - entity: sensor.usg_wlan_clients
+            name: Clienti WLAN
+            icon: mdi:wifi
+          - entity: sensor.usg_uptime
+            name: Uptime
+            icon: mdi:clock
+          - entity: sensor.unifi_gateway_firmware_upgradable
+            name: Firmware Upgrade
+            icon: mdi:new-box
+          - type: custom:mini-graph-card
+            #icon: mdi:chip
+            #name: USG Stats
+            align_state: center
+            #align_icon: left
+            hours_to_show: 24
+            points_per_hour: 6
+            line_width: 3
+            group: true
+            animate: true
+            show:
+              fill: fade
+              icon: false
+              name: false
+              state: false
+              #points: hover
+              #labels_secondary: true
+            entities:
+              - entity: sensor.usg_ram
+                name: Ram
+                color: '#debd3e'
+                show_points: hover
+              - entity: sensor.usg_cpu
+                name: CPU
+                color: '#2879ae'
+                show_points: hover
+
+  # BACKUP
+  - type: vertical-stack
+    cards:
+      - type: entities
+        #title: Backup
+        show_header_toggle: false
+        entities:
+          - type: custom:button-card
+            name: Start backup
+            entity_row: true
+            size: 30px
+            tap_action:
+              action: call-service
+              service: script.backup_configuration
+              confirmation: true 
+            styles:
+              card:
+                #- background-color: '#202125'
+                - box-shadow: none #serve per le card arrotondate. Con alcuni temi il render mostra i bordi più scuri
+                - height: 37px
+                - width: 100px
+                - color: '#2879ae'
+                - font-weight: bold
+          - entity: sensor.data_ultimo_backup
+            name: Ultimo backup
+            icon: mdi:calendar-month
+          - entity: sensor.backup_gdrive
+            name: Backup su Google Drive
+            icon: mdi:folder-google-drive
+          - entity: sensor.backup_hassio
+            name: Backup su Hassio
+            icon: mdi:home-assistant
+
+  # SPEEDTEST
+  - type: vertical-stack
+    cards:
+      - type: entities
+        #title: Speedtest
+        entities:
+          - type: custom:button-card
+            name: Start Speedtes.net
+            entity_row: true
+            size: 30px
+            tap_action:
+              action: call-service
+              service: speedtestdotnet.speedtest
+              confirmation: true 
+            styles:
+              card:
+                #- background-color: '#202125'
+                - box-shadow: none #serve per le card arrotondate. Con alcuni temi il render mostra i bordi più scuri
+                - height: 37px
+                - width: 150px
+                - color: '#2879ae'
+                - font-weight: bold
+          - type: custom:bar-card
+            entity: sensor.speedtest_download
+            entity_row: true
+            name: Download
+            animation: off
+            indicator: right
+            decimal: true
+            title_position: left
+            show_icon: true
+            align: split
+            icon: mdi:progress-download
+            icon_position: inside
+            width: 100%
+            min: 0
+            max: 1000
+            severity:
+              - color: '#cb3833'
+                from: 0
+                to: 300
+              - color: '#fed843'
+                value: 301
+                to: 600
+              - color: '#2879ae'
+                from: 600
+                to: 1000
+          - type: custom:bar-card
+            entity: sensor.speedtest_upload
+            entity_row: true
+            name: Upload
+            animation: off
+            indicator: right
+            decimal: true
+            title_position: left
+            show_icon: true
+            align: split
+            icon: mdi:progress-upload
+            icon_position: inside
+            width: 100%
+            min: 0
+            max: 100
+            severity:
+              - color: '#cb3833'
+                from: 0
+                to: 40
+              - color: '#fed843'
+                from: 40.1
+                to: 50.9
+              - color: '#2879ae'
+                from: 51
+                to: 100
+          - type: custom:mini-graph-card
+            #name: Ping
+            icon: mdi:timer
+            align_icon: right
+            align_header: center
+            align_state: center
+            hours_to_show: 24
+            points_per_hour: 6
+            font_size: 80
+            line_width: 3
+            animate: true
+            group: true
+            show:
+              fill: fade
+              #name_adaptive_color: true
+            entities:
+              - entity: sensor.ping_medio
+                name: Ping
+                #color: '#297FB8'
+                show_points: false
+            color_thresholds:
+              - value: 8
+                color: '#2879ae'
+              - value: 20
+                color: '#debd3e'
+              - value: 35
+                color: '#cb3833'
+          # NOTA SENSORE PING DISABILITATO IN SPEEDTEST
+          # - type: custom:bar-card
+          #   entity: sensor.speedtest_ping
+          #   entity_row: true
+          #   name: Ping
+          #   animation: off
+          #   title_position: left
+          #   indicator: right
+          #   decimal: true
+          #   show_icon: true
+          #   align: split
+          #   icon: mdi:timer
+          #   icon_position: inside
+          #   width: 100%
+          #   min: 0
+          #   max: 30.0
+          #   severity: 
+          #     - color: '#2879ae'
+          #       from: 0
+          #       to: 10
+          #     - color: '#debd3e'
+          #       from: 10.1
+          #       to: 19.9
+          #     - color: '#cb3833'
+          #       from: 20
+          #       to: 30
+      # PING SENSOR
+
+              
+  # PiHole Monitoring
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: PihHole
+        state_color: true
+        entities:
+          - entity: binary_sensor.pve_pihole_running
+            name: PiHole
+            icon: mdi:wall
+          - sensor.pihole_check
+          - type: 'custom:fold-entity-row'
+            head: binary_sensor.pihole_enable
+            #open: true #SERVE PER LASCIARE APERTO IL MENU
+            entities:
+              - type: 'custom:button-card'
+                entity: binary_sensor.pihole_enable
+                hold_action:
+                  action: call-service
+                  service: pi_hole.enable
+                icon: 'mdi:pi-hole'
+                name: PiHole Timer Disabler
+                size: 30px
+                state:
+                  - color: red
+                    value: 'off'
+                  - color: green
+                    value: 'on'
+                tap_action:
+                  action: call-service
+                  service: script.pihole_timer_disabler
+                  confirmation: true   
+              - entity: input_select.pihole_timer
+              - type: 'custom:bar-card'
+                color: red
+                entity_row: true
+                entity: sensor.pi_hole_ads_blocked_today
+                name: ADS Blocked Today
+                title_position: left
+              - type: divider
+                style:
+                  height: 5px
+                
+              - type: 'custom:bar-card'
+                color: blue
+                entity_row: true
+                entity: sensor.pi_hole_dns_queries_cached
+                name: DNS Queries Cached
+                title_position: left
+              - type: divider
+                style:
+                  height: 5px
+                
+              - type: 'custom:bar-card'
+                color: cornflowerblue
+                entity_row: true
+                entity: sensor.pi_hole_dns_queries_forwarded
+                name: DNS Queries Forwarded
+                title_position: left
+              - type: divider
+                style:
+                  height: 5px
+                
+              - type: 'custom:bar-card'
+                color: salmon
+                entity_row: true
+                entity: sensor.pi_hole_dns_queries_today
+                name: DNS Queries Today
+                title_position: left
+              - type: divider
+                style:
+                  height: 5px
+                
+              - type: 'custom:bar-card'
+                color: green
+                entity_row: true
+                entity: sensor.pi_hole_dns_unique_domains
+                name: DNS Unique Domains
+                title_position: left
+              - type: divider
+                style:
+                  height: 5px
+                
+              - type: 'custom:bar-card'
+                color: purple
+                entity_row: true
+                entity: sensor.pi_hole_domains_blocked
+                name: Domains Blocked
+                title_position: left
+              - type: divider
+                style:
+                  height: 5px
+                
+              - type: 'custom:bar-card'
+                color: orange
+                entity_row: true
+                entity: sensor.pi_hole_ads_percentage_blocked_today
+                name: ADS Percentage Blocked Today
+                title_position: left
+              - type: divider
+                style:
+                  height: 5px
+                
+              - sensor.pi_hole_dns_unique_clients
+              - sensor.pi_hole_seen_clients
+            # head: binary_sensor.pihole_enable
+            # type: 'custom:fold-entity-row'
+

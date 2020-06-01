@@ -1,0 +1,11 @@
+- id: '1576430151462'
+  alias: Effetto luci natale ON
+  description: ''
+  trigger:
+  - entity_id: input_select.effetto_luci_preset
+    platform: state
+    to: "acceso"
+  condition: []
+  action:
+  - entity_id: script.luci_natale_relax
+    service: script.turn_on

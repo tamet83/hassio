@@ -1,0 +1,4 @@
+#Card per mostrare le previsioni animate nel frontend
+#https://github.com/bramkragten/custom-ui/tree/master/weather-card
+url: /hacsfiles/weather-card/weather-card.js
+type: module

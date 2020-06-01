@@ -1,0 +1,51 @@
+- id: '1552745501979'
+  alias: Allarme Finestra Aperta
+  trigger:
+  - entity_id: binary_sensor.porta
+    platform: state
+    from: 'off'
+    to: 'on'
+    #for: 00:00:20
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: binary_sensor.motion_corridoio
+        state: 'on'
+        # for:
+        #  seconds: 5
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: binary_sensor.finestra_cucina
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.finestra_bagno
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.finestra_camera
+            state: 'on'
+  action:
+  - service: notify.cellulari
+    data:
+      data:
+        push:
+          thread-id: Notifica
+    data_template:
+      message: >
+        {% if is_state('binary_sensor.finestra_cucina', 'on') and is_state('binary_sensor.finestra_bagno', 'off') and is_state('binary_sensor.finestra_camera', 'off') %}
+        Stai lasciando la finestra della cucina aperta
+        {% elif is_state('binary_sensor.finestra_bagno', 'on') and is_state('binary_sensor.finestra_camera', 'off') and is_state('binary_sensor.finestra_cucina', 'off') %}
+        Stai lasciando la finestra del bagno aperta
+        {% elif is_state('binary_sensor.finestra_camera', 'on') and is_state('binary_sensor.finestra_bagno', 'off') and is_state('binary_sensor.finestra_cucina', 'off') %}
+        Stai lasciando la finestra della camera aperta
+        {% elif is_state('binary_sensor.finestra_camera', 'on') and is_state('binary_sensor.finestra_bagno', 'on') and is_state('binary_sensor.finestra_cucina', 'off')%}
+        Stai lasciando le finestre della camera e del bagno aperte
+        {% elif is_state('binary_sensor.finestra_camera', 'on') and is_state('binary_sensor.finestra_cucina', 'on') and is_state('binary_sensor.finestra_bagno', 'off')%}
+        Stai lasciando le finestre della camera e della cucina aperte
+        {% elif is_state('binary_sensor.finestra_cucina', 'on') and is_state('binary_sensor.finestra_bagno', 'on') and is_state('binary_sensor.finestra_camera', 'off')%}
+        Stai lasciando le finestre della cucina e del bagno aperte
+        {% elif is_state('binary_sensor.finestra_camera', 'on') and is_state('binary_sensor.finestra_bagno', 'on') and is_state('binary_sensor.finestra_cucina', 'on') %}
+        Stai lasciando tutte le finestre aperte
+        {% endif %}
+      title: NOTIFICA Finestra

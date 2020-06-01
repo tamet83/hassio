@@ -1,0 +1,6 @@
+server_id: 4302
+manual: true
+monitored_conditions:
+  #- ping
+  - download
+  - upload

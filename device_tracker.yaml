@@ -1,0 +1,15 @@
+# - platform: nmap_tracker
+#   hosts:
+#     - !secret ip_iphone_matteo
+#     - !secret ip_iphone_carlotta
+#   home_interval: 10
+# - platform: traccar
+#   host: !secret traccar_ip
+#   username: !secret traccar_username
+#   password: !secret traccar_password
+#   port: !secret traccar_port
+#   ssl: true
+#   verify_ssl: false
+#   interval_seconds: 60
+# - platform: bluetooth_tracker
+#   interval_seconds: 5

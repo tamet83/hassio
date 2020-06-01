@@ -1,0 +1,221 @@
+#### Upcoming Film and TV Shows #########################
+visible:
+  - user: 5532872ad3ef4f9882e435a93fba71d3 #Matteo
+  - user: 6aa7803956c94f778e676e5be51899d0 #Carlotta
+title: Film e Serie TV in uscita
+path: upcoming
+icon: mdi:filmstrip
+background: var(--background-image)
+cards:
+  - type: custom:button-card
+    name: Plex Monitor
+    styles:
+      name:
+        - font-size: 30px
+        - align-self: start
+        - margin-left: -50%
+  - type: vertical-stack
+    cards:
+      - type: entities
+        entities:
+          - type: 'custom:fold-entity-row'
+            head: sensor.tamet_stato
+            entities:
+              - entity: sensor.tamet_titolo
+                icon: mdi:movie
+              - entity: sensor.tamet_transcodifica
+                icon: mdi:play-box-outline
+              - entity: sensor.tamet_location
+                icon: mdi:ethernet
+              - entity: sensor.tamet_banda
+                icon: mdi:speedometer
+      - type: entities
+        entities:
+          - type: 'custom:fold-entity-row'
+            head: sensor.allegronte_tv_stato
+            entities:
+              - entity: sensor.allegronte_tv_titolo
+                icon: mdi:movie
+              - entity: sensor.allegronte_tv_transcodifica
+                icon: mdi:play-box-outline
+              - entity: sensor.allegronte_tv_location
+                icon: mdi:ethernet
+              - entity: sensor.allegronte_tv_banda
+                icon: mdi:speedometer
+      - type: entities
+        entities:
+          - type: 'custom:fold-entity-row'
+            head: sensor.corrado_stato
+            entities:
+              - entity: sensor.corrado_titolo
+                icon: mdi:movie
+              - entity: sensor.corrado_transcodifica
+                icon: mdi:play-box-outline
+              - entity: sensor.corrado_location
+                icon: mdi:ethernet
+              - entity: sensor.corrado_banda
+                icon: mdi:speedometer
+      - type: entities
+        entities:
+          - type: 'custom:fold-entity-row'
+            head: sensor.valentina_stato
+            entities:
+              - entity: sensor.valentina_titolo
+                icon: mdi:movie
+              - entity: sensor.valentina_transcodifica
+                icon: mdi:play-box-outline
+              - entity: sensor.valentina_location
+                icon: mdi:ethernet
+              - entity: sensor.valentina_banda
+                icon: mdi:speedometer
+      - type: entities
+        entities:
+          - type: 'custom:fold-entity-row'
+            head: sensor.pitta_stato
+            entities:
+              - entity: sensor.pitta_titolo
+                icon: mdi:movie
+              - entity: sensor.pitta_transcodifica
+                icon: mdi:play-box-outline
+              - entity: sensor.pitta_location
+                icon: mdi:ethernet
+              - entity: sensor.pitta_banda
+                icon: mdi:speedometer
+      - type: entities
+        entities:
+          - type: 'custom:fold-entity-row'
+            head: sensor.andre_stato
+            entities:
+              - entity: sensor.andre_titolo
+                icon: mdi:movie
+              - entity: sensor.andre_transcodifica
+                icon: mdi:play-box-outline
+              - entity: sensor.andre_location
+                icon: mdi:ethernet
+              - entity: sensor.andre_banda
+                icon: mdi:speedometer
+      - type: entities
+        entities:
+          - type: 'custom:fold-entity-row'
+            head: sensor.mauro_stato
+            entities:
+              - entity: sensor.mauro_titolo
+                icon: mdi:movie
+              - entity: sensor.mauro_transcodifica
+                icon: mdi:play-box-outline
+              - entity: sensor.mauro_location
+                icon: mdi:ethernet
+              - entity: sensor.mauro_banda
+                icon: mdi:speedometer
+      - type: entities
+        entities:
+          - type: 'custom:fold-entity-row'
+            head: sensor.mike_stato
+            entities:
+              - entity: sensor.mike_titolo
+                icon: mdi:movie
+              - entity: sensor.mike_transcodifica
+                icon: mdi:play-box-outline
+              - entity: sensor.mike_location
+                icon: mdi:ethernet
+              - entity: sensor.mike_banda
+                icon: mdi:speedometer
+      - type: entities
+        entities:
+          - type: 'custom:fold-entity-row'
+            head: sensor.emme_pi_stato
+            entities:
+              - entity: sensor.emme_pi_titolo
+                icon: mdi:movie
+              - entity: sensor.emme_pi_transcodifica
+                icon: mdi:play-box-outline
+              - entity: sensor.emme_pi_location
+                icon: mdi:ethernet
+              - entity: sensor.emme_pi_banda
+                icon: mdi:speedometer
+  - type: custom:vertical-stack-in-card
+    cards:
+    - type: entities
+      title: Transmission
+      show_header_toggle: false
+      entities: 
+        - entity: sensor.transmission_status
+          icon: mdi:power
+          name: Stato
+        - entity: sensor.transmission_total_torrents
+          icon: mdi:format-list-numbered
+          name: Totali
+        - entity: sensor.transmission_started_torrents
+          icon: mdi:arrow-down-thick
+          name: In scarcamento
+        - entity: sensor.transmission_active_torrents
+          icon: mdi:arrow-up-down-bold
+          name: Attivi
+        - entity: sensor.transmission_completed_torrents
+          icon: mdi:circle-slice-7
+          name: Completi 
+    - type: custom:mini-graph-card
+      icon: mdi:speedometer
+      #name: Transmission speed
+      align_icon: left
+      align_state: left
+      
+      hours_to_show: 24
+      points_per_hour: 2
+      height: 150
+      font_size: 70
+      font_size_header: 30
+      line_width: 3
+      show:
+        fill: fade
+        name: false
+        icon: false
+      entities:
+        - entity: sensor.transmission_down_speed
+          name: Download
+          color: '#debd3e'
+          show_points: false
+          show_state: true
+        - entity: sensor.transmission_up_speed
+          name: Upload
+          color: '#2879ae'
+          show_points: false
+          show_state: true
+  - type: custom:vertical-stack-in-card
+    cards:
+    - type: custom:upcoming-media-card
+      entity: sensor.sonarr_upcoming_media
+      title: Puntate in uscita
+      image_style: fanart
+      date: ddmm
+      border_color: '#222222'
+      accent_color: '#222222'
+      box_shadows: false
+    - type: custom:upcoming-media-card
+      entity: sensor.radarr_upcoming_media
+      title: Film in uscita
+      image_style: fanart
+      date: ddmm
+      border_color: '#222222'
+      accent_color: '#222222'
+      box_shadows: false
+  - type: custom:upcoming-media-card
+    entity: sensor.serie
+    title: Plex puntate aggiunte di recente
+    image_style: fanart
+    flag: false
+    date: ddmm
+    border_color: '#222222'
+    accent_color: '#222222'
+    box_shadows: false
+  - type: custom:upcoming-media-card
+    entity: sensor.film
+    title: Plex Film aggiunti di recente
+    image_style: fanart
+    flag: false
+    date: ddmm
+    border_color: '#222222'
+    accent_color: '#222222'
+    box_shadows: false
+
+

@@ -1,0 +1,12 @@
+  # - platform: plex
+  #   entity_namespace: 'plex'
+  #   include_non_client: false
+  #   show_all_controls: true
+  #   use_custom_entity_ids: true
+  #   use_episode_art: true
+  #   client_remove_intervall: 600
+# - platform: samsungtv_custom
+#   host: !secret samsung_tv_host
+#   port: 8002
+#   mac: !secret samsung_tv_mac
+#   protocol: ctl_beta

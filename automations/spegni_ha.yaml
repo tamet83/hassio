@@ -1,0 +1,12 @@
+- id: '1556917240689'
+  alias: Spegni HA
+  trigger:
+  - entity_id: sensor.ups_time_left
+    platform: state
+    to: 00:03:00
+  condition:
+  - condition: state
+    entity_id: sensor.ups_status
+    state: ONBATT
+  action:
+  - service: hassio.host_shutdown

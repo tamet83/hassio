@@ -1,0 +1,4 @@
+#Card per mostrare gli attributi
+#https://github.com/ciotlosm/custom-lovelace/tree/master/entity-attributes-card
+url: /customcards/custom-lovelace/attribute-card/entity-attributes-card.js
+type: js

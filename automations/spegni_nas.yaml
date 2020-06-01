@@ -1,0 +1,14 @@
+- id: '1556916806943'
+  alias: Spegni NAS
+  trigger:
+  - entity_id: sensor.ups_status
+    for: 00:03:00
+    from: ONLINE
+    platform: state
+    to: ONBATT
+  condition:
+  - condition: state
+    entity_id: switch.nas
+    state: 'on'
+  action:
+  - service: shell_command.spegni_nas

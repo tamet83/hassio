@@ -1,0 +1,4 @@
+# alexa:
+#   entity_config:
+#     group.media_player:
+#       display_categories: SPEAKER

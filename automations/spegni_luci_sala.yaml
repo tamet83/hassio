@@ -1,0 +1,10 @@
+- alias: "Spegni luci sala"
+  initial_state: true
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: 'Luci sala'
+  action:
+    service: light.turn_off
+    entity_id: light.luci_sala

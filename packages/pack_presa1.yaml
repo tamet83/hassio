@@ -1,0 +1,38 @@
+# homeassistant:
+# #creazione dei sensori che misurano Tensione, Corrente, Potenza e totale consumo.
+# sensor:
+#   - platform: mqtt
+#     name: "Totale energia consumata tuya1"
+#     state_topic: "state/tuya1/SENSOR" #al posto di "sonoff1" dobbiamo inserire il topic della smart plug
+#     value_template: '{{ value_json["ENERGY"]["Today"] }}'
+#     unit_of_measurement: "kWh"
+#   - platform: mqtt
+#     name: "Potenza tuya1"
+#     state_topic: "state/tuya1/SENSOR"
+#     value_template: '{{ value_json["ENERGY"]["Power"] }}'
+#     unit_of_measurement: "W"
+#   - platform: mqtt
+#     name: "Tensione tuya1"
+#     state_topic: "state/tuya1/SENSOR"
+#     value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+#     unit_of_measurement: "V"
+#   - platform: mqtt
+#     name: "Corrente tuya1"
+#     state_topic: "state/tuya1/SENSOR"
+#     value_template: '{{ value_json["ENERGY"]["Current"] }}'
+#     unit_of_measurement: "A"
+#
+# #creazione switch per la presa
+# switch:
+#   - platform: mqtt
+#     name: "Tuya 1" #nome dello switch
+#     state_topic: "state/tuya1/STATE" #al posto di "sonoff1" dobbiamo inserire il topic della smart plug
+#     value_template: "{{ value_json.POWER }}"
+#     command_topic: "cmnd/tuya1/POWER"
+#     availability_topic: "tele/tuya1/LWT"
+#     qos: 1
+#     payload_on: "ON"
+#     payload_off: "OFF"
+#     payload_available: "Online"
+#     payload_not_available: "Offline"
+#     retain: false

@@ -1,0 +1,28 @@
+- id: '1552821018793'
+  alias: Accensione led corridoio notte - movimento
+  trigger:
+  - entity_id: binary_sensor.motion_corridoio
+    from: 'off'
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.porta
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - after: '23:00:00'
+    before: 07:15:00
+    condition: time
+  - condition: state
+    entity_id: light.led_corridoio
+    state: 'off'
+  action:
+  - alias: ''
+    data:
+      brightness: 85
+      rgb_color:
+      - 159
+      - 128
+      - 255
+    entity_id: light.led_corridoio
+    service: light.turn_on

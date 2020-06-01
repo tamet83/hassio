@@ -1,0 +1,134 @@
+# #### Plex Monitor #########################
+# visible:
+#   - user: 5532872ad3ef4f9882e435a93fba71d3 #Matteo
+# title: Plex Status
+# path: plex
+# icon: mdi:plex
+# background: var(--background-image)
+# cards:
+#   - type: custom:button-card
+#     name: Plex Monitor
+#     styles:
+#       name:
+#         - font-size: 30px
+#         - align-self: start
+#         - margin-left: -50%
+#   - type: vertical-stack
+#     cards:
+#       - type: entities
+#         entities:
+#           - type: 'custom:fold-entity-row'
+#             head: sensor.tamet_stato
+#             entities:
+#               - entity: sensor.tamet_titolo
+#                 icon: mdi:movie
+#               - entity: sensor.tamet_transcodifica
+#                 icon: mdi:play-box-outline
+#               - entity: sensor.tamet_location
+#                 icon: mdi:ethernet
+#               - entity: sensor.tamet_banda
+#                 icon: mdi:speedometer
+#       - type: entities
+#         entities:
+#           - type: 'custom:fold-entity-row'
+#             head: sensor.allegronte_tv_stato
+#             entities:
+#               - entity: sensor.allegronte_tv_titolo
+#                 icon: mdi:movie
+#               - entity: sensor.allegronte_tv_transcodifica
+#                 icon: mdi:play-box-outline
+#               - entity: sensor.allegronte_tv_location
+#                 icon: mdi:ethernet
+#               - entity: sensor.allegronte_tv_banda
+#                 icon: mdi:speedometer
+#       - type: entities
+#         entities:
+#           - type: 'custom:fold-entity-row'
+#             head: sensor.corrado_stato
+#             entities:
+#               - entity: sensor.corrado_titolo
+#                 icon: mdi:movie
+#               - entity: sensor.corrado_transcodifica
+#                 icon: mdi:play-box-outline
+#               - entity: sensor.corrado_location
+#                 icon: mdi:ethernet
+#               - entity: sensor.corrado_banda
+#                 icon: mdi:speedometer
+#       - type: entities
+#         entities:
+#           - type: 'custom:fold-entity-row'
+#             head: sensor.valentina_stato
+#             entities:
+#               - entity: sensor.valentina_titolo
+#                 icon: mdi:movie
+#               - entity: sensor.valentina_transcodifica
+#                 icon: mdi:play-box-outline
+#               - entity: sensor.valentina_location
+#                 icon: mdi:ethernet
+#               - entity: sensor.valentina_banda
+#                 icon: mdi:speedometer
+#       - type: entities
+#         entities:
+#           - type: 'custom:fold-entity-row'
+#             head: sensor.pitta_stato
+#             entities:
+#               - entity: sensor.pitta_titolo
+#                 icon: mdi:movie
+#               - entity: sensor.pitta_transcodifica
+#                 icon: mdi:play-box-outline
+#               - entity: sensor.pitta_location
+#                 icon: mdi:ethernet
+#               - entity: sensor.pitta_banda
+#                 icon: mdi:speedometer
+#       - type: entities
+#         entities:
+#           - type: 'custom:fold-entity-row'
+#             head: sensor.andre_stato
+#             entities:
+#               - entity: sensor.andre_titolo
+#                 icon: mdi:movie
+#               - entity: sensor.andre_transcodifica
+#                 icon: mdi:play-box-outline
+#               - entity: sensor.andre_location
+#                 icon: mdi:ethernet
+#               - entity: sensor.andre_banda
+#                 icon: mdi:speedometer
+#       - type: entities
+#         entities:
+#           - type: 'custom:fold-entity-row'
+#             head: sensor.mauro_stato
+#             entities:
+#               - entity: sensor.mauro_titolo
+#                 icon: mdi:movie
+#               - entity: sensor.mauro_transcodifica
+#                 icon: mdi:play-box-outline
+#               - entity: sensor.mauro_location
+#                 icon: mdi:ethernet
+#               - entity: sensor.mauro_banda
+#                 icon: mdi:speedometer
+#       - type: entities
+#         entities:
+#           - type: 'custom:fold-entity-row'
+#             head: sensor.mike_stato
+#             entities:
+#               - entity: sensor.mike_titolo
+#                 icon: mdi:movie
+#               - entity: sensor.mike_transcodifica
+#                 icon: mdi:play-box-outline
+#               - entity: sensor.mike_location
+#                 icon: mdi:ethernet
+#               - entity: sensor.mike_banda
+#                 icon: mdi:speedometer
+#       - type: entities
+#         entities:
+#           - type: 'custom:fold-entity-row'
+#             head: sensor.emme_pi_stato
+#             entities:
+#               - entity: sensor.emme_pi_titolo
+#                 icon: mdi:movie
+#               - entity: sensor.emme_pi_transcodifica
+#                 icon: mdi:play-box-outline
+#               - entity: sensor.emme_pi_location
+#                 icon: mdi:ethernet
+#               - entity: sensor.emme_pi_banda
+#                 icon: mdi:speedometer

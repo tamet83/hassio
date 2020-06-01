@@ -1,0 +1,97 @@
+upload_to_dropbox:
+  alias: Upload to Dropbox
+  sequence:
+  - data:
+      addon: 7be23ff5_dropbox_sync
+      input:
+        command: upload
+    service: hassio.addon_stdin
+backup_configuration:
+  alias: BackUp Configuration
+  sequence:
+  - data_template:
+      name: Backup_Full_V-{{states('sensor.current_version')}}_{{as_timestamp(now()) | timestamp_custom("%d-%m-%Y")}}
+    service: hassio.snapshot_full
+scena_film:
+  alias: Scena Film
+  sequence:
+  - service: scene.turn_on
+    entity_id: scene.film
+  - delay:
+      seconds: 5
+  - service: switch.turn_on
+    entity_id: switch.samsung_tv
+scena_cena:
+  alias: Scena cena
+  sequence:
+  - service: scene.turn_on
+    entity_id: scene.cena
+cattura_immagine:
+  alias: Cattura immagine
+  sequence:
+  - data:
+      entity_id: camera.corridoio
+      filename: /config/www/snapshot/corridorio_{{ now ().year }}_{{ now ().month
+        }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg
+    service: camera.snapshot
+####### ATTIVAZIONE ALLARME #############
+toggle_allarme:
+  alias: "Toggle Allarme"
+  sequence:
+    service_template: >
+      {% if is_state('alarm_control_panel.allarme_casa', 'disarmed')%}
+        alarm_control_panel.alarm_arm_away
+      {% else %}
+        alarm_control_panel.alarm_disarm
+      {% endif %}
+    data:
+      entity_id: alarm_control_panel.allarme_casa
+alza_volume_echo_camera:
+  alias: "Alza volume Echo camera"
+  sequence:
+    service: media_player.volume_set
+    data:
+      entity_id: media_player.echo_dot_camera
+      volume_level: 0.7
+abbassa_volume_echo_camera:
+  alias: "Abbassa volume echo camera"
+  sequence:
+    service: media_player.volume_set
+    data:
+      entity_id: media_player.echo_dot_camera
+      volume_level: 0.3
+luci_natale_relax:
+  alias: "Effetto luci natale"
+  sequence:
+    - service: homeassistant.turn_on
+      data:
+        entity_id: light.luci_di_natale
+    - delay:
+        seconds: 7
+    - service: homeassistant.turn_off
+      data:
+        entity_id: light.luci_di_natale
+    - delay:
+        seconds: 2.9
+    - service: script.turn_on
+      data:
+        entity_id: script.light_relax_on
+light_relax_on:
+  alias: "Accendi loop"
+  sequence:
+    - service: script.turn_on
+      data:
+        entity_id: script.luci_natale_relax
+light_relax_off:
+  alias: "Spegni loop"
+  sequence:
+    - service: script.turn_off
+      data:
+        entity_id: script.luci_natale_relax
+    - service: script.turn_off
+      data:
+        entity_id: script.light_relax_on
+    - service: litght.turn_on
+      data:
+        entity_id: light.luci_di_natale
+        brightness: 255

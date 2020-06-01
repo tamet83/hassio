@@ -1,0 +1,62 @@
+########## LUCI ################################àà
+visible:
+  - user: 5532872ad3ef4f9882e435a93fba71d3
+  - user: 6aa7803956c94f778e676e5be51899d0
+title: Luci
+path: luci
+icon: mdi:lightbulb
+background: var(--background-image)
+cards:
+    #Luci
+  - type: light
+    entity: light.luci_di_natale
+    name: Luci di Natale
+    icon: mdi:pine-tree
+  # - type: light
+  #   entity: light.luci_albero
+  #   icon: mdi:pine-tree
+  #   name: Albero di Natale
+  # - type: light
+  #   entity: light.luci_rami
+  #   icon: mdi:tree
+  #   name: Luci Rami
+  - type: light
+    entity: light.hue_sala
+    name: Hue Sala
+    icon: mdi:floor-lamp
+  - type: light
+    entity: light.tolomeo
+    name: Tolomeo
+    icon: mdi:desk-lamp
+  - type: light
+    entity: light.gina
+    name: Gina
+    icon: mdi:floor-lamp-variant
+  - type: light
+    entity: light.dario_sala
+    name: Dario Sala
+    icon: mdi:ceiling-light
+  - type: light
+    entity: light.faretti
+    name: Faretti
+    icon: mdi:vanity-light
+  - type: light
+    entity: light.koogeek_ls1_2062df
+    name: Led TV
+    icon: mdi:led-strip
+  - type: light
+    entity: light.led_corridoio
+    name: Led Corridoio
+    icon: mdi:led-strip
+  - type: light
+    entity: light.gufo
+    name: Gufo
+    icon: mdi:owl
+  - type: light
+    entity: light.dario_camera
+    name: Dario Camera
+    icon: mdi:ceiling-light
+  - type: light
+    entity: light.led_camera
+    name: Led Camera
+    icon: mdi:led-strip

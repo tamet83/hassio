@@ -1,0 +1,11 @@
+############## Allarme #############
+title: Allarme
+path: allarme
+icon: mdi:alarm-light
+background: var(--background-image)
+cards:
+  - type: alarm-panel
+    entity: alarm_control_panel.allarme_casa
+    name: Allarme
+    states:
+      - arm_away

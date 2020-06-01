@@ -1,0 +1,40 @@
+exclude:
+  domains:
+    - sensor
+    - device_tracker
+    - sun
+    - group
+include:
+  domains:
+    - alarm_control_panel
+    - automation
+    - binary_sensor
+    - camera
+    - climate
+    - input_select
+    - light
+    - media_player
+    - person
+    - scene
+    - script
+  entities:
+    - device_tracker.carlotta_iphone8
+    - device_tracker.matteo_iphonexr
+    - sensor.allegronte_tv_stato
+    - sensor.corrado_stato
+    - sensor.hacs
+    - sensor.luci_albero_status
+    - sensor.luci_rami_status
+    - sensor.mauro_stato
+    - sensor.mike_stato
+    - sensor.pihole_status
+    - sensor.pitta_stato
+    - sensor.radarr_upcoming_media
+    - sensor.tamet_stato
+    - sensor.temperatura_camera
+    - sensor.temperatura_sala
+    - sensor.ups_battery
+    - sensor.ups_load
+    - sensor.ups_status
+    - sensor.ups_time_left
+    - sensor.valentina_stato

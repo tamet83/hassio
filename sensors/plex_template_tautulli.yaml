@@ -1,0 +1,201 @@
+#### TEMPLATE ###################################################
+#### Plex Users Sensors #########################################
+- platform: template
+  sensors:
+    #Tamet
+    # tamet_tamet:
+    #   friendly_name: ""
+    #   #value_template: "{{ state_attr('sensor.tautulli', 'tamet')['user'] }}"
+    #   value_template: "{{ '' }}"
+    tamet_stato:
+      friendly_name: Tamet
+      value_template: "{{ state_attr('sensor.tautulli', 'tamet')['Activity'] }}"
+    tamet_titolo:
+      friendly_name: Titolo
+      value_template: "{{ state_attr('sensor.tautulli', 'tamet')['full_title'] }}"
+    tamet_transcodifica:
+      friendly_name: Transcodifica
+      value_template: "{{ state_attr('sensor.tautulli', 'tamet')['transcode_decision'] }}"
+    tamet_location:
+      friendly_name: Location
+      value_template: "{{ state_attr('sensor.tautulli', 'tamet')['location']}}"
+    tamet_banda:
+      friendly_name: Banda
+      value_template: "{{ (state_attr('sensor.tautulli', 'tamet')['bandwidth'] | float / 1000) | round(1)}}"
+      unit_of_measurement: 'Mb/s'
+    
+      #AllegronteTV
+    # allegronte_tv_allegrontetv:
+    #   friendly_name: ""
+    #   #value_template: "{{ state_attr('sensor.tautulli', 'AllegronteTV')['user'] }}"
+    #   value_template: "{{''}}"
+    allegronte_tv_stato:
+      friendly_name: Allegronte TV
+      value_template: "{{ state_attr('sensor.tautulli', 'AllegronteTV')['Activity'] }}"
+    allegronte_tv_titolo:
+      friendly_name: Titolo
+      value_template: "{{ state_attr('sensor.tautulli', 'AllegronteTV')['full_title'] }}"
+    allegronte_tv_transcodifica:
+      friendly_name: Transcodifica
+      value_template: "{{ state_attr('sensor.tautulli', 'AllegronteTV')['transcode_decision'] }}"
+    allegronte_tv_location:
+      friendly_name: Location
+      value_template: "{{ state_attr('sensor.tautulli', 'AllegronteTV')['location']}}"
+    allegronte_tv_banda:
+      friendly_name: Banda
+      value_template: "{{ (state_attr('sensor.tautulli', 'AllegronteTV')['bandwidth'] | float / 1000) | round(1)}}"
+      unit_of_measurement: 'Mb/s'
+    
+      #Valentina
+    # valentina_valentina:
+    #   friendly_name: ""
+    #   #value_template: "{{ state_attr('sensor.tautulli', 'Valentina')['user'] }}"
+    #   value_template: "{{ '' }}"
+    valentina_stato:
+      friendly_name: Valentina
+      value_template: "{{ state_attr('sensor.tautulli', 'Valentina')['Activity'] }}"
+    valentina_titolo:
+      friendly_name: Titolo
+      value_template: "{{ state_attr('sensor.tautulli', 'Valentina')['full_title'] }}"
+    valentina_transcodifica:
+      friendly_name: Transcodifica
+      value_template: "{{ state_attr('sensor.tautulli', 'Valentina')['transcode_decision'] }}"
+    valentina_location:
+      friendly_name: Location
+      value_template: "{{ state_attr('sensor.tautulli', 'Valentina')['location']}}"
+    valentina_banda:
+      friendly_name: Banda
+      value_template: "{{ (state_attr('sensor.tautulli', 'Valentina')['bandwidth'] | float / 1000) | round(1)}}"
+      unit_of_measurement: 'Mb/s'
+    
+      #Corrado
+    # corrado_corrado:
+    #   friendly_name: Corrado
+    #   value_template: "{{ state_attr('sensor.tautulli', 'Corrado')['user'] }}"
+    # #value_template: "{{ '' }}"
+    corrado_stato:
+      friendly_name: Corrado
+      value_template: "{{ state_attr('sensor.tautulli', 'Corrado')['Activity'] }}"
+    corrado_titolo:
+      friendly_name: Titolo
+      value_template: "{{ state_attr('sensor.tautulli', 'Corrado')['full_title'] }}"
+    corrado_transcodifica:
+      friendly_name: Transcodifica
+      value_template: "{{ state_attr('sensor.tautulli', 'Corrado')['transcode_decision'] }}"
+    corrado_location:
+      friendly_name: Location
+      value_template: "{{ state_attr('sensor.tautulli', 'Corrado')['location']}}"
+    corrado_banda:
+      friendly_name: Banda
+      value_template: "{{ (state_attr('sensor.tautulli', 'Corrado')['bandwidth'] | float / 1000) | round(1)}}"
+      unit_of_measurement: 'Mb/s'
+    
+      #Pitta
+    # pitta_pitta:
+    #   friendly_name: ""
+    #   #value_template: "{{ state_attr('sensor.tautulli', 'Pitta')['user'] }}"
+    #   value_template: "{{ '' }}"
+    pitta_stato:
+      friendly_name: Pitta
+      value_template: "{{ state_attr('sensor.tautulli', 'Pitta')['Activity'] }}"
+    pitta_titolo:
+      friendly_name: Titolo
+      value_template: "{{ state_attr('sensor.tautulli', 'Pitta')['full_title'] }}"
+    pitta_transcodifica:
+      friendly_name: Transcodifica
+      value_template: "{{ state_attr('sensor.tautulli', 'Pitta')['transcode_decision'] }}"
+    pitta_location:
+      friendly_name: Location
+      value_template: "{{ state_attr('sensor.tautulli', 'Pitta')['location']}}"
+    pitta_banda:
+      friendly_name: Banda
+      value_template: "{{ (state_attr('sensor.tautulli', 'Pitta')['bandwidth'] | float / 1000) | round(1)}}"
+      unit_of_measurement: 'Mb/s'
+  
+      #Andre
+    # andre_andre:
+    #   friendly_name: ""
+    #   #value_template: "{{ state_attr('sensor.tautulli', 'tamet')['user'] }}"
+    #   value_template: "{{ '' }}"
+    andre_stato:
+      friendly_name: Andre
+      value_template: "{{ state_attr('sensor.tautulli', 'AndreTT7')['Activity'] }}"
+    andre_titolo:
+      friendly_name: Titolo
+      value_template: "{{ state_attr('sensor.tautulli', 'AndreTT7')['full_title'] }}"
+    andre_transcodifica:
+      friendly_name: Transcodifica
+      value_template: "{{ state_attr('sensor.tautulli', 'AndreTT7')['transcode_decision'] }}"
+    andre_location:
+      friendly_name: Location
+      value_template: "{{ state_attr('sensor.tautulli', 'AndreTT7')['location']}}"
+    andre_banda:
+      friendly_name: Banda
+      value_template: "{{ (state_attr('sensor.tautulli', 'AndreTT7')['bandwidth'] | float / 1000) | round(1)}}"
+      unit_of_measurement: 'Mb/s'
+
+    #Mike
+    # mike_mike:
+    #   friendly_name: ""
+    #   #value_template: "{{ state_attr('sensor.tautulli', 'tamet')['user'] }}"
+    #   value_template: "{{ '' }}"
+    mike_stato:
+      friendly_name: Mike
+      value_template: "{{ state_attr('sensor.tautulli', 'Mikemrb')['Activity'] }}"
+    mike_titolo:
+      friendly_name: Titolo
+      value_template: "{{ state_attr('sensor.tautulli', 'Mikemrb')['full_title'] }}"
+    mike_transcodifica:
+      friendly_name: Transcodifica
+      value_template: "{{ state_attr('sensor.tautulli', 'Mikemrb')['transcode_decision'] }}"
+    mike_location:
+      friendly_name: Location
+      value_template: "{{ state_attr('sensor.tautulli', 'Mikemrb')['location']}}"
+    mike_banda:
+      friendly_name: Banda
+      value_template: "{{ (state_attr('sensor.tautulli', 'Mikemrb')['bandwidth'] | float / 1000) | round(1)}}"
+      unit_of_measurement: 'Mb/s'
+
+    #Mauro
+    # mauro_mauro:
+    #   friendly_name: ""
+    #   #value_template: "{{ state_attr('sensor.tautulli', 'tamet')['user'] }}"
+    #   value_template: "{{ '' }}"
+    mauro_stato:
+      friendly_name: Maurone
+      value_template: "{{ state_attr('sensor.tautulli', 'Mauro08')['Activity'] }}"
+    mauro_titolo:
+      friendly_name: Titolo
+      value_template: "{{ state_attr('sensor.tautulli', 'Mauro08')['full_title'] }}"
+    mauro_transcodifica:
+      friendly_name: Transcodifica
+      value_template: "{{ state_attr('sensor.tautulli', 'Mauro08')['transcode_decision'] }}"
+    mauro_location:
+      friendly_name: Location
+      value_template: "{{ state_attr('sensor.tautulli', 'Mauro08')['location']}}"
+    mauro_banda:
+      friendly_name: Banda
+      value_template: "{{ (state_attr('sensor.tautulli', 'Mauro08')['bandwidth'] | float / 1000) | round(1)}}"
+      unit_of_measurement: 'Mb/s'
+
+    # #Marco
+    # mauro_mauro:
+    #   friendly_name: ""
+    #   #value_template: "{{ state_attr('sensor.tautulli', 'tamet')['user'] }}"
+    #   value_template: "{{ '' }}"
+    emme_pi_stato:
+      friendly_name: Marco
+      value_template: "{{ state_attr('sensor.tautulli', 'Mauro08')['Activity'] }}"
+    emme_pi_titolo:
+      friendly_name: Titolo
+      value_template: "{{ state_attr('sensor.tautulli', 'Mauro08')['full_title'] }}"
+    emme_pi_transcodifica:
+      friendly_name: Transcodifica
+      value_template: "{{ state_attr('sensor.tautulli', 'Mauro08')['transcode_decision'] }}"
+    emme_pi_location:
+      friendly_name: Location
+      value_template: "{{ state_attr('sensor.tautulli', 'Mauro08')['location']}}"
+    emme_pi_banda:
+      friendly_name: Banda
+      value_template: "{{ (state_attr('sensor.tautulli', 'Mauro08')['bandwidth'] | float / 1000) | round(1)}}"
+      unit_of_measurement: 'Mb/s'

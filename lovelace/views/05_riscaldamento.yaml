@@ -1,0 +1,75 @@
+########## RISCALDAMENTO ##########################
+visible:
+  - user: 5532872ad3ef4f9882e435a93fba71d3
+  - user: 6aa7803956c94f778e676e5be51899d0
+title: Riscaldamento
+path: riscaldamento
+icon: mdi:radiator
+background: var(--background-image)
+cards:
+    #Temperatura
+  - type: vertical-stack
+    cards:
+      - type: custom:simple-thermostat
+        entity: climate.netatmo_camera
+        name: Camera
+        step_size: 0.5
+      - type: custom:mini-graph-card
+        name: Camera
+        hours_to_show: 24
+        points_per_hour: 6
+        align_state: center
+        line_width: 3
+        more_info: true
+        animate: true
+        font_size: 80
+        #height: 300
+        show:
+          name: false
+          labels: false
+          extrema: true
+          icon: false
+          fill: fade
+        entities:
+          - entity: sensor.temperatura_camera
+            #line_color: "#009FE3"
+        color_thresholds:
+          - value: 18
+            color: '#2879ae'
+          - value: 24
+            color: '#e0982b'
+          - value: 31
+            color: '#c9463c'
+
+  - type: vertical-stack
+    cards:
+      - type: custom:simple-thermostat
+        entity: climate.netatmo_sala
+        name: Sala
+        step_size: 0.5
+      - type: custom:mini-graph-card
+        name: Sala
+        hours_to_show: 24
+        points_per_hour: 6
+        align_state: center
+        line_width: 3
+        more_info: true
+        animate: true
+        font_size: 80
+        #height: 50
+        show:
+          name: false
+          labels: false
+          extrema: true
+          icon: false
+          fill: fade
+        entities:
+          - entity: sensor.temperatura_sala
+            #color: "#009FE3"
+        color_thresholds:
+          - value: 18
+            color: '#2879ae'
+          - value: 24
+            color: '#e0982b'
+          - value: 31
+            color: '#c9463c'

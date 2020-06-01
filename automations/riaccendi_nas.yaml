@@ -1,0 +1,12 @@
+- id: '1556916948414'
+  alias: riaccendi_nas
+  trigger:
+  - entity_id: sensor.ups_status
+    for: 00:03:00
+    from: ONBATT
+    platform: state
+    to: ONLINE
+  condition: []
+  action:
+  - service: switch.turn_on
+    entity_id: switch.nas

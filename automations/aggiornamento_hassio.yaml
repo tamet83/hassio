@@ -1,0 +1,10 @@
+  - alias: notifica aggiornamento
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.updater
+        from: 'off'
+        to: 'on'
+    action:
+      - service: notify.mobile_app_iphonexr_matteo
+        data_template:
+          message: "È disponibile Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }}"

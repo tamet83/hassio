@@ -1,0 +1,13 @@
+
+luci_natale:
+  name: Effetti Luci di Natale
+  entities:
+    - light.luci_di_natale
+    - input_select.effetto_luci_preset
+
+# media_player:
+#   name: Casse
+#   entities:
+#     - media_player.echo_dot_bagno
+#     - media_player.echo_dot_camera
+#     - media_player.sala

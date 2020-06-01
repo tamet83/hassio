@@ -1,0 +1,45 @@
+- platform: switch
+  name: "Dario Camera"
+  entity_id: switch.shellycamera
+
+- platform: switch
+  name: "Dario Sala"
+  entity_id: switch.shelly_dario_sala
+
+- platform: switch
+  name: "Faretti"
+  entity_id: switch.shelly_faretti
+
+- platform: group
+  name: Hue Sala
+  entities:
+    - light.gina
+    - light.tolomeo
+
+- platform: group
+  name: Luci di Natale
+  entities:
+    - light.luci_rami
+    - light.luci_albero
+
+- platform: group
+  name: luci camera
+  entities:
+    - light.dario_camera
+    - light.led_camera
+
+- platform: group
+  name: luci sala
+  entities:
+    - light.koogeek_ls1_2062df
+    - light.luci_albero
+    - light.luci_rami
+    - light.dario_sala
+    - light.faretti
+    - light.hue_sala
+
+- platform: group
+  name: luci camera
+  entities:
+    - light.led_camera
+    - light.dario_camera

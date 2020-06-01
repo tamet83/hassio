@@ -1,0 +1,23 @@
+# - alias: webhook_allarme
+#   initial_state: true
+#   trigger:
+#     platform: webhook
+#     webhook_id: allarme
+#   action:
+#     - service: script.toggle_allarme
+#     - service: script.alza_volume_echo_camera
+#     - delay: 00:00:03
+#     - service: notify.alexa_media
+#       data:
+#         target:
+#           - media_player.echo_dot_camera
+#         data:
+#           type: tts
+#         message: >
+#           {% if is_state('alarm_control_panel.allarme_casa','pending') %}
+#           "Allarme armato"
+#           {% elif is_state('alarm_control_panel.allarme_casa','disarmed') %}
+#           "Allarme disarmato"
+#           {% endif %}
+#     - delay: 00:00:10
+#     - service: script.abbassa_volume_echo_camera
