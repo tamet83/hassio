@@ -50,7 +50,7 @@ cards:
           - entity: binary_sensor.pve_plex_running
             name: Plex
             icon: mdi:plex
-          - entity: binary_sensor.pve_bitwarden_running
+          - entity: binary_sensor.pve_docker_running
             name: Bitwarden
             icon: mdi:key
           - entity: binary_sensor.pve_sonarr_running
