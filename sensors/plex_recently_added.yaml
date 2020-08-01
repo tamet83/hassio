@@ -7,7 +7,7 @@
     - movie
   max: 4
   download_images: true
-  img_dir: '/plex_artwork/'
+  img_dir: '/plex_artwork/' # Film/'
   # ssl: false
   # ssl_cert: false
 
@@ -20,6 +20,6 @@
     - show
   max: 4
   download_images: true
-  img_dir: '/plex_artwork/'
+  img_dir: '/plex_artwork/' #Serie/'
   # ssl: false
   # ssl_cert: false

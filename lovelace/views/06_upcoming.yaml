@@ -181,24 +181,25 @@ cards:
           color: '#2879ae'
           show_points: false
           show_state: true
-  - type: custom:vertical-stack-in-card
-    cards:
-    - type: custom:upcoming-media-card
-      entity: sensor.sonarr_upcoming_media
-      title: Puntate in uscita
-      image_style: fanart
-      date: ddmm
-      border_color: '#222222'
-      accent_color: '#222222'
-      box_shadows: false
-    - type: custom:upcoming-media-card
-      entity: sensor.radarr_upcoming_media
-      title: Film in uscita
-      image_style: fanart
-      date: ddmm
-      border_color: '#222222'
-      accent_color: '#222222'
-      box_shadows: false
+    
+  # - type: custom:vertical-stack-in-card
+  #   cards:
+  #   - type: custom:upcoming-media-card
+  #     entity: sensor.sonarr_upcoming_media
+  #     title: Puntate in uscita
+  #     image_style: fanart
+  #     date: ddmm
+  #     border_color: '#222222'
+  #     accent_color: '#222222'
+  #     box_shadows: false
+  #   - type: custom:upcoming-media-card
+  #     entity: sensor.radarr_upcoming_media
+  #     title: Film in uscita
+  #     image_style: fanart
+  #     date: ddmm
+  #     border_color: '#222222'
+  #     accent_color: '#222222'
+  #     box_shadows: false
   - type: custom:upcoming-media-card
     entity: sensor.serie
     title: Plex puntate aggiunte di recente

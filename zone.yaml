@@ -29,3 +29,8 @@
   radius: 100
   icon: mdi:beach
   #track_ios: false
+- name: Aosta
+  latitude: !secret aosta_latitude
+  longitude: !secret aosta_longitude
+  radius: 100
+  icon: mdi:image-filter-hdr
