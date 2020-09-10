@@ -1,5 +1,5 @@
-# hassio.tamet
-My home assistant repository
+# Home Assistant
+My home assistant repository and screnshots preview
 
 ## Home
 ![SchedaHome](https://github.com/tamet83/hassio/blob/master/Screenshot/home.PNG)
