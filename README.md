@@ -16,4 +16,4 @@ My home assistant repository
 
 ## Extra
 My Wiki on
-![Proxmox installation](https://github.com/tamet83/proxmox/wiki)
+[Proxmox installation](https://github.com/tamet83/proxmox/wiki)
