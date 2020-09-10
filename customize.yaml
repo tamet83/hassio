@@ -22,6 +22,8 @@ sensor.mike_stato:
   entity_picture: /local/icons/mike.png
 sensor.emme_pi_stato:
   entity_picture: /local/icons/marco.png
+sensor.corrado_stato:
+  entity_picture: /local/icons/corrado.png
 binary_sensor.finestra_bagno:
   device_class: window
   friendly_name: Finestra del bagno

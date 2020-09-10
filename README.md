@@ -14,4 +14,6 @@ My home assistant repository
 ## System Monitoring
 ![SchedaHome](https://github.com/tamet83/hassio/blob/master/Screenshot/Monitoring.PNG)
 
-
+## Extra
+My Wiki on Proxmox installation
+![SchedaHome](https://github.com/tamet83/proxmox/wiki)
