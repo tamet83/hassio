@@ -168,6 +168,13 @@ cards:
               action: toggle
             hold_action:
               action: more-info
+          - entity: light.led_cucina
+            name: Led Cucina
+            icon: mdi:led-strip-variant
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
           - entity: light.tolomeo
             name: Tolomeo
             icon: mdi:desk-lamp

@@ -33,6 +33,10 @@ cards:
     name: Gina
     icon: mdi:floor-lamp-variant
   - type: light
+    entity: light.led_cucina
+    name: Led Cucina
+    icon: mdi:led-strip-variant
+  - type: light
     entity: light.dario_sala
     name: Dario Sala
     icon: mdi:ceiling-light

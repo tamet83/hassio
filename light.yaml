@@ -15,6 +15,7 @@
   entities:
     - light.gina
     - light.tolomeo
+    - light.led_cucina
 
 - platform: group
   name: Luci di Natale
