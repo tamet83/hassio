@@ -34,7 +34,7 @@ cattura_immagine:
       filename: /config/www/snapshot/corridorio_{{ now ().year }}_{{ now ().month
         }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg
     service: camera.snapshot
-####### ATTIVAZIONE ALLARME #############
+####### ATTIVAZIONE ALLARME #################
 toggle_allarme:
   alias: "Toggle Allarme"
   sequence:
@@ -60,24 +60,29 @@ abbassa_volume_echo_camera:
     data:
       entity_id: media_player.echo_dot_camera
       volume_level: 0.3
+
+########## LUCI NATALE #############
 luci_natale_relax:
   alias: "Effetto luci natale"
+  mode: queued
   sequence:
-    - service: homeassistant.turn_on
+    - service_template: > 
+        {% if is_state('light.luci_rami', 'on') %}
+          light.turn_off
+        {% else %}
+          light.turn_on
+        {% endif %}
       data:
-        entity_id: light.luci_di_natale
+        entity_id: light.luci_rami
+        transition: 10
     - delay:
         seconds: 7
-    - service: homeassistant.turn_off
-      data:
-        entity_id: light.luci_di_natale
-    - delay:
-        seconds: 2.9
     - service: script.turn_on
       data:
         entity_id: script.light_relax_on
 light_relax_on:
   alias: "Accendi loop"
+  mode: queued
   sequence:
     - service: script.turn_on
       data:
@@ -91,7 +96,3 @@ light_relax_off:
     - service: script.turn_off
       data:
         entity_id: script.light_relax_on
-    - service: litght.turn_on
-      data:
-        entity_id: light.luci_di_natale
-        brightness: 255

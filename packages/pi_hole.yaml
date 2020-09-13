@@ -1,9 +1,9 @@
-pi_hole:  
-  host: !secret pihole_ip
-  location: admin
-  ssl: false
-  verify_ssl: true
-  api_key:  !secret pihole_api_key
+# pi_hole:  
+#   host: !secret pihole_ip
+#   location: admin
+#   ssl: false
+#   verify_ssl: true
+#   api_key:  !secret pihole_api_key
 
 
 #Input_Select
@@ -28,6 +28,7 @@ script:
     - data_template:
         duration: '{{states.input_select.pihole_timer.state}}'
       service: pi_hole.disable
+      entity_id: switch.pi_hole
 
 #Sensore
 sensor:
