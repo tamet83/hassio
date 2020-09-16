@@ -67,7 +67,7 @@ cards:
             icon: mdi:bookshelf
           - entity: binary_sensor.pve_saggeletture_running
             name: Saggeletture
-            icon: mdi:book
+            icon: mdi:bookshelf
 
   # UNIFI CONTROLLER
   - type: vertical-stack
