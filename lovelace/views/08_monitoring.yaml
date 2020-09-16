@@ -62,6 +62,12 @@ cards:
           - entity: binary_sensor.pve_vpn_running
             name: VPN
             icon: mdi:vpn
+          - entity: binary_sensor.pve_calibre_running
+            name: Calibre
+            icon: mdi:bookshelf
+          - entity: binary_sensor.pve_saggeletture_running
+            name: Saggeletture
+            icon: mdi:book
 
   # UNIFI CONTROLLER
   - type: vertical-stack

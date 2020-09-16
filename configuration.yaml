@@ -96,6 +96,8 @@ proxmoxve:
           - 105
           - 106
           - 107
+          - 108
+          - 109
 
 #Spotify:
 # spotify:
