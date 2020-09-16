@@ -44,7 +44,7 @@ cards:
           - entity: binary_sensor.pve_apache_running
             name: Apache
             icon: mdi:apache-kafka
-          - entity: binary_sensor.pve_hassio_running
+          - entity: binary_sensor.pve_homeassistant_running
             name: Hassio
             icon: mdi:home-assistant
           - entity: binary_sensor.pve_plex_running
@@ -57,7 +57,7 @@ cards:
             name: Sonarr-Radarr
             icon: mdi:radar
           - entity: binary_sensor.pve_amplifi_running
-            name: Ubiquiti Controller
+            name: UbniFi
             icon: mdi:router-wireless
           - entity: binary_sensor.pve_vpn_running
             name: VPN
