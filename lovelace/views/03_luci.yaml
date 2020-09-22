@@ -16,10 +16,6 @@ cards:
   #   entity: light.luci_albero
   #   icon: mdi:pine-tree
   #   name: Albero di Natale
-  # - type: light
-  #   entity: light.luci_rami
-  #   icon: mdi:tree
-  #   name: Luci Rami
   - type: light
     entity: light.hue_sala
     name: Hue Sala
@@ -45,9 +41,9 @@ cards:
     name: Faretti
     icon: mdi:vanity-light
   - type: light
-    entity: light.koogeek_ls1_2062df
+    entity: light.led_tv
     name: Led TV
-    icon: mdi:led-strip
+    icon: mdi:television-classic
   - type: light
     entity: light.led_corridoio
     name: Led Corridoio
@@ -64,3 +60,5 @@ cards:
     entity: light.led_camera
     name: Led Camera
     icon: mdi:led-strip
+  
+  

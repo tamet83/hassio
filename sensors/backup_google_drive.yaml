@@ -1,10 +1,9 @@
 - platform: template
   sensors:
-    data_ultimo_backup:
-      friendly_name: Data ultimo backup
+    ultimo_backup:
       value_template: >-
-        {%set string = state_attr('sensor.snapshot_backup', 'last_snapshot') %}
-        {{string[8:10]}}-{{string[5:7]}}-{{string[0:4]}}
+        {{ as_timestamp(state_attr('sensor.snapshot_backup', 'last_snapshot') ) |timestamp_custom ("%d-%m-%Y")}}
+        
     backup_gdrive:
       friendly_name: Backup Google Drive
       value_template: "{{state_attr('sensor.snapshot_backup','snapshots_in_google_drive')}}"

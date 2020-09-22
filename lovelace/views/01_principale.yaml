@@ -27,130 +27,148 @@ cards:
           name: Samsung TV
           icon: mdi:television-box
           volume_stateless: true
-
-      # ECHO MULTIROOM
-      - type: conditional
-        conditions:
-          - entity: media_player.multiroom
-            state_not: "standby"
-        card:
-          type: entities
-          entities:
-            - type: custom:mini-media-player
-              entity: media_player.multiroom
-              name: Multiroom
-              icon: mdi:speaker-multiple
-              artwork: cover
-              group: true
-              source: icon
-              info: short
-              hide:
-                volume: false
-                power: true
-            - type: custom:mini-media-player
-              entity: media_player.echo_dot_salotto
-              name: Echo Salotto
-              icon: mdi:sofa
-              artwork: none
-              group: true
-              hide:
-                controls: true
-                progress: true
-                info: true
-                power: true
-                source: true   
-            - type: custom:mini-media-player
-              entity: media_player.echo_dot_camera
-              name: Echo Camera
-              artwork: none
-              icon: mdi:bed-empty
-              source: icon
-              group: true
-              idle_view: when_standby
-              hide:
-                controls: true
-                progress: true
-                info: true
-                power: true
-                source: true
-            - type: custom:mini-media-player
-              entity: media_player.echo_dot_bagno
-              name: Echo Bagno
-              artwork: none
-              icon: mdi:shower
-              source: icon
-              group: true
-              idle_view: when_standby
-              hide:
-                controls: true
-                progress: true
-                info: true
-                power: true
-                source: true
+          volume_step: 5
+          sound_mode: full
+          hide:
+            power_state: false
+    
+  # SPOTIFY CARLOTTA
+      - type: custom:mini-media-player
+        entity: media_player.spotify_carlotta
+        name: Spotify Carlotta
+        info: short
+        artwork: cover
+        hide:
+          power: true
+          shuffle: false
+          runtime: false
+          artwork_border: false
+          controls: false
+          play_stop: false
+      
+  # ECHO MULTIROOM
+      # - type: conditional
+      #   conditions:
+      #     - entity: media_player.multiroom
+      #       state_not: "standby"
+      #   card:
+      #     type: entities
+      #     entities:
+      #       - type: custom:mini-media-player
+      #         entity: media_player.multiroom
+      #         name: Multiroom
+      #         icon: mdi:speaker-multiple
+      #         artwork: cover
+      #         group: true
+      #         source: icon
+      #         info: short
+      #         hide:
+      #           volume: false
+      #           power: true
+      #       - type: custom:mini-media-player
+      #         entity: media_player.echo_dot_salotto
+      #         name: Echo Salotto
+      #         icon: mdi:sofa
+      #         artwork: none
+      #         group: true
+      #         hide:
+      #           controls: true
+      #           progress: true
+      #           info: true
+      #           power: true
+      #           source: true   
+      #       - type: custom:mini-media-player
+      #         entity: media_player.echo_dot_salotto
+      #         name: Echo Camera
+      #         artwork: none
+      #         icon: mdi:bed-empty
+      #         source: icon
+      #         group: true
+      #         idle_view: when_standby
+      #         hide:
+      #           controls: true
+      #           progress: true
+      #           info: true
+      #           power: true
+      #           source: true
+      #       - type: custom:mini-media-player
+      #         entity: media_player.echo_dot_bagno
+      #         name: Echo Bagno
+      #         artwork: none
+      #         icon: mdi:shower
+      #         source: icon
+      #         group: true
+      #         idle_view: when_standby
+      #         hide:
+      #           controls: true
+      #           progress: true
+      #           info: true
+      #           power: true
+      #           source: true
 
       # ECHO SALOTTO
-      - type: conditional
-        conditions:
-          - entity: media_player.echo_dot_salotto
-            state_not: "standby"
-          - entity: media_player.multiroom
-            state: "standby"
-          - entity: media_player.echo_dot_camera
-            state: "standby"
-          - entity: media_player.echo_dot_bagno
-            state: "standby"
-        card:
-          type: custom:mini-media-player
-          entity: media_player.echo_dot_salotto
-          name: Echo Salotto
-          icon: mdi:sofa
-          artwork: cover
-          hide:
-            source: true
+      # - type: conditional
+      #   conditions:
+      #     - entity: media_player.echo_dot_salotto
+      #       state_not: "standby"
+      #     - entity: media_player.multiroom
+      #       state: "standby"
+      #     - entity: media_player.echo_dot_camera
+      #       state: "standby"
+      #     - entity: media_player.echo_dot_bagno
+      #       state: "standby"
+      #   card:
+      #     type: custom:mini-media-player
+      #     entity: media_player.echo_dot_salotto
+      #     name: Echo Salotto
+      #     icon: mdi:sofa
+      #     artwork: cover
+      #     hide:
+      #       source: true
 
       # ECHO CAMERA
-      - type: conditional
-        conditions:
-          - entity: media_player.echo_dot_camera
-            state_not: "standby"
-          - entity: media_player.multiroom
-            state: "standby"
-          - entity: media_player.echo_dot_salotto
-            state: "standby"
-          - entity: media_player.echo_dot_bagno
-            state: "standby"
-        card:
-          type: custom:mini-media-player
-          entity: media_player.echo_dot_camera
-          name: Echo Camera
-          artwork: cover
-          icon: mdi:bed-empty
-          source: icon
-          idle_view: when_standby
-          hide:
-            source: true
+      # - type: conditional
+      #   conditions:
+      #     - entity: media_player.echo_dot_camera
+      #       state_not: "standby"
+      #     - entity: media_player.multiroom
+      #       state: "standby"
+      #     - entity: media_player.echo_dot_salotto
+      #       state: "standby"
+      #     - entity: media_player.echo_dot_bagno
+      #       state: "standby"
+      #   card:
+      #     type: custom:mini-media-player
+      #     entity: media_player.echo_dot_camera
+      #     name: Echo Camera
+      #     artwork: cover
+      #     icon: mdi:bed-empty
+      #     source: icon
+      #     idle_view: when_standby
+      #     hide:
+      #       source: true
 
       # ECHO Bagno
-      - type: conditional
-        conditions:
-          - entity: media_player.echo_dot_bagno
-            state_not: "standby"
-          - entity: media_player.multiroom
-            state: "standby"
-          - entity: media_player.echo_dot_salotto
-            state: "standby"
-          - entity: media_player.echo_dot_camera
-            state: "standby"
-        card:
-          type: custom:mini-media-player
-          entity: media_player.echo_dot_bagno
-          name: Echo Bagno
-          artwork: cover
-          icon: mdi:shower
-          source: icon
-          idle_view: when_standby
-          hide:
-            source: true
+      # - type: conditional
+      #   conditions:
+      #     - entity: media_player.echo_dot_bagno
+      #       state_not: "standby"
+      #     - entity: media_player.multiroom
+      #       state: "standby"
+      #     - entity: media_player.echo_dot_salotto
+      #       state: "standby"
+      #     - entity: media_player.echo_dot_camera
+      #       state: "standby"
+      #   card:
+      #     type: custom:mini-media-player
+      #     entity: media_player.echo_dot_bagno
+      #     name: Echo Bagno
+      #     artwork: cover
+      #     icon: mdi:shower
+      #     source: icon
+      #     idle_view: when_standby
+      #     hide:
+      #       source: true
 
   # LUCI
   - type: vertical-stack
@@ -192,9 +210,9 @@ cards:
             icon: mdi:vanity-light
             tap_action:
               action: toggle
-          - entity: light.koogeek_ls1_2062df
+          - entity: light.led_tv
             name: Led TV
-            icon: mdi:led-strip
+            icon: mdi:television-classic
             tap_action:
               action: toggle
             hold_action:
@@ -256,7 +274,7 @@ cards:
               action: toggle
           - entity: switch.sonoff2
             name: Switch Netgear
-            icon: mdi:network-router
+            icon: mdi:router-network
             tap_action:
               action: toggle
           - entity: switch.sonoff3

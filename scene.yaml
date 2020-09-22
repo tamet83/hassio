@@ -1,22 +1,35 @@
 - name: Film
   entities:
-    switch.sonoff4: "on"
-    light.koogeek_ls1_2062df:
+    switch.sonoff4: 
       state: "on"
-      xy_color: [0.677, 0.319]
-      brightness: 255
-    light.dario_sala: off
-    light.faretti: off
-    light.gina: off
-    light.mensola: off
-    light.tolomeo: off
-    light.led_cucina: off
+    light.led_tv:
+      state: "on"
+      xy_color: [ 0.512, 0.282]
+      brightness: 100
+    light.dario_sala:
+      state: "off"
+    light.faretti:
+      state: "off"
+    light.gina: 
+      state: "off"
+    light.mensola:
+      state: "off"
+    light.tolomeo:
+      state: "off"
+    light.led_cucina: 
+      state: "off"
+    light.luci_rami:
+      state: "off"
 - name: Cena
   entities:
-    switch.sonoff4: "on"
-    light.koogeek_ls1_2062df: off
-    light.dario_sala: off
-    light.faretti: off
+    switch.sonoff4: 
+      state: "on"
+    light.led_tv:
+      state: "off"
+    light.dario_sala:
+      state: "off"
+    light.faretti: 
+      state: "off"
     light.gina:
       state: "on"
       xy_color: [0.422,0.321]

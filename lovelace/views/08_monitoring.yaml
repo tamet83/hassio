@@ -141,7 +141,7 @@ cards:
                 - width: 100px
                 - color: '#2879ae'
                 - font-weight: bold
-          - entity: sensor.data_ultimo_backup
+          - entity: sensor.ultimo_backup
             name: Ultimo backup
             icon: mdi:calendar-month
           - entity: sensor.backup_gdrive
