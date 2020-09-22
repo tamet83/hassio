@@ -1,4 +1,0 @@
-- platform: generic
-  name: Cam Corridoio
-  still_image_url: http://192.168.1.170
-  #stream_source: rtsp://191.168.1.170:554
