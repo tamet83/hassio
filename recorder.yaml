@@ -35,7 +35,15 @@
       - sensor.radarr_upcoming_media
       - sensor.tamet_stato
       - sensor.temperatura_camera
+      - sensor.umidita_camera
       - sensor.temperatura_sala
+      - sensor.umidita_sala
+      - sensor.temperatura_bagno
+      - sensor.umidita_bagno
+      - sensor.temperatura_corridoio
+      - sensor.umidita_corridoio
+      - sensor.temperatura_esterna
+      - sensor.umidita_esterna
       - sensor.ups_battery
       - sensor.ups_load
       - sensor.ups_status
@@ -43,6 +51,8 @@
       - sensor.valentina_stato
       - sensor.transmission_down_speed
       - sensor.transmission_up_speed
+      - sensor.speedtest_download
+      - sensor.speedtest_upload
       - sensor.usg_cpu
       - sensor.usg_ram
       - sensor.usg_uptime

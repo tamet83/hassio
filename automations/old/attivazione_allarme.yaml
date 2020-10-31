@@ -1,9 +1,0 @@
-# - id: '1555700636883'
-#   alias: Attivazione allarme
-#   trigger:
-#     platform: template
-#     value_template: "{{not is_state('person.matteo', 'home') and not is_state('person.carlotta', 'home')}}"
-#     for: 00:05:00
-#   action:
-#   - service: alarm_control_panel.alarm_arm_away
-#     entity_id: alarm_control_panel.allarme_casa

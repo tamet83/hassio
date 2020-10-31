@@ -1,7 +1,7 @@
 #resources: !include_dir_list lovelace/resources
-custom_header:
-  compact_mode: true
-  disable_sidebar: false
+#custom_header:
+  #compact_mode: true
+  #disable_sidebar: false
   # exceptions:
   #   - conditions:
   #       user: 5532872ad3ef4f9882e435a93fba71d3

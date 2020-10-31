@@ -15,7 +15,7 @@ homeassistant:
   packages: !include_dir_named packages
   external_url: !secret external_url
   internal_url: !secret internal_url
-  whitelist_external_dirs:
+  allowlist_external_dirs:
     - /config/www/snapshot
 
 ################################
@@ -26,7 +26,9 @@ automation: !include_dir_merge_list automations
 script: !include scripts.yaml
 http: !include http.yaml # Http configuration
 #tuya: !include tuya.yaml # Smart plug config
+
 speedtestdotnet: !include speedtest.yaml
+
 zone: !include zone.yaml # Home and Work
 sensor: !include_dir_merge_list sensors
 media_player: !include media_player.yaml
@@ -38,10 +40,11 @@ shell_command: !include shell_command.yaml
 scene: !include scene.yaml
 #breaking_changes:
 binary_sensor: !include ping.yaml
-sonos:
-  media_player:
-    hosts:
-      - !secret sonos_one
+
+#sonos:
+#  media_player:
+#    hosts:
+#      - !secret sonos_one
 
 recorder: !include recorder.yaml
 # Enables support for tracking state changes over time
@@ -122,18 +125,16 @@ transmission:
   scan_interval: 15
   name: Transmission
 
-climate:
-  - platform: netatmo
+#climate:
+ # - platform: netatmo
 
 lovelace:
   resources: !include lovelace/resources/resources.yaml
-    
-    #!include_dir_list lovelace/resources
   mode: yaml
 
 # Enables the frontend
 frontend:
-  javascript_version: latest
+  #javascript_version: latest
   themes: !include_dir_merge_named themes
 
 # Allows you to issue voice commands from the frontend in enabled browsers

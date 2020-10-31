@@ -19,8 +19,8 @@
 # type: module
 
 # Custom Header
-- url: /hacsfiles/custom-header/custom-header.js
-  type: module
+# - url: /hacsfiles/custom-header/custom-header.js
+#   type: module
 
 #Card per mostrare gli attributi
 #https://github.com/ciotlosm/custom-lovelace/tree/master/entity-attributes-card
@@ -67,8 +67,8 @@
   type: module
 
 #Spotify
-- url: /hacsfiles/spotify-card/spotify-card.js
-  type: module
+#- url: /hacsfiles/spotify-card/spotify-card.js
+ # type: module
 
 #Traker Card
 - url: /customcards/tracker-card.js

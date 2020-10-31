@@ -250,6 +250,34 @@ cards:
                 color: '#debd3e'
               - value: 35
                 color: '#cb3833'
+          # GRAFICO SPEEDTEST
+          - type: custom:mini-graph-card
+            icon: mdi:speedometer
+            name: Bandwidth
+            align_icon: left
+            align_state: left
+            align_header: center
+            hours_to_show: 24
+            points_per_hour: 2
+            height: 150
+            font_size: 80
+            font_size_header: 15
+            line_width: 3
+            show:
+              fill: fade
+              name: true
+              icon: false
+            entities:
+              - entity: sensor.speedtest_download
+                name: Download
+                color: '#debd3e'
+                show_points: false
+                show_state: true
+              - entity: sensor.speedtest_upload
+                name: Upload
+                color: '#2879ae'
+                show_points: false
+                show_state: true
           # NOTA SENSORE PING DISABILITATO IN SPEEDTEST
           # - type: custom:bar-card
           #   entity: sensor.speedtest_ping

@@ -1,5 +1,7 @@
 server_id: 4302
 manual: true
+scan_interval: 
+  hours: 4
 monitored_conditions:
   #- ping
   - download

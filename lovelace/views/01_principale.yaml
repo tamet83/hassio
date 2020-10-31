@@ -232,6 +232,11 @@ cards:
             icon: mdi:led-strip
             tap_action:
               action: toggle
+          - entity: light.gufo
+            name: Gufo
+            icon: mdi:owl
+            tap_action:
+              action: toggle
         state_filter:
           - "on"
         card:
@@ -342,10 +347,67 @@ cards:
       columns: 3
 
   # METEO
-  - type: custom:weather-card
-    entity: weather.dark_sky
-    icons: "/local/icons/weather_icons/animated/"
-    compact: true
+  - type: vertical-stack
+    cards:
+      - type: custom:weather-card
+        entity: weather.dark_sky
+        icons: "/local/icons/weather_icons/animated/"
+        compact: true
+      # TEMPERATURA ESTERNA
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            name: Temperatura Esterna
+            hours_to_show: 24
+            points_per_hour: 6
+            align_state: center
+            line_width: 3
+            more_info: true
+            animate: true
+            font_size: 80
+            #height: 50
+            show:
+              name: true
+              labels: false
+              extrema: true
+              icon: false
+              fill: fade
+            entities:
+              - entity: sensor.temperatura_esterna
+                #color: "#009FE3"
+            color_thresholds:
+              - value: 18
+                color: '#2879ae'
+              - value: 24
+                color: '#e0982b'
+              - value: 31
+                color: '#c9463c'
+          - type: custom:mini-graph-card
+            name: Umidità Esterna
+            hours_to_show: 24
+            points_per_hour: 6
+            align_state: center
+            line_width: 3
+            more_info: true
+            animate: true
+            font_size: 80
+            #height: 300
+            show:
+              name: true
+              labels: false
+              extrema: true
+              icon: false
+              fill: fade
+            entities:
+              - entity: sensor.umidita_esterna
+                #line_color: "#009FE3"
+            # color_thresholds:
+            #   - value: 18
+            #     color: '#2879ae'
+            #   - value: 24
+            #     color: '#e0982b'
+            #   - value: 31
+            #     color: '#c9463c'
 
   # TELECAMERA
   - type: picture-glance
