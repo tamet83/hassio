@@ -1,20 +1,20 @@
-- id: '1576417514663'
-  alias: Luci di natale
-  description: ''
-  trigger:
-  - entity_id: light.luci_albero
-    platform: state
-    to: 'on'
-  condition: []
-  action:
-  - data:
-      entity_id: light.luci_labero
-      payload: 'off'
-      topic: lucialbero/tele/POWER
-    service: mqtt.publish
-  - delay: '10'
-  - data:
-      entity_id: light.luci_albero
-      payload: 'on'
-      topic: lucialbero/tele/POWER
-    service: mqtt.publish
+# - id: '1576417514663'
+#   alias: Luci di natale
+#   description: ''
+#   trigger:
+#   - entity_id: light.luci_albero
+#     platform: state
+#     to: 'on'
+#   condition: []
+#   action:
+#   - data:
+#       entity_id: light.luci_labero
+#       payload: 'off'
+#       topic: lucialbero/tele/POWER
+#     service: mqtt.publish
+#   - delay: '10'
+#   - data:
+#       entity_id: light.luci_albero
+#       payload: 'on'
+#       topic: lucialbero/tele/POWER
+#     service: mqtt.publish

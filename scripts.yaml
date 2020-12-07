@@ -38,7 +38,7 @@ cattura_immagine:
 toggle_allarme:
   alias: "Toggle Allarme"
   sequence:
-    service_template: >
+    service: >
       {% if is_state('alarm_control_panel.allarme_casa', 'disarmed')%}
         alarm_control_panel.alarm_arm_away
       {% else %}
@@ -66,14 +66,14 @@ luci_natale_relax:
   alias: "Effetto luci natale"
   mode: queued
   sequence:
-    - service_template: > 
-        {% if is_state('light.luci_rami', 'on') %}
+    - service: > 
+        {% if is_state('light.rami', 'on') and is_state('light.albero', 'on') %}
           light.turn_off
         {% else %}
           light.turn_on
         {% endif %}
       data:
-        entity_id: light.luci_rami
+        entity_id: light.luci_di_natale
         transition: 10
     - delay:
         seconds: 7

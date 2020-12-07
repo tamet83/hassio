@@ -44,7 +44,7 @@ cards:
           runtime: false
           artwork_border: false
           controls: false
-          play_stop: false
+          play_stop: true
       
   # ECHO MULTIROOM
       # - type: conditional
@@ -278,8 +278,8 @@ cards:
             tap_action:
               action: toggle
           - entity: switch.sonoff2
-            name: Switch Netgear
-            icon: mdi:router-network
+            name: Sonos Beam
+            icon: mdi:speaker
             tap_action:
               action: toggle
           - entity: switch.sonoff3

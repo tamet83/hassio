@@ -20,17 +20,17 @@
 - platform: group
   name: Luci di Natale
   entities:
-    - light.luci_rami
-    - light.luci_albero
+    - light.rami
+    - light.albero
 
 - platform: group
-  name: luci camera
+  name: camera
   entities:
     - light.dario_camera
     - light.led_camera
 
 - platform: group
-  name: luci sala
+  name: sala
   entities:
     - light.koogeek_ls1_2062df
     - light.luci_albero
@@ -38,9 +38,9 @@
     - light.dario_sala
     - light.faretti
     - light.hue_sala
+    - light.led_cucina
 
 - platform: group
-  name: luci camera
+  name: cucina
   entities:
-    - light.led_camera
-    - light.dario_camera
+    - light.led_cucina

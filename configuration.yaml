@@ -156,10 +156,8 @@ ios:
 # Discover some devices automatically
 stream:
 
-# samsungtv:
-#   - host: !secret samsung_tv_host
-#     port: 8001
-#     name: Samsung Tv
+samsungtv:
+  - host: !secret samsung_tv_host
 
 ssdp:
 

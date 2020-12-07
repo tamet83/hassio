@@ -26,7 +26,7 @@
       - sensor.corrado_stato
       - sensor.hacs
       - sensor.luci_albero_status
-      - sensor.luci_rami_status
+      #- sensor.luci_rami_status
       - sensor.mauro_stato
       - sensor.mike_stato
       - sensor.pihole_status

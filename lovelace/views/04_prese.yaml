@@ -27,8 +27,8 @@ cards:
           name: Presa 1
           icon: mdi:battery-charging
         - entity: switch.sonoff2
-          name: Switch Netgear
-          icon: mdi:router-network
+          name: Sonos Beam
+          icon: mdi:speaker
         - entity: switch.sonoff3
           name: Carica iPhone
           icon: mdi:cellphone-iphone
