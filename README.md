@@ -16,4 +16,4 @@ My home assistant repository and screnshots preview
 
 ## Extra
 My Wiki on
-[Proxmox installation](https://github.com/tamet83/proxmox/wiki)
+[Proxmox stuff](https://github.com/tamet83/proxmox/wiki)
