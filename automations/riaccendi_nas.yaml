@@ -1,12 +1,38 @@
 - id: '1556916948414'
   alias: riaccendi_nas
   trigger:
-  - entity_id: sensor.ups_status
-    for: 00:03:00
-    from: ONBATT
-    platform: state
-    to: ONLINE
-  condition: []
+    - platform: template
+      value_template: "{{not is_state('sensor.apc_ups_input_voltage','0.0')}}"
+      for: "00:02:00"
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: sensor.apc_ups_status_data
+        state: 'OL'
+      - condition: state
+        entity_id: sensor.apc_ups_status_data
+        state: 'OL CHRG'
+      - condition: state
+        entity_id: sensor.apc_ups_status_data
+        state: 'OL CHRG LB'
+      - condition: state
+        entity_id: sensor.apc_ups_status_data
+        state: 'FSD OL CHRG'
+      - condition: state
+        entity_id: sensor.apc_ups_status_data
+        state: 'FSD OL CHRG LB'
   action:
   - service: switch.turn_on
     entity_id: switch.nas
+
+    # trigger:
+  # - entity_id: sensor.ups_status
+  #   for: 00:03:00
+  #   from: ONBATT
+  #   platform: state
+  #   to: ONLINE
+  # condition: []
+  # action:
+  # - service: switch.turn_on
+  #   entity_id: switch.nas

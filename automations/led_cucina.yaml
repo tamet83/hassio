@@ -1,5 +1,5 @@
 - id: '1603454728008'
-  alias: Prova
+  alias: Led Cucina
   description: ''
   trigger:
   - platform: event

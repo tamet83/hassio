@@ -44,10 +44,10 @@
       - sensor.umidita_corridoio
       - sensor.temperatura_esterna
       - sensor.umidita_esterna
-      - sensor.ups_battery
-      - sensor.ups_load
-      - sensor.ups_status
-      - sensor.ups_time_left
+      - sensor.apc_ups_status
+      - sensor.apc_ups_battery_charge
+      - sensor.apc_ups_load
+      - sensor.apc_ups_battery_runtime
       - sensor.valentina_stato
       - sensor.transmission_down_speed
       - sensor.transmission_up_speed

@@ -415,16 +415,18 @@ cards:
     entities:
       - light.led_corridoio
       - binary_sensor.motion_corridoio
-      - switch.cam_restart
-    camera_image: camera.corridoio
+    camera_image: camera.c1c
+    camera_view: live
+    aspect_ratio: 16x9
 
   # MAPPA
   - type: map
+    entities:
+    - person.carlotta
+    - person.matteo
     aspect_ratio: 16:9
     default_zoom: 12
     dark_mode: true
     hours_to_show: 24
-    entities:
-      - person.carlotta
-      - person.matteo
+    
 

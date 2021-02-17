@@ -1,0 +1,16 @@
+platform: ffmpeg
+name: C1C
+input: !secret input_camera
+
+# platform: generic
+# name: C1C
+# stream_source: !secret input_camera
+# still_image_url: !secret still_image_url
+
+# platform: ezviz
+# username: !secret username_ezviz
+# password: !secret password_ezviz
+# cameras:
+#   C1C:
+#     username: !secret username_camera
+#     password: !secret password_camera

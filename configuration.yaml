@@ -17,6 +17,7 @@ homeassistant:
   internal_url: !secret internal_url
   allowlist_external_dirs:
     - /config/www/snapshot
+    - /tmp/
 
 ################################
 mobile_app:
@@ -56,12 +57,10 @@ logbook: !include logbook.yaml
 switch: !include switch.yaml
 config:
 updater:
-#camera: !include camera.yaml
+camera: !include camera.yaml
 cloud: !include cloud.yaml
 person:
 
-apcupsd:
-  host: a722577e-apcupsd
 
 #owntracks:
 
@@ -88,10 +87,10 @@ proxmoxve:
     password: !secret proxmox_password
     nodes:
       - node: pve
-        # vms:
-        #   - 100
+        vms:
+          - 110
         containers:
-          - 100
+          #- 100
           - 101
           - 102
           - 103
@@ -168,7 +167,7 @@ notify:
     platform: group
     services:
       - service: mobile_app_iphonexr_matteo
-      - service: mobile_app_carlotta
+      - service: mobile_app_iphone_carlotta
   - platform: alexa_media
     name: alexa
 

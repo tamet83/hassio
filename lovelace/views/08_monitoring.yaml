@@ -17,19 +17,20 @@ cards:
         title: UPS Stats
         show_header_toggle: false
         entities:
-          - entity: sensor.ups_model
-            name: Modello
-            icon: mdi:cassette
-          - entity: sensor.ups_status
+          - entity: sensor.apc_ups_status
+            name: Stato
+          - entity: sensor.apc_ups_input_voltage
             name: Alimentazione
-          - entity: sensor.ups_battery
+            icon: mdi:flash-circle
+          - entity: sensor.apc_ups_battery_charge
             icon: mdi:car-battery
-            name: Stato Batteria
-          - entity: sensor.ups_load
+            name: Batteria
+          - entity: sensor.apc_ups_load
             name: Carico
-          - entity: sensor.ups_time_left
+          - entity: sensor.apc_ups_battery_runtime
             icon: mdi:timer
             name: Durata Stimata
+            format: time
   # PROXMOX
   # - type: vertical-stack
   #   cards:

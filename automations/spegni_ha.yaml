@@ -1,12 +1,42 @@
 - id: '1556917240689'
   alias: Spegni HA
   trigger:
-  - entity_id: sensor.ups_time_left
-    platform: state
-    to: 00:03:00
+    platform: numeric_state
+    entity_id: sensor.apc_ups_battery_charge
+    below: 5
   condition:
-  - condition: state
-    entity_id: sensor.ups_status
-    state: ONBATT
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: sensor.apc_ups_status_data
+        state: 'OB'
+      - condition: state
+        entity_id: sensor.apc_ups_status_data
+        state: 'OB DISCHRG'
+      - condition: state
+        entity_id: sensor.apc_ups_status_data
+        state: 'OB DiSCHRG LB'
+      - condition: state
+        entity_id: sensor.apc_ups_status_data
+        state: 'FSD OB DISCHRG'
+      - condition: state
+        entity_id: sensor.apc_ups_status_data
+        state: 'FSD OB DISCHRG LB'
   action:
-  - service: hassio.host_shutdown
+    - service: notify.cellulari
+      data:
+        data:
+          push:
+        title: Home Assistant
+        message: "Home Assistant in spegnimento controllato per batteria UPS insufficiente."
+    - service: hassio.host_shutdown
+  # trigger:
+  # - entity_id: ssensor.apc_ups_battery_runtime
+  #   platform: state
+  #   to: "00:03:00"
+  # condition:
+  # - condition: state
+  #   entity_id: sensor.apc_ups_status_data
+  #   state: OB DISCHRG
+  # action:
+  # - service: hassio.host_shutdown

@@ -1,14 +1,32 @@
 - id: '1556916806943'
   alias: Spegni NAS
   trigger:
-  - entity_id: sensor.ups_status
-    for: 00:03:00
-    from: ONLINE
-    platform: state
-    to: ONBATT
+  - platform: state
+    entity_id: sensor.apc_ups_input_voltage
+    to: '0.0'
+    for: "00:00:30"
   condition:
-  - condition: state
-    entity_id: switch.nas
-    state: 'on'
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: switch.nas
+      state: 'on'
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: sensor.apc_ups_status_data
+          state: 'OB'
+        - condition: state
+          entity_id: sensor.apc_ups_status_data
+          state: 'OB DISCHRG'
+        - condition: state
+          entity_id: sensor.apc_ups_status_data
+          state: 'OB DiSCHRG LB'
+        - condition: state
+          entity_id: sensor.apc_ups_status_data
+          state: 'FSD OB DISCHRG'
+        - condition: state
+          entity_id: sensor.apc_ups_status_data
+          state: 'FSD OB DISCHRG LB'
   action:
   - service: shell_command.spegni_nas
