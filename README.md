@@ -1,5 +1,5 @@
 # Home Assistant
-My home assistant repository and screnshots preview
+My home assistant repository and some screnshots preview
 
 ## Home
 ![SchedaHome](https://github.com/tamet83/hassio/blob/master/Screenshot/home.PNG)
