@@ -1,8 +1,8 @@
 - id: '1556956039904'
-  alias: Interruzione corrente
+  alias: Blackout e Rientro
   trigger:
     platform: state
-    entity_id: sensor.apc_ups_status_data
+    entity_id: sensor.ups_status
   condition: []
   action:
     service: notify.cellulari
@@ -11,30 +11,14 @@
         push:
       title: UPS
       message: >
-        {% if trigger.to_state.state == 'OB' %}
+        {% if trigger.to_state.state == 'ON BATT' %}
         ATTENZIONE: É andata via la corrente!
-        {% elif trigger.to_state.state == 'OB DISCHRG' %}
-        ATTENZIONE: É andata via la corrente!
-        {% elif trigger.to_state.state == 'OB DISCHRG LB' %}
-        ATTENZIONE: É andata via la corrente!
-        {% elif trigger.to_state.state == 'FSD OB DISCHRG' %}
-        ATTENZIONE: É andata via la corrente!
-        {% elif trigger.to_state.state == 'FSD OB DISCHRG LB' %}
-        ATTENZIONE: É andata via la corrente!
-      
-        {% elif trigger.to_state.state == 'OL' %}
+        {% elif trigger.to_state.state == 'ONLINE' %}
         E' ritornata la corrente!
-        {% elif trigger.to_state.state == 'OL CHRG' %}
-        E' ritornata la corrente!
-        {% elif trigger.to_state.state == 'OL CHRG LB' %}
-        E' ritornata la corrente!
-        {% elif trigger.to_state.state == 'FSD OL CHRG' %}
-        E' ritornata la corrente!
-        {% elif trigger.to_state.state == 'FSD OL CHRG LB' %}
-        E' ritornata la corrente!
-        
+        {% elif trigger.to_state.state == 'OFFLINE' %}
+        Fuori linea. Ricaricare add-on
         {% else %}
-        UPS fuori linea.
+        Errore
         {% endif %}
         
     # trigger:
@@ -52,4 +36,4 @@
   #     message: >
   #       È andata via la corrente
   #     title: UPS
-  #   service: notify.cellulari    
+  #   service: notify.cellulari

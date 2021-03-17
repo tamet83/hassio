@@ -166,8 +166,8 @@ notify:
   - name: cellulari
     platform: group
     services:
-      - service: mobile_app_iphonexr_matteo
-      - service: mobile_app_iphone_carlotta
+      - service: mobile_app_iphone_matteo_app
+      - service: mobile_app_iphonexr_carlotta
   - platform: alexa_media
     name: alexa
 

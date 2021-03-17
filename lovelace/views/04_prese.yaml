@@ -64,17 +64,14 @@ cards:
           - entity: automation.allarme_finestra_aperta
             name: Allarme finestra aperta
             icon: mdi:home-automation
-          - entity: automation.avviso_luci_accese
-            name: Luci accese
-            icon: mdi:home-automation
           - entity: automation.effetto_luci_natale_off
             name: Effetto luci natale OFF
             icon: mdi:home-automation
           - entity: automation.effetto_luci_natale_on
             name: Effetto luci natale ON
             icon: mdi:home-automation
-          - entity: automation.interruzione_corrente
-            name: Interruzione corrente
+          - entity: automation.blackout_e_rientro
+            name: Blackout e Rientro
             icon: mdi:home-automation
           - entity: automation.notifica_aggiornamento
             name: Notifica aggiornamento Hass.io
@@ -82,14 +79,8 @@ cards:
           - entity: automation.notifica_allarme
             name: Notifica allarme
             icon: mdi:home-automation
-          - entity: automation.plex
-            name: Plex
-            icon: mdi:home-automation
           - entity: automation.riaccendi_nas
             name: Riaccendi il NAS
-            icon: mdi:home-automation
-          - entity: automation.ripristino_corrente
-            name: Notifica ripristino corrente
             icon: mdi:home-automation
           - entity: automation.spegni_ha
             name: Spegni Hass.io

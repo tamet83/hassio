@@ -18,11 +18,11 @@ cards:
       # SAMSUNG TV
       - type: conditional
         conditions:
-          - entity: media_player.samsung_ue49mu6400
+          - entity: media_player.samsungtv
             state: "on"
         card:
           type: custom:mini-media-player
-          entity: media_player.samsung_ue49mu6400
+          entity: media_player.samsungtv
           artwork: cover
           name: Samsung TV
           icon: mdi:television-box
@@ -424,6 +424,8 @@ cards:
     entities:
     - person.carlotta
     - person.matteo
+    - person.golf
+    
     aspect_ratio: 16:9
     default_zoom: 12
     dark_mode: true

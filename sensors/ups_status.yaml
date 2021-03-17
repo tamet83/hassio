@@ -1,0 +1,31 @@
+- platform: template
+  sensors:
+    # USP Status
+    ups_status:
+      friendly_name: UPS Stato
+      value_template: >-
+        {% if is_state('sensor.apc_ups_status_data', 'OB') %}
+        ON BATT
+        {% elif is_state('sensor.apc_ups_status_data', 'OB DISCHRG') %}
+        ON BATT
+        {% elif is_state('sensor.apc_ups_status_data', 'OB DISCHRG LB') %}
+        ON BATT
+        {% elif is_state('sensor.apc_ups_status_data', 'FSD OB DISCHRG') %}
+        ON BATT
+        {% elif is_state('sensor.apc_ups_status_data', 'FSD OB DISCHRG LB') %}
+        ON BATT
+      
+        {% elif is_state('sensor.apc_ups_status_data', 'OL') %}
+        ONLINE
+        {% elif is_state('sensor.apc_ups_status_data', 'OL CHRG') %}
+        ONLINE
+        {% elif is_state('sensor.apc_ups_status_data', 'OL CHRG LB') %}
+        ONLINE
+        {% elif is_state('sensor.apc_ups_status_data', 'FSD OL CHRG') %}
+        ONLINE
+        {% elif is_state('sensor.apc_ups_status_data', 'FSD OL CHRG LB') %}
+        ONLINE
+        
+        {% else %}
+        OFFLINE
+        {% endif %}

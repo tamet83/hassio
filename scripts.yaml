@@ -66,12 +66,20 @@ luci_natale_relax:
   alias: "Effetto luci natale"
   mode: queued
   sequence:
+    #CODICE PER IL RESTO DELL'ANNO
     - service: > 
-        {% if is_state('light.rami', 'on') and is_state('light.albero', 'on') %}
+        {% if is_state('light.rami', 'on') %}
           light.turn_off
         {% else %}
           light.turn_on
-        {% endif %}
+          {% endif %}
+  #CODICE PER NATALE
+   # - service: > 
+      #  {% if is_state('light.rami', 'on') and is_state('light.albero', 'on') %}
+      #    light.turn_off
+      #  {% else %}
+      #    light.turn_on
+      #  {% endif %}
       data:
         entity_id: light.luci_di_natale
         transition: 10

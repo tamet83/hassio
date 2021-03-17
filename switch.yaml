@@ -43,3 +43,8 @@
   payload_off: "off"
   optimistic: false
   retain: false
+
+- platform: command_line
+  switches: 
+    proxmox_shutdown:
+      command_off: !secret spegni_proxmox

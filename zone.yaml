@@ -4,7 +4,7 @@
   radius: 40
   icon: mdi:home
   #passive: true
-  #track_ios: false
+ # track_ios: false
 - name: Lavoro_M
   latitude: !secret work_m_latitude
   longitude: !secret work_m_longitude

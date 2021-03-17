@@ -1,3 +1,2 @@
 spegni_nas: !secret spegni_nas
-
 spegni_proxmox: !secret spegni_proxmox

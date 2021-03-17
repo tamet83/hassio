@@ -31,6 +31,113 @@ cards:
             icon: mdi:timer
             name: Durata Stimata
             format: time
+  # PiHole Monitoring
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: PihHole
+        state_color: true
+        entities:
+          - entity: binary_sensor.pve_pihole_running
+            name: PiHole
+            icon: mdi:wall
+          - sensor.pihole_check
+          - type: 'custom:fold-entity-row'
+            head: binary_sensor.pihole_enable
+            #open: true #SERVE PER LASCIARE APERTO IL MENU
+            entities:
+              - type: 'custom:button-card'
+                entity: binary_sensor.pihole_enable
+                hold_action:
+                  action: call-service
+                  service: pi_hole.enable
+                icon: 'mdi:pi-hole'
+                name: PiHole Timer Disabler
+                size: 30px
+                state:
+                  - color: red
+                    value: 'off'
+                  - color: green
+                    value: 'on'
+                tap_action:
+                  action: call-service
+                  service: script.pihole_timer_disabler
+                  confirmation: true   
+              - entity: input_select.pihole_timer
+              - type: 'custom:bar-card'
+                color: red
+                entity_row: true
+                entity: sensor.pi_hole_ads_blocked_today
+                name: ADS Blocked Today
+                title_position: left
+              - type: divider
+                style:
+                  height: 5px
+                
+              - type: 'custom:bar-card'
+                color: blue
+                entity_row: true
+                entity: sensor.pi_hole_dns_queries_cached
+                name: DNS Queries Cached
+                title_position: left
+              - type: divider
+                style:
+                  height: 5px
+                
+              - type: 'custom:bar-card'
+                color: cornflowerblue
+                entity_row: true
+                entity: sensor.pi_hole_dns_queries_forwarded
+                name: DNS Queries Forwarded
+                title_position: left
+              - type: divider
+                style:
+                  height: 5px
+                
+              - type: 'custom:bar-card'
+                color: salmon
+                entity_row: true
+                entity: sensor.pi_hole_dns_queries_today
+                name: DNS Queries Today
+                title_position: left
+              - type: divider
+                style:
+                  height: 5px
+                
+              - type: 'custom:bar-card'
+                color: green
+                entity_row: true
+                entity: sensor.pi_hole_dns_unique_domains
+                name: DNS Unique Domains
+                title_position: left
+              - type: divider
+                style:
+                  height: 5px
+                
+              - type: 'custom:bar-card'
+                color: purple
+                entity_row: true
+                entity: sensor.pi_hole_domains_blocked
+                name: Domains Blocked
+                title_position: left
+              - type: divider
+                style:
+                  height: 5px
+                
+              - type: 'custom:bar-card'
+                color: orange
+                entity_row: true
+                entity: sensor.pi_hole_ads_percentage_blocked_today
+                name: ADS Percentage Blocked Today
+                title_position: left
+              - type: divider
+                style:
+                  height: 5px
+                
+              - sensor.pi_hole_dns_unique_clients
+              - sensor.pi_hole_seen_clients
+            # head: binary_sensor.pihole_enable
+            # type: 'custom:fold-entity-row'
   # PROXMOX
   # - type: vertical-stack
   #   cards:
@@ -308,111 +415,5 @@ cards:
       # PING SENSOR
 
               
-  # PiHole Monitoring
-  - type: vertical-stack
-    cards:
-      - type: entities
-        title: PihHole
-        state_color: true
-        entities:
-          - entity: binary_sensor.pve_pihole_running
-            name: PiHole
-            icon: mdi:wall
-          - sensor.pihole_check
-          - type: 'custom:fold-entity-row'
-            head: binary_sensor.pihole_enable
-            #open: true #SERVE PER LASCIARE APERTO IL MENU
-            entities:
-              - type: 'custom:button-card'
-                entity: binary_sensor.pihole_enable
-                hold_action:
-                  action: call-service
-                  service: pi_hole.enable
-                icon: 'mdi:pi-hole'
-                name: PiHole Timer Disabler
-                size: 30px
-                state:
-                  - color: red
-                    value: 'off'
-                  - color: green
-                    value: 'on'
-                tap_action:
-                  action: call-service
-                  service: script.pihole_timer_disabler
-                  confirmation: true   
-              - entity: input_select.pihole_timer
-              - type: 'custom:bar-card'
-                color: red
-                entity_row: true
-                entity: sensor.pi_hole_ads_blocked_today
-                name: ADS Blocked Today
-                title_position: left
-              - type: divider
-                style:
-                  height: 5px
-                
-              - type: 'custom:bar-card'
-                color: blue
-                entity_row: true
-                entity: sensor.pi_hole_dns_queries_cached
-                name: DNS Queries Cached
-                title_position: left
-              - type: divider
-                style:
-                  height: 5px
-                
-              - type: 'custom:bar-card'
-                color: cornflowerblue
-                entity_row: true
-                entity: sensor.pi_hole_dns_queries_forwarded
-                name: DNS Queries Forwarded
-                title_position: left
-              - type: divider
-                style:
-                  height: 5px
-                
-              - type: 'custom:bar-card'
-                color: salmon
-                entity_row: true
-                entity: sensor.pi_hole_dns_queries_today
-                name: DNS Queries Today
-                title_position: left
-              - type: divider
-                style:
-                  height: 5px
-                
-              - type: 'custom:bar-card'
-                color: green
-                entity_row: true
-                entity: sensor.pi_hole_dns_unique_domains
-                name: DNS Unique Domains
-                title_position: left
-              - type: divider
-                style:
-                  height: 5px
-                
-              - type: 'custom:bar-card'
-                color: purple
-                entity_row: true
-                entity: sensor.pi_hole_domains_blocked
-                name: Domains Blocked
-                title_position: left
-              - type: divider
-                style:
-                  height: 5px
-                
-              - type: 'custom:bar-card'
-                color: orange
-                entity_row: true
-                entity: sensor.pi_hole_ads_percentage_blocked_today
-                name: ADS Percentage Blocked Today
-                title_position: left
-              - type: divider
-                style:
-                  height: 5px
-                
-              - sensor.pi_hole_dns_unique_clients
-              - sensor.pi_hole_seen_clients
-            # head: binary_sensor.pihole_enable
-            # type: 'custom:fold-entity-row'
+
 

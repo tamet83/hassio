@@ -4,14 +4,15 @@ include:
     - light
     - switch
     - binary_sensor
-    - media_player
+    #- media_player
     - person
     - climate
-    - camera
+    #- camera
     - scene
     - script
     - alarm_control_panel
-    - input_select
+    #- input_select
+    - device_tracker
   entities:
     - device_tracker.carlotta_iphone8
     - device_tracker.matteo_iphonexr
@@ -29,11 +30,11 @@ include:
     - sensor.tamet_stato
     - sensor.temperatura_camera
     - sensor.temperatura_sala
-    - sensor.ups_battery
-    - sensor.ups_load
-    - sensor.ups_status
-    - sensor.ups_time_left
-    - sensor.valentina_stato
+    - sensor.apc_ups_status
+    - sensor.apc_ups_input_voltage
+    - sensor.apc_ups_battery_charge
+    - sensor.apc_ups_load
+    - sensor.apc_ups_battery_runtime
     - sensor.transmission_down_speed
     - sensor.transmission_up_speed
     - sensor.usg_cpu
@@ -49,4 +50,4 @@ exclude:
     - sun
     - weather
     - group
-    - device_tracker
+    #- device_tracker
