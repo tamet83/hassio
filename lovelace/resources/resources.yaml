@@ -87,3 +87,7 @@
 #https://github.com/bramkragten/custom-ui/tree/master/weather-card
 - url: /hacsfiles/weather-card/weather-card.js
   type: module
+  
+#Stack in card
+- url: /local/stack-in-card.js
+  type: module

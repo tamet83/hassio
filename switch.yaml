@@ -10,7 +10,7 @@
   name: "Nas"
   host: !secret nas_host
   turn_off:
-    service: shell_command.spegni_nas
+    service: synology_dsm.shutdown
 
 - platform: mqtt
   name: shellycamera

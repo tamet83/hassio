@@ -5,7 +5,7 @@
       platform: state
       from: 'pending'
       to: 'triggered'
-  condition:
+  condition: []
   action:
   - service: light.turn_on
     data:

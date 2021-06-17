@@ -38,15 +38,15 @@ cards:
         - entity: switch.sonoff_5
           name: USB
           icon: mdi:usb
-  # - type: vertical-stack
-  #   cards:
-  #     - type: entities
-  #       title: Camera
-  #       show_header_toggle: false
-  #       entities:
-  #         - entity: switch.smart_plug_1
-  #           name: Ventilatore
-  #           icon: mdi:fan
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: Camera
+        show_header_toggle: false
+        entities:
+          - entity: switch.smart_plug_1
+            name: Ventilatore
+            icon: mdi:fan
   - type: entities
     title: Automazioni
     show_header_toggle: false

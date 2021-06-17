@@ -1,0 +1,10 @@
+- alias: Riavvia Add-ON UPS
+  trigger:
+    - platform: state
+      entity_id: sensor.ups_status
+      to: OFFLINE
+  condition: []
+  action:
+    - service: hassio.addon_restart
+      data:
+        addon: a0d7b954_nut

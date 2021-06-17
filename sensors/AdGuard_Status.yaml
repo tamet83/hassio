@@ -1,0 +1,5 @@
+- platform: template
+  sensors:
+    adguard_stato:
+      friendly_name: "AdGuard Stato"
+      value_template: "{{states('switch.adguard_protection')}}"

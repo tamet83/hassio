@@ -20,6 +20,12 @@ homeassistant:
     - /tmp/
 
 ################################
+logger:
+  default: info
+  # logs:
+  #   aiounifi: debug
+  #   homeassistant.components.unifi: debug
+  #   homeassistant.components.device_tracker.unifi: debug
 mobile_app:
 #map:
 group: !include groups.yaml
@@ -28,14 +34,14 @@ script: !include scripts.yaml
 http: !include http.yaml # Http configuration
 #tuya: !include tuya.yaml # Smart plug config
 
-speedtestdotnet: !include speedtest.yaml
+#speedtestdotnet: !include speedtest.yaml
 
 zone: !include zone.yaml # Home and Work
 sensor: !include_dir_merge_list sensors
 media_player: !include media_player.yaml
 light: !include light.yaml
 weather: !include weather.yaml
-device_tracker: !include device_tracker.yaml
+#device_tracker: !include device_tracker.yaml
 alarm_control_panel: !include alarm.yaml
 shell_command: !include shell_command.yaml
 scene: !include scene.yaml
@@ -140,7 +146,7 @@ frontend:
 conversation:
 
 # Enables a map showing the location of tracked devices
-#map:
+map:
 
 # Track the sun
 sun:
@@ -181,6 +187,17 @@ system_health:
 # hacs:
 #   token: !secret hacs_token
 #   themes: true
+
+# TIPO
+variable:
+  tipo:
+    value: 0
+    attributes:
+      friendly_name: 'Tipo'
+      icon: mdi:car-hatchback
+      latitude: 0
+      longitude: 0
+    restore: true
 
 panel_iframe:
   torrent_page:
