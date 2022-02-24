@@ -1,14 +1,14 @@
 - platform: switch
   name: "Dario Camera"
-  entity_id: switch.shellycamera
+  entity_id: switch.dario_camera
 
 - platform: switch
   name: "Dario Sala"
-  entity_id: switch.shelly_dario_sala
+  entity_id: switch.dario_sala
 
 - platform: switch
   name: "Faretti"
-  entity_id: switch.shelly_faretti
+  entity_id: switch.faretti
 
 - platform: group
   name: Hue Sala

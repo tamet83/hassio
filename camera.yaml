@@ -1,6 +1,6 @@
-# platform: ffmpeg
-# name: C1C
-# input: !secret input_camera
+platform: ffmpeg
+name: C1C
+input: !secret input_camera
 
 # platform: generic
 # name: C1C

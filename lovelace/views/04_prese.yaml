@@ -28,10 +28,10 @@ cards:
           icon: mdi:battery-charging
         - entity: switch.sonoff2
           name: Sonos Beam
-          icon: mdi:speaker
+          icon: mdi:soundbar
         - entity: switch.sonoff3
           name: Carica iPhone
-          icon: mdi:cellphone-iphone
+          icon: mdi:cellphone
         - entity: switch.sonoff4
           name: Presa TV
           icon: mdi:power-plug

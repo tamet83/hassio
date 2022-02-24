@@ -202,7 +202,7 @@ cards:
     #   box_shadows: false
   - type: custom:upcoming-media-card
     entity: sensor.serie
-    title: Plex puntate aggiunte di recente
+    title: Puntate aggiunte
     image_style: fanart
     flag: false
     date: ddmm
@@ -211,7 +211,7 @@ cards:
     box_shadows: false
   - type: custom:upcoming-media-card
     entity: sensor.film
-    title: Plex Film aggiunti di recente
+    title: Film Recenti
     image_style: fanart
     flag: false
     date: ddmm

@@ -1,0 +1,15 @@
+- id: '1632857169998'
+  alias: Unifi Integration Reload
+  description: ''
+  trigger:
+  - platform: time_pattern
+    hours: '/1'
+  condition:
+    - condition: time
+      after: '07:00:00'
+      before: '23:00:00'
+  action:
+  - service: homeassistant.reload_config_entry
+    data:
+      entry_id: b3b9c8bb964c9deead85e3c8b7ccdbb0
+  mode: single

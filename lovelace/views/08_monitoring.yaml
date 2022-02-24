@@ -21,7 +21,7 @@ cards:
             name: Stato
           - entity: sensor.apc_ups_input_voltage
             name: Alimentazione
-            icon: mdi:flash-circle
+            icon: mdi:lightning-bolt-circle
           - entity: sensor.apc_ups_battery_charge
             icon: mdi:car-battery
             name: Batteria
@@ -46,7 +46,7 @@ cards:
             styles:
               card:
                 - background-color: rgb(32, 33, 36)
-                - border-radius: 0%
+                - box-shadow: 0px 0px 9px 3px var(--button-card-light-color)
             aspect_ratio: 3/1
             state:
               - color: red
@@ -90,32 +90,26 @@ cards:
         show_name: true
         columns: 4
         entities:
-          - entity: binary_sensor.pve_apache_running
-            name: Apache
-            icon: mdi:apache-kafka
-          - entity: binary_sensor.pve_homeassistant_running
-            name: Hassio
-            icon: mdi:home-assistant
+          - entity: binary_sensor.pve_adguard_running
+            name: Adguard
+            icon: mdi:shield-check
           - entity: binary_sensor.pve_plex_running
             name: Plex
             icon: mdi:plex
           - entity: binary_sensor.pve_docker_running
-            name: Bitwarden
-            icon: mdi:key
+            name: Docker
+            icon: mdi:docker
           - entity: binary_sensor.pve_sonarr_running
             name: Sonarr-Radarr
             icon: mdi:radar
           - entity: binary_sensor.pve_amplifi_running
-            name: UbniFi
+            name: UniFi
             icon: mdi:router-wireless
-          - entity: binary_sensor.pve_vpn_running
-            name: VPN
+          - entity: binary_sensor.pve_wireguard_running
+            name: WireGuard
             icon: mdi:vpn
           - entity: binary_sensor.pve_calibre_running
             name: Calibre
-            icon: mdi:bookshelf
-          - entity: binary_sensor.pve_saggeletture_running
-            name: Saggeletture
             icon: mdi:bookshelf
 
   # UNIFI CONTROLLER
@@ -128,9 +122,9 @@ cards:
           - entity: sensor.usg_ip
             name: IP wan
             icon: mdi:ip
-          - entity: sensor.usg_lan_clients
-            name: Clienti LAN
-            icon: mdi:lan
+          # - entity: sensor.usg_lan_clients
+          #   name: Clienti LAN
+          #   icon: mdi:lan
           - entity: sensor.usg_wlan_clients
             name: Clienti WLAN
             icon: mdi:wifi
@@ -312,6 +306,7 @@ cards:
             font_size: 80
             font_size_header: 15
             line_width: 3
+            group: true
             show:
               fill: fade
               name: true

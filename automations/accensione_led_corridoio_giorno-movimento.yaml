@@ -1,16 +1,20 @@
 - id: '1552740658917'
   alias: Accensione led corridoio giorno - movimento
   trigger:
-  - entity_id: binary_sensor.motion_corridoio
+  - platform: state
+    entity_id: binary_sensor.motion_corridoio
     from: 'off'
-    platform: state
     to: 'on'
-  - entity_id: binary_sensor.porta
+  - platform: state
+    entity_id: binary_sensor.motion_corridoio_2
     from: 'off'
-    platform: state
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.porta
+    from: 'off'
     to: 'on'
   condition:
-  - after: 07:15:01
+  - after: 07:30:01
     before: '22:59:59'
     condition: time
   - condition: state

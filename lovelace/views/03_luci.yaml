@@ -27,7 +27,7 @@ cards:
   - type: light
     entity: light.gina
     name: Gina
-    icon: mdi:floor-lamp-variant
+    icon: mdi:floor-lamp-torchiere-variant
   - type: light
     entity: light.led_cucina
     name: Led Cucina

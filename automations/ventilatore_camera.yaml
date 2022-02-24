@@ -1,0 +1,14 @@
+- id: '1603454728009'
+  alias: ventilatore
+  description: ''
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: smart_switch
+      event: 1002
+  condition: []
+  action:
+  - service: switch.toggle
+    data:
+      entity_id: switch.smart_plug_1

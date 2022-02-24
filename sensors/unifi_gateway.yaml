@@ -6,7 +6,7 @@
   monitored_conditions:
     - wan
     - wlan
-    - lan
+    #- lan
     - firmware
 - platform: template
   sensors:

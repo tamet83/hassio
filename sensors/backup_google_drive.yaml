@@ -2,7 +2,7 @@
   sensors:
     ultimo_backup:
       value_template: >-
-        {{ as_timestamp(state_attr('sensor.snapshot_backup', 'last_snapshot') ) |timestamp_custom ("%d-%m-%Y")}}
+        {{ as_timestamp(state_attr('sensor.snapshot_backup', 'last_snapshot'),0 ) |timestamp_custom ("%d-%m-%Y")}}
         
     backup_gdrive:
       friendly_name: Backup Google Drive

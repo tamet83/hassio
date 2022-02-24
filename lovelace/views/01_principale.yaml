@@ -7,9 +7,35 @@ id: principale
 icon: mdi:home-assistant
 background: var(--background-image)
 badges:
-  - person.matteo
-  - person.carlotta
+  - entity: person.matteo
+    style: |
+      :host {
+        --label-badge-red: 
+          {% if is_state('person.matteo', 'home') %} #2879ae 
+          {% elif is_state('person.matteo', 'home')%} green 
+          {% else %} red {% endif %};
+        }
+  - entity: person.carlotta
+    style: |
+      :host {
+        --label-badge-red: 
+          {% if is_state('person.carlotta', 'home') %} #2879ae 
+          {% elif is_state('person.matteo', 'home')%} green 
+          {% else %} red {% endif %};
+      }
   - alarm_control_panel.allarme_casa
+  - entity: switch.adguard_protection
+    type: state-label
+    icon: 'mdi:shield-check'
+    name: AdGuard
+    style: |
+      :host {
+        --label-badge-red: 
+          {% if is_state('switch.adguard_protection', 'on') %} #2879ae 
+          {% else %} red {% endif %};
+        }     
+    tap_action:
+      action: toggle
 cards:
 
   # MEDIA PLAYERS
@@ -31,20 +57,50 @@ cards:
           sound_mode: full
           hide:
             power_state: false
-    
-  # SPOTIFY CARLOTTA
+  # MEDIA PLAYERS
+  - type: vertical-stack
+    cards:
       - type: custom:mini-media-player
-        entity: media_player.spotify_carlotta
-        name: Spotify Carlotta
-        info: short
+        entity: media_player.salotto
         artwork: cover
+        name: Salotto
+        icon: mdi:soundbar
+        icon_state: true
+        volume_stateless: false
+        volume_step: 5
+        sound_mode: full
         hide:
-          power: true
-          shuffle: false
-          runtime: false
-          artwork_border: false
+          power_state: false
           controls: false
-          play_stop: true
+        shortcuts:
+          columns: 2
+          buttons:
+            - name: Dialoghi
+              icon: mdi:account-voice
+              type: service
+              id: switch.toggle
+              data:
+                  entity_id: switch.sonos_salotto_speech_enhancement
+            - name: Notte
+              icon: mdi:weather-night
+              type: service
+              id: switch.toggle
+              data:
+                  entity_id: switch.sonos_salotto_speech_enhancement
+
+  # # SPOTIFY CARLOTTA
+  #     - type: custom:mini-media-player
+  #       entity: media_player.spotify_carlotta
+  #       name: Spotify Carlotta
+  #       info: short
+  #       artwork: cover
+  #       hide:
+  #         power: true
+  #         shuffle: false
+  #         runtime: false
+  #         artwork_border: false
+  #         controls: false
+  #         play_stop: true
       
   # ECHO MULTIROOM
       # - type: conditional
@@ -181,7 +237,7 @@ cards:
           #   icon: mdi:pine-tree
           - entity: light.gina
             name: Gina
-            icon: mdi:floor-lamp-variant
+            icon: mdi:floor-lamp-torchiere-variant
             tap_action:
               action: toggle
             hold_action:
@@ -279,12 +335,12 @@ cards:
               action: toggle
           - entity: switch.sonoff2
             name: Sonos Beam
-            icon: mdi:speaker
+            icon: mdi:soundbar
             tap_action:
               action: toggle
           - entity: switch.sonoff3
             name: Carica iPhone
-            icon: mdi:cellphone-iphone
+            icon: mdi:cellphone-charging
             tap_action:
               action: toggle
           - entity: switch.sonoff4
@@ -410,14 +466,14 @@ cards:
             #     color: '#c9463c'
 
   # TELECAMERA
-  # - type: picture-glance
-  #   title: Corridoio
-  #   entities:
-  #     - light.led_corridoio
-  #     - binary_sensor.motion_corridoio
-  #   camera_image: camera.c1c
-  #   camera_view: live
-  #   aspect_ratio: 16x9
+  - type: picture-glance
+    title: Corridoio
+    entities:
+      - light.led_corridoio
+      - binary_sensor.motion_corridoio
+    camera_image: camera.c1c
+    camera_view: live
+    aspect_ratio: 16x9
 
   # MAPPA
   - type: map

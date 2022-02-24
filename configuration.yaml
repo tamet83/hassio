@@ -22,10 +22,10 @@ homeassistant:
 ################################
 logger:
   default: info
-  # logs:
-  #   aiounifi: debug
-  #   homeassistant.components.unifi: debug
-  #   homeassistant.components.device_tracker.unifi: debug
+  #logs:
+    #aiounifi: debug
+    #homeassistant.components.unifi: debug
+    #homeassistant.components.device_tracker.unifi: debug
 mobile_app:
 #map:
 group: !include groups.yaml
@@ -94,18 +94,15 @@ proxmoxve:
     nodes:
       - node: pve
         vms:
-          - 110
+          - 200
         containers:
-          #- 100
-          - 101
-          - 102
-          - 103
-          - 104
-          - 105
-          - 106
-          - 107
-          - 108
-          - 109
+          - 100 # Adguard
+          - 101 # Plex
+          - 102 # Docker
+          - 103 # WireGuard
+          - 105 # Sonarr
+          - 106 # AmpliFi
+          - 107 # Calibre
 
 #Spotify:
 spotify:
@@ -122,13 +119,13 @@ spotify:
 
 
 #Transmission
-transmission:
-  host: !secret transmission_host
-  port: !secret transmission_port
-  username: !secret transmission_username
-  password: !secret transmission_password
-  scan_interval: 15
-  name: Transmission
+# transmission:
+#   host: !secret transmission_host
+#   port: !secret transmission_port
+#   username: !secret transmission_username
+#   password: !secret transmission_password
+#   scan_interval: 15
+#   name: Transmission
 
 #climate:
  # - platform: netatmo
@@ -172,10 +169,21 @@ notify:
   - name: cellulari
     platform: group
     services:
-      - service: mobile_app_iphone_matteo_app
+      - service: mobile_app_iphone_di_matteo
       - service: mobile_app_iphonexr_carlotta
   - platform: alexa_media
     name: alexa
+
+alexa_media:
+  accounts:
+  - email: !secret amazon_email
+    password: !secret amazon_password
+    url: amazon.it
+    exclude_devices:
+      - "Fire TV"
+      - "Matteo's Sonos Beam"
+      - 'This Device'
+      - Salotto
 
 # Text to speech
 tts:

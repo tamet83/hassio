@@ -11,7 +11,7 @@ backup_configuration:
   sequence:
   - data_template:
       name: Backup_Full_V-{{states('sensor.current_version')}}_{{as_timestamp(now()) | timestamp_custom("%d-%m-%Y")}}
-    service: hassio.snapshot_full
+    service: hassio.backup_full
 scena_film:
   alias: Scena Film
   sequence:
@@ -67,19 +67,19 @@ luci_natale_relax:
   mode: queued
   sequence:
     #CODICE PER IL RESTO DELL'ANNO
+    # - service: > 
+    #     {% if is_state('light.rami', 'on') %}
+    #       light.turn_off
+    #     {% else %}
+    #       light.turn_on
+    #       {% endif %}
+  #CODICE PER NATALE
     - service: > 
-        {% if is_state('light.rami', 'on') %}
+        {% if is_state('light.rami', 'on') and is_state('light.albero', 'on') %}
           light.turn_off
         {% else %}
           light.turn_on
-          {% endif %}
-  #CODICE PER NATALE
-   # - service: > 
-      #  {% if is_state('light.rami', 'on') and is_state('light.albero', 'on') %}
-      #    light.turn_off
-      #  {% else %}
-      #    light.turn_on
-      #  {% endif %}
+        {% endif %}
       data:
         entity_id: light.luci_di_natale
         transition: 10

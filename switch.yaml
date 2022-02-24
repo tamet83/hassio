@@ -12,37 +12,37 @@
   turn_off:
     service: synology_dsm.shutdown
 
-- platform: mqtt
-  name: shellycamera
-  icon: mdi:lightbulb
-  state_topic: "shellies/shelly1-55ECC2/relay/0"
-  command_topic: "shellies/shelly1-55ECC2/relay/0/command"
-  qos: 0
-  payload_on: "on"
-  payload_off: "off"
-  optimistic: false
-  retain: false
+# - platform: mqtt
+#   name: shellycamera
+#   icon: mdi:lightbulb
+#   state_topic: "shellies/shelly1-55ECC2/relay/0"
+#   command_topic: "shellies/shelly1-55ECC2/relay/0/command"
+#   qos: 0
+#   payload_on: "on"
+#   payload_off: "off"
+#   optimistic: false
+#   retain: false
 
-- platform: mqtt
-  name: shelly_faretti
-  icon: mdi:lightbulb
-  state_topic: "shellies/shellyswitch25-00452C/relay/0"
-  command_topic: "shellies/shellyswitch25-00452C/relay/0/command"
-  qos: 0
-  payload_on: "on"
-  payload_off: "off"
-  optimistic: false
-  retain: false
-- platform: mqtt
-  name: shelly_dario_sala
-  icon: mdi:lightbulb
-  state_topic: "shellies/shellyswitch25-00452C/relay/1"
-  command_topic: "shellies/shellyswitch25-00452C/relay/1/command"
-  qos: 0
-  payload_on: "on"
-  payload_off: "off"
-  optimistic: false
-  retain: false
+# - platform: mqtt
+#   name: shelly_faretti
+#   icon: mdi:lightbulb
+#   state_topic: "shellies/shellyswitch25-00452C/relay/0"
+#   command_topic: "shellies/shellyswitch25-00452C/relay/0/command"
+#   qos: 0
+#   payload_on: "on"
+#   payload_off: "off"
+#   optimistic: false
+#   retain: false
+# - platform: mqtt
+#   name: shelly_dario_sala
+#   icon: mdi:lightbulb
+#   state_topic: "shellies/shellyswitch25-00452C/relay/1"
+#   command_topic: "shellies/shellyswitch25-00452C/relay/1/command"
+#   qos: 0
+#   payload_on: "on"
+#   payload_off: "off"
+#   optimistic: false
+#   retain: false
 
 - platform: command_line
   switches: 
