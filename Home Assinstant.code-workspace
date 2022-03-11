@@ -5,6 +5,9 @@
 		}
 	],
 	"settings": {
-		"github.gitAuthentication": false
+		"github.gitAuthentication": false,
+		"files.associations": {
+			"*.yaml": "home-assistant"
+		}
 	}
 }
