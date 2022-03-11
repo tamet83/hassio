@@ -1,4 +1,4 @@
   - platform: ping
     host: 1.1.1.1
     count: 5
-    scan_interval: 300
+    scan_interval: 3600

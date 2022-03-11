@@ -2,11 +2,7 @@
   alias: Spegnimento led corridoio
   trigger:
   - platform: state
-    entity_id: binary_sensor.motion_corridoio
-    from: 'on'
-    to: 'off'
-  - platform: state
-    entity_id: binary_sensor.motion_corridoio_2
+    entity_id: group.motion_corridoio
     from: 'on'
     to: 'off'
   condition:

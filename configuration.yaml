@@ -19,7 +19,7 @@ homeassistant:
     - /config/www/snapshot
     - /tmp/
 
-################################
+#################################
 logger:
   default: info
   #logs:
@@ -138,6 +138,7 @@ lovelace:
 frontend:
   #javascript_version: latest
   themes: !include_dir_merge_named themes
+  
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -149,11 +150,11 @@ conversation:
 sun:
 
 ios:
-  push:
-    categories:
-      - name: cameras
-        identifier: 'camera'
-        actions:
+  # push:
+  #   categories:
+  #     - name: cameras
+  #       identifier: 'camera'
+  #       actions:
 
 # Discover some devices automatically
 stream:

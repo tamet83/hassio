@@ -3,7 +3,7 @@ visible:
   - user: 5532872ad3ef4f9882e435a93fba71d3
   - user: 6aa7803956c94f778e676e5be51899d0
 title: Principale
-id: principale
+#id: principale
 icon: mdi:home-assistant
 background: var(--background-image)
 badges:
@@ -12,7 +12,7 @@ badges:
       :host {
         --label-badge-red: 
           {% if is_state('person.matteo', 'home') %} #2879ae 
-          {% elif is_state('person.matteo', 'home')%} green 
+          {% elif is_state('person.matteo', 'Lavoro_M')%} green 
           {% else %} red {% endif %};
         }
   - entity: person.carlotta
@@ -20,24 +20,23 @@ badges:
       :host {
         --label-badge-red: 
           {% if is_state('person.carlotta', 'home') %} #2879ae 
-          {% elif is_state('person.matteo', 'home')%} green 
+          {% elif is_state('person.carlotta', 'Lavoro_C')%} green 
           {% else %} red {% endif %};
       }
   - alarm_control_panel.allarme_casa
   - entity: switch.adguard_protection
     type: state-label
-    icon: 'mdi:shield-check'
+    icon: "mdi:shield-check"
     name: AdGuard
     style: |
       :host {
         --label-badge-red: 
           {% if is_state('switch.adguard_protection', 'on') %} #2879ae 
           {% else %} red {% endif %};
-        }     
+        }
     tap_action:
       action: toggle
 cards:
-
   # MEDIA PLAYERS
   - type: vertical-stack
     cards:
@@ -58,6 +57,13 @@ cards:
           hide:
             power_state: false
   # MEDIA PLAYERS
+  # - type: conditional
+  #   conditions:
+  #     - entity: switch.sonos_salotto_speech_enhancement
+  #       state: 'on'
+  #     - entity: switch.sonos_salotto_night_sound
+  #       state: 'off'
+  #   card:
   - type: vertical-stack
     cards:
       - type: custom:mini-media-player
@@ -80,158 +86,168 @@ cards:
               type: service
               id: switch.toggle
               data:
-                  entity_id: switch.sonos_salotto_speech_enhancement
+                entity_id: switch.sonos_salotto_speech_enhancement
             - name: Notte
               icon: mdi:weather-night
               type: service
               id: switch.toggle
               data:
-                  entity_id: switch.sonos_salotto_speech_enhancement
+                entity_id: switch.sonos_salotto_night_sound
+              # card_mod:
+              #   style: |
+              #     :host {
+              #       --mini-media-player-button-color:
+              #         {% if is_state('switch.sonos_salotto_night_sound', 'on') %} #2879ae
+              #         {% else %} grey {% endif %};
+              #       }
+              #       mmp-shortcuts {
+              #           color: black;
+              #       }
 
-  # # SPOTIFY CARLOTTA
-  #     - type: custom:mini-media-player
-  #       entity: media_player.spotify_carlotta
-  #       name: Spotify Carlotta
-  #       info: short
-  #       artwork: cover
-  #       hide:
-  #         power: true
-  #         shuffle: false
-  #         runtime: false
-  #         artwork_border: false
-  #         controls: false
-  #         play_stop: true
-      
+  # ## SPOTIFY CARLOTTA
+      - type: custom:mini-media-player
+        entity: media_player.spotify_carlotta
+        name: Spotify Carlotta
+        info: short
+        artwork: cover
+        hide:
+          power: true
+          shuffle: false
+          runtime: false
+          artwork_border: false
+          controls: false
+          play_stop: true
+
   # ECHO MULTIROOM
-      # - type: conditional
-      #   conditions:
-      #     - entity: media_player.multiroom
-      #       state_not: "standby"
-      #   card:
-      #     type: entities
-      #     entities:
-      #       - type: custom:mini-media-player
-      #         entity: media_player.multiroom
-      #         name: Multiroom
-      #         icon: mdi:speaker-multiple
-      #         artwork: cover
-      #         group: true
-      #         source: icon
-      #         info: short
-      #         hide:
-      #           volume: false
-      #           power: true
-      #       - type: custom:mini-media-player
-      #         entity: media_player.echo_dot_salotto
-      #         name: Echo Salotto
-      #         icon: mdi:sofa
-      #         artwork: none
-      #         group: true
-      #         hide:
-      #           controls: true
-      #           progress: true
-      #           info: true
-      #           power: true
-      #           source: true   
-      #       - type: custom:mini-media-player
-      #         entity: media_player.echo_dot_salotto
-      #         name: Echo Camera
-      #         artwork: none
-      #         icon: mdi:bed-empty
-      #         source: icon
-      #         group: true
-      #         idle_view: when_standby
-      #         hide:
-      #           controls: true
-      #           progress: true
-      #           info: true
-      #           power: true
-      #           source: true
-      #       - type: custom:mini-media-player
-      #         entity: media_player.echo_dot_bagno
-      #         name: Echo Bagno
-      #         artwork: none
-      #         icon: mdi:shower
-      #         source: icon
-      #         group: true
-      #         idle_view: when_standby
-      #         hide:
-      #           controls: true
-      #           progress: true
-      #           info: true
-      #           power: true
-      #           source: true
+  # - type: conditional
+  #   conditions:
+  #     - entity: media_player.multiroom
+  #       state_not: "standby"
+  #   card:
+  #     type: entities
+  #     entities:
+  #       - type: custom:mini-media-player
+  #         entity: media_player.multiroom
+  #         name: Multiroom
+  #         icon: mdi:speaker-multiple
+  #         artwork: cover
+  #         group: true
+  #         source: icon
+  #         info: short
+  #         hide:
+  #           volume: false
+  #           power: true
+  #       - type: custom:mini-media-player
+  #         entity: media_player.echo_dot_salotto
+  #         name: Echo Salotto
+  #         icon: mdi:sofa
+  #         artwork: none
+  #         group: true
+  #         hide:
+  #           controls: true
+  #           progress: true
+  #           info: true
+  #           power: true
+  #           source: true
+  #       - type: custom:mini-media-player
+  #         entity: media_player.echo_dot_salotto
+  #         name: Echo Camera
+  #         artwork: none
+  #         icon: mdi:bed-empty
+  #         source: icon
+  #         group: true
+  #         idle_view: when_standby
+  #         hide:
+  #           controls: true
+  #           progress: true
+  #           info: true
+  #           power: true
+  #           source: true
+  #       - type: custom:mini-media-player
+  #         entity: media_player.echo_dot_bagno
+  #         name: Echo Bagno
+  #         artwork: none
+  #         icon: mdi:shower
+  #         source: icon
+  #         group: true
+  #         idle_view: when_standby
+  #         hide:
+  #           controls: true
+  #           progress: true
+  #           info: true
+  #           power: true
+  #           source: true
 
-      # ECHO SALOTTO
-      # - type: conditional
-      #   conditions:
-      #     - entity: media_player.echo_dot_salotto
-      #       state_not: "standby"
-      #     - entity: media_player.multiroom
-      #       state: "standby"
-      #     - entity: media_player.echo_dot_camera
-      #       state: "standby"
-      #     - entity: media_player.echo_dot_bagno
-      #       state: "standby"
-      #   card:
-      #     type: custom:mini-media-player
-      #     entity: media_player.echo_dot_salotto
-      #     name: Echo Salotto
-      #     icon: mdi:sofa
-      #     artwork: cover
-      #     hide:
-      #       source: true
+  # ECHO SALOTTO
+  # - type: conditional
+  #   conditions:
+  #     - entity: media_player.echo_dot_salotto
+  #       state_not: "standby"
+  #     - entity: media_player.multiroom
+  #       state: "standby"
+  #     - entity: media_player.echo_dot_camera
+  #       state: "standby"
+  #     - entity: media_player.echo_dot_bagno
+  #       state: "standby"
+  #   card:
+  #     type: custom:mini-media-player
+  #     entity: media_player.echo_dot_salotto
+  #     name: Echo Salotto
+  #     icon: mdi:sofa
+  #     artwork: cover
+  #     hide:
+  #       source: true
 
-      # ECHO CAMERA
-      # - type: conditional
-      #   conditions:
-      #     - entity: media_player.echo_dot_camera
-      #       state_not: "standby"
-      #     - entity: media_player.multiroom
-      #       state: "standby"
-      #     - entity: media_player.echo_dot_salotto
-      #       state: "standby"
-      #     - entity: media_player.echo_dot_bagno
-      #       state: "standby"
-      #   card:
-      #     type: custom:mini-media-player
-      #     entity: media_player.echo_dot_camera
-      #     name: Echo Camera
-      #     artwork: cover
-      #     icon: mdi:bed-empty
-      #     source: icon
-      #     idle_view: when_standby
-      #     hide:
-      #       source: true
+  # ECHO CAMERA
+  # - type: conditional
+  #   conditions:
+  #     - entity: media_player.echo_dot_camera
+  #       state_not: "standby"
+  #     - entity: media_player.multiroom
+  #       state: "standby"
+  #     - entity: media_player.echo_dot_salotto
+  #       state: "standby"
+  #     - entity: media_player.echo_dot_bagno
+  #       state: "standby"
+  #   card:
+  #     type: custom:mini-media-player
+  #     entity: media_player.echo_dot_camera
+  #     name: Echo Camera
+  #     artwork: cover
+  #     icon: mdi:bed-empty
+  #     source: icon
+  #     idle_view: when_standby
+  #     hide:
+  #       source: true
 
-      # ECHO Bagno
-      # - type: conditional
-      #   conditions:
-      #     - entity: media_player.echo_dot_bagno
-      #       state_not: "standby"
-      #     - entity: media_player.multiroom
-      #       state: "standby"
-      #     - entity: media_player.echo_dot_salotto
-      #       state: "standby"
-      #     - entity: media_player.echo_dot_camera
-      #       state: "standby"
-      #   card:
-      #     type: custom:mini-media-player
-      #     entity: media_player.echo_dot_bagno
-      #     name: Echo Bagno
-      #     artwork: cover
-      #     icon: mdi:shower
-      #     source: icon
-      #     idle_view: when_standby
-      #     hide:
-      #       source: true
+  # ECHO Bagno
+  # - type: conditional
+  #   conditions:
+  #     - entity: media_player.echo_dot_bagno
+  #       state_not: "standby"
+  #     - entity: media_player.multiroom
+  #       state: "standby"
+  #     - entity: media_player.echo_dot_salotto
+  #       state: "standby"
+  #     - entity: media_player.echo_dot_camera
+  #       state: "standby"
+  #   card:
+  #     type: custom:mini-media-player
+  #     entity: media_player.echo_dot_bagno
+  #     name: Echo Bagno
+  #     artwork: cover
+  #     icon: mdi:shower
+  #     source: icon
+  #     idle_view: when_standby
+  #     hide:
+  #       source: true
 
   # LUCI
   - type: vertical-stack
     cards:
       - type: entity-filter
         entities:
-        # - entity: light.luci_di_natale
+          # - entity: light.luci_di_natale
           #   tap_action:
           #     action: toggle
           #   icon: mdi:pine-tree
@@ -433,11 +449,11 @@ cards:
                 #color: "#009FE3"
             color_thresholds:
               - value: 18
-                color: '#2879ae'
+                color: "#2879ae"
               - value: 24
-                color: '#e0982b'
+                color: "#e0982b"
               - value: 31
-                color: '#c9463c'
+                color: "#c9463c"
           - type: custom:mini-graph-card
             name: Umidità Esterna
             hours_to_show: 24
@@ -478,13 +494,11 @@ cards:
   # MAPPA
   - type: map
     entities:
-    - person.carlotta
-    - person.matteo
-    - variable.tipo
-    
+      - person.carlotta
+      - person.matteo
+      - variable.tipo
+
     aspect_ratio: 16:9
     default_zoom: 12
     dark_mode: true
     #hours_to_show: 24
-    
-

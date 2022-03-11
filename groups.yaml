@@ -11,3 +11,8 @@ luci_natale:
 #     - media_player.echo_dot_bagno
 #     - media_player.echo_dot_camera
 #     - media_player.sala
+motion_corridoio:
+  name: movimento
+  entities:
+    - binary_sensor.motion_corridoio
+    - binary_sensor.motion_corridoio_2

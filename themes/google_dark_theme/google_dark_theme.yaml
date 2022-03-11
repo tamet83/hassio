@@ -36,7 +36,7 @@ Google Dark Theme:
   state-icon-active-color: rgb(40, 121, 174)
   state-icon-unavailable-color: var(--disabled-text-color)
   # Sliders
-  paper-slider-knob-color: rgb(40, 121, 174)
+  paper-slider-knob-color: rgb(138, 180, 248)
   paper-slider-knob-start-color: var(--paper-slider-knob-color)
   paper-slider-pin-color: var(--paper-slider-knob-color)
   paper-slider-active-color: var(--paper-slider-knob-color)
@@ -44,9 +44,9 @@ Google Dark Theme:
   # Labels
   label-badge-background-color: rgb(32, 33, 36)
   label-badge-text-color: rgb(198, 203, 210)
-  label-badge-red: rgb(40, 121, 174)
+  label-badge-red: rgb(208, 101, 104)
   label-badge-green: rgb(128, 200, 132)
-  label-badge-blue: rgb(40, 121, 174)
+  label-badge-blue: rgb(138, 180, 248)
   label-badge-yellow: rgb(223, 194, 113)
   label-badge-gray: rgb(95, 98, 103)
   # Cards
@@ -84,3 +84,10 @@ Google Dark Theme:
   mdc-select-idle-line-color: var(--primary-text-color)
   mdc-select-dropdown-icon-color: var(--secondary-text-color)
   mdc-select-hover-line-color: var(--accent-color)
+  # Input
+  input-fill-color: var(--secondary-background-color)
+  input-dropdown-icon-color: var(--secondary-text-color)
+  input-ink-color: var(--primary-text-color)
+  input-label-ink-color: var(--secondary-text-color)
+  input-idle-line-color: var(--primary-text-color)
+  input-hover-line-color: var(--accent-color)

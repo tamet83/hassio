@@ -1,25 +1,25 @@
 ######## Tautulli Sensor ################################
-- platform: tautulli
-  api_key: !secret api_key_tautulli
-  host: localhost
-# Per accedere dall'eseterno attivare queste due righe.
-# host: !secret tautulli_server
-# ssl: true
-  port: 8282
-  monitored_users:
-    - tamet
-    - Corrado
-    - AllegronteTV
-    - Valentina
-    - Pitta
-    - AndreTT7
-    - Mauro08
-    - Mikemrb
-    - Emme Pi
-  monitored_conditions:
-    - full_title
-    - transcode_decision #tipo di riproduzione video
-    - location
-    - bandwidth
-    - user
-    - user_thumb
+# - platform: tautulli
+#   api_key: !secret api_key_tautulli
+#   host: localhost
+# # Per accedere dall'eseterno attivare queste due righe.
+# # host: !secret tautulli_server
+# # ssl: true
+#   port: 8282
+#   monitored_users:
+#     - tamet
+#     - Corrado
+#     - AllegronteTV
+#     - Valentina
+#     - Pitta
+#     - AndreTT7
+#     - Mauro08
+#     - Mikemrb
+#     - Emme Pi
+#   monitored_conditions:
+#     - full_title
+#     - transcode_decision #tipo di riproduzione video
+#     - location
+#     - bandwidth
+#     - user
+#     - user_thumb

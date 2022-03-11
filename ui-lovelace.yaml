@@ -5,11 +5,11 @@
   # exceptions:
   #   - conditions:
   #       user: 5532872ad3ef4f9882e435a93fba71d3
-preload:
-  - conditional
+#preload:
+#  - conditional
 
 title: Home
-theme: google_dark_theme
+#theme: google_dark_theme
 views:
   - !include lovelace/views/01_principale.yaml
   #- !include lovelace/views/02_allarme.yaml

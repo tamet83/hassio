@@ -2,11 +2,7 @@
   alias: Accensione led corridoio notte - movimento
   trigger:
   - platform: state
-    entity_id: binary_sensor.motion_corridoio
-    from: 'off'
-    to: 'on'
-  - platform: state 
-    entity_id: binary_sensor.motion_corridoio_2
+    entity_id: group.motion_corridoio
     from: 'off'
     to: 'on'
   - platform: state
