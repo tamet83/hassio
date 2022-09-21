@@ -16,3 +16,8 @@ motion_corridoio:
   entities:
     - binary_sensor.motion_corridoio
     - binary_sensor.motion_corridoio_2
+
+persone:
+  entities:
+    - person.carlotta
+    - person.matteo

@@ -1,0 +1,23 @@
+visible:
+  - user: 5532872ad3ef4f9882e435a93fba71d3
+title: test
+#type: panel
+background: var(--background-image)
+cards:
+  - type: 'custom:custom-sonos-card'
+      # Optional settings:
+    name: Sonos Card
+    groupsTitle: Dispositivi
+    groupingTitle: ''
+    mediaTitle: ''
+    #headerImage: ''
+    entities: 
+      - media_player.salotto
+  
+  - type: media-control
+    entity: media_player.salotto
+  - type: media-control
+    entity: media_player.salotto_2
+  - type: media-control
+    entity: media_player.spotify_matteo
+    

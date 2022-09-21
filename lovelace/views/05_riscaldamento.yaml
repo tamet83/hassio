@@ -12,7 +12,7 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:simple-thermostat
-        entity: climate.netatmo_camera
+        entity: climate.camera
         name: Camera
         step_size: 0.5
       - type: horizontal-stack
@@ -73,7 +73,7 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:simple-thermostat
-        entity: climate.netatmo_sala
+        entity: climate.sala
         name: Sala
         step_size: 0.5
       - type: horizontal-stack
@@ -134,7 +134,7 @@ cards:
   - type: vertical-stack
     cards:
     - type: custom:simple-thermostat
-      entity: climate.netatmo_ingresso
+      entity: climate.ingresso
       name: Ingresso
       step_size: 0.5
     - type: horizontal-stack
@@ -195,7 +195,7 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:simple-thermostat
-        entity: climate.netatmo_bagno
+        entity: climate.bagno
         name: Bagno
         step_size: 0.5
       - type: horizontal-stack

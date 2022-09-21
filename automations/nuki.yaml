@@ -1,0 +1,24 @@
+- id: "1663709170266"
+  alias: Nuki
+  description: ""
+  trigger:
+    - platform: state
+      entity_id: group.persone
+      from: home
+      to: not_home
+      for:
+        minutes: 5
+  condition:
+    - condition: state
+      entity_id: lock.nuki_allegronte_lock
+      state: unlocked
+  action:
+    - service: lock.lock
+      data: {}
+      target:
+        entity_id: lock.nuki_allegronte_lock
+    - service: notify.cellulari
+      data:
+        title: "Blocco porta"
+        message: "Ho chiuso a chiave la porta"
+  mode: single

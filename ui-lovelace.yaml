@@ -12,10 +12,11 @@ title: Home
 #theme: google_dark_theme
 views:
   - !include lovelace/views/01_principale.yaml
-  #- !include lovelace/views/02_allarme.yaml
+  - !include lovelace/views/02_media_players.yaml
   - !include lovelace/views/03_luci.yaml
   - !include lovelace/views/04_prese.yaml
   - !include lovelace/views/05_riscaldamento.yaml
   - !include lovelace/views/06_upcoming.yaml
  # - !include lovelace/views/07_plex.yaml
   - !include lovelace/views/08_monitoring.yaml
+ # - !include lovelace/views/09_test.yaml

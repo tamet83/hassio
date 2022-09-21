@@ -1,0 +1,156 @@
+############## Media Player #################
+visible:
+  - user: 5532872ad3ef4f9882e435a93fba71d3
+  - user: 6aa7803956c94f778e676e5be51899d0
+title: Media Players
+#id: principale
+icon: mdi:cast
+background: var(--background-image)
+
+cards:
+  # - type: custom:custom-sonos-card
+  #   # Optional settings:
+  #   # name: Sonos Card
+  #   # groupsTitle: Dispositivi
+  #   # groupingTitle: ''
+  #   # mediaTitle: ''
+  #   # headerImage: ''
+  #   entities: 
+  #     - media_player.salotto
+  # MEDIA PLAYERS
+  # - type: vertical-stack
+  #   cards:
+  #     # SAMSUNG TV
+  #     - type: conditional
+  #       conditions:
+  #         - entity: media_player.samsungtv
+  #           state: "on"
+  #       card:
+  #         type: custom:mini-media-player
+  #         entity: media_player.samsungtv
+  #         artwork: cover
+  #         name: Samsung TV
+  #         icon: mdi:television-box
+  #         volume_stateless: true
+  #         volume_step: 5
+  #         sound_mode: full
+  #         hide:
+  #           power_state: false
+  # MEDIA PLAYERS
+
+  - type: custom:mini-media-player
+    entity: media_player.salotto
+    artwork: cover
+    #name: Salotto
+    icon: mdi:soundbar
+    icon_state: true
+    volume_stateless: false
+    volume_step: 5
+    sound_mode: full
+    source: full
+    hide:
+      power_state: True
+      power: true
+      controls: false
+    shortcuts:
+      columns: 2
+      buttons:
+        - name: Dialoghi
+          icon: mdi:account-voice
+          type: service
+          id: switch.toggle
+          data:
+            entity_id: switch.sonos_salotto_speech_enhancement
+        - name: Notte
+          icon: mdi:weather-night
+          type: service
+          id: switch.toggle
+          data:
+            entity_id: switch.sonos_salotto_night_sound
+
+  # ## SPOTIFY CARLOTTA
+  - type: custom:mini-media-player
+    entity: media_player.spotify_carlotta
+    #name: Spotify Carlotta
+    info: short
+    artwork: cover
+    source: Full
+    hide:
+      power: true
+      shuffle: false
+      runtime: false
+      artwork_border: false
+      controls: false
+      play_stop: true
+  # ## SPOTIFY MATTEO
+  - type: custom:mini-media-player
+    entity: media_player.spotify_matteo
+    name: Spotify Matteo
+    info: short
+    artwork: cover
+    source: full
+    hide:
+      power: true
+      shuffle: false
+      runtime: false
+      artwork_border: false
+      controls: false
+      play_stop: true
+  
+  ### Fire TV
+    # ## SPOTIFY MATTEO
+  - type: custom:mini-media-player
+    entity: media_player.plex_allegrontetv_plex_for_android_tv_fire_tv
+    name: Fire TV
+    info: short
+    artwork: full-cover-fit
+    source: icon
+    hide:
+      power: true
+      shuffle: false
+      runtime: false
+      artwork_border: false
+      controls: true
+      play_stop: true
+      volume: true
+
+  - type: 'custom:spotify-card'
+    account: "matteo"
+    #height: <optional pixels height for the playlist element. If content is larger scrolling will be enabled>
+    limit: 10
+    device: Beam
+    #playlist_type: <optional featured|discover-weekly> Change type of playlists shown. Default are your normal playlists.
+    #always_play_random_song: <optional true> Set to start playlists from a random song.
+    #country_code: <optional country code to show featured playlist relevent to a particular country. https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 >
+    #hide_warning: <optional true> Hide warnings if they are displayed.
+    name: Spotify Matteo
+    display_style: Grid
+    grid_covers_per_row: 4
+    spotify_entity: media_player.matteo_s_sonos_beam
+    default_device: 'Salotto'
+    #filter_devices: <optional Array> Hides devices which matches any array entry. The entries have to be regular expressions and are matched against the full device-name. The following are examples
+    #  - .*room <hides all devices ending with room>
+    #  - bath.*,kids.* <hides all devices which start with bath or kids>
+    known_connect_devices: 
+      - id: 'a61096a773821f791a32ba43ec086212064684b2'
+        name: Beam
+        entity_id: media_player.salotto
+      - id: '8401d928-57a5-40e1-a610-6b548d97686a_amzn_2'
+        name: Multiroom
+        entity_id: media_player.multiroom
+      - entity_id: media_player.matteo_s_sonos_beam
+        name: Sonos Beam
+
+
+
+############## Allarme #############
+# title: Allarme
+# path: allarme
+# icon: mdi:alarm-light
+# background: var(--background-image)
+# cards:
+#   - type: alarm-panel
+#     entity: alarm_control_panel.allarme_casa
+#     name: Allarme
+#     states:
+#       - arm_away

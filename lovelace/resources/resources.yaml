@@ -67,8 +67,8 @@
   type: module
 
 #Spotify
-#- url: /hacsfiles/spotify-card/spotify-card.js
- # type: module
+- url: /hacsfiles/spotify-card/spotify-card.js
+  type: module
 
 #Traker Card
 - url: /customcards/tracker-card.js
@@ -90,4 +90,8 @@
   
 #Stack in card
 - url: /local/stack-in-card.js
+  type: module
+
+#Sonos Card
+- url: /local/custom-sonos-card.js?v=3.6.0
   type: module

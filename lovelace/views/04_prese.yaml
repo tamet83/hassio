@@ -35,7 +35,7 @@ cards:
         - entity: switch.sonoff4
           name: Presa TV
           icon: mdi:power-plug
-        - entity: switch.sonoff_5
+        - entity: switch.sonoff5
           name: USB
           icon: mdi:usb
   - type: vertical-stack

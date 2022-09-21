@@ -23,9 +23,9 @@ homeassistant:
 logger:
   default: info
   #logs:
-    #aiounifi: debug
-    #homeassistant.components.unifi: debug
-    #homeassistant.components.device_tracker.unifi: debug
+  #aiounifi: debug
+  #homeassistant.components.unifi: debug
+  #homeassistant.components.device_tracker.unifi: debug
 mobile_app:
 #map:
 group: !include groups.yaml
@@ -41,7 +41,7 @@ sensor: !include_dir_merge_list sensors
 media_player: !include media_player.yaml
 light: !include light.yaml
 weather: !include weather.yaml
-#device_tracker: !include device_tracker.yaml
+device_tracker: !include device_tracker.yaml
 alarm_control_panel: !include alarm.yaml
 shell_command: !include shell_command.yaml
 scene: !include scene.yaml
@@ -62,11 +62,10 @@ logbook: !include logbook.yaml
 #WOl
 switch: !include switch.yaml
 config:
-updater:
+#updater:
 camera: !include camera.yaml
 cloud: !include cloud.yaml
 person:
-
 
 #owntracks:
 
@@ -77,7 +76,6 @@ input_select:
       - acceso
       - spento
     initial: spento
-  
 
 # Netatmo
 netatmo:
@@ -105,18 +103,21 @@ proxmoxve:
           - 107 # Calibre
 
 #Spotify:
-spotify:
-  client_id: !secret spotify_id
-  client_secret: !secret spotify_secret
+# spotify:
+  # client_id: !secret spotify_id
+  # client_secret: !secret spotify_secret
 
-# spotcast:
-#   sp_dc: !secret sp_dc_matteo
-#   sp_key: !secret sp_key_matteo
-#   accounts:
-#     carlotta:
-#       sp_dc: !secret sp_dc_carlotta
-#       sp_key: !secret sp_key_carlotta
-
+spotcast:
+  sp_dc: !secret sp_dc_matteo
+  sp_key: !secret sp_key_matteo
+  country: IT
+  accounts:
+    matteo:
+      sp_dc: !secret sp_dc_matteo
+      sp_key: !secret sp_key_matteo
+    carlotta:
+      sp_dc: !secret sp_dc_carlotta
+      sp_key: !secret sp_key_carlotta
 
 #Transmission
 # transmission:
@@ -128,7 +129,7 @@ spotify:
 #   name: Transmission
 
 #climate:
- # - platform: netatmo
+# - platform: netatmo
 
 lovelace:
   resources: !include lovelace/resources/resources.yaml
@@ -138,7 +139,6 @@ lovelace:
 frontend:
   #javascript_version: latest
   themes: !include_dir_merge_named themes
-  
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -171,20 +171,20 @@ notify:
     platform: group
     services:
       - service: mobile_app_iphone_di_matteo
-      - service: mobile_app_iphonexr_carlotta
+      - service: mobile_app_iphone_di_carlotta
   - platform: alexa_media
     name: alexa
 
 alexa_media:
   accounts:
-  - email: !secret amazon_email
-    password: !secret amazon_password
-    url: amazon.it
-    exclude_devices:
-      - "Fire TV"
-      - "Matteo's Sonos Beam"
-      - 'This Device'
-      - Salotto
+    - email: !secret amazon_email
+      password: !secret amazon_password
+      url: amazon.it
+      # exclude_devices:
+      #   - "Fire TV"
+      #   - "Matteo's Sonos Beam"
+      #   - 'This Device'
+      #   - Salotto
 
 # Text to speech
 tts:
@@ -202,7 +202,7 @@ variable:
   tipo:
     value: 0
     attributes:
-      friendly_name: 'Tipo'
+      friendly_name: "Tipo"
       icon: mdi:car-hatchback
       latitude: 0
       longitude: 0
@@ -210,6 +210,6 @@ variable:
 
 panel_iframe:
   torrent_page:
-    title: 'Transmission'
+    title: "Transmission"
     url: !secret transmission_iframe
     icon: mdi:progress-download

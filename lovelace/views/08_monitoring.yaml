@@ -45,21 +45,26 @@ cards:
             size: 40px
             styles:
               card:
+                # - box-shadow: none
+                # - height: 100px
+                # - width: 300px
+                # - card_size: 4
+                # - padding: 10%
                 - background-color: rgb(32, 33, 36)
-                - box-shadow: 0px 0px 9px 3px var(--button-card-light-color)
-            aspect_ratio: 3/1
+                - box-shadow: 0px 3px 0px 0px var(--button-card-light-color)
+            #aspect_ratio: 3/1
             state:
               - color: red
                 value: 'off'
               - color: green
                 value: 'on'
-          - entity: switch.adguard_protection
+          - entity: switch.adguard_home_protection
             name: Generale
             icon: mdi:power
-          - entity: switch.adguard_filtering
+          - entity: switch.adguard_home_filtering
             name: Filtering
             icon: mdi:filter
-          - entity: switch.adguard_safe_browsing
+          - entity: switch.adguard_home_safe_browsing
             name: Safe Browsing
             icon: mdi:google-chrome
           #- sensor.pihole_check
@@ -69,14 +74,14 @@ cards:
               label: Details
             #open: true #SERVE PER LASCIARE APERTO IL MENU
             entities:
-              - entity: sensor.adguard_dns_queries_blocked_ratio
+              - entity: sensor.adguard_home_dns_queries_blocked_ratio
                 name: '% Blocked Today'
                 icon: mdi:label-percent-outline
-              - entity: sensor.adguard_dns_queries_blocked
+              - entity: sensor.adguard_home_dns_queries_blocked
                 name: Blocked Today
-              - entity: sensor.adguard_dns_queries
+              - entity: sensor.adguard_home_dns_queries
                 name: Total Today
-              - entity: sensor.adguard_rules_count
+              - entity: sensor.adguard_home_rules_count
                 name: Rules Count
 
   # PROXMOX

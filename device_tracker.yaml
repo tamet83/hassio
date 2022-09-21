@@ -13,3 +13,14 @@
 #   interval_seconds: 60
 # - platform: bluetooth_tracker
 #   interval_seconds: 5
+- platform: unifi_direct
+  host: !secret unifi_ap_camera
+  username: !secret username_unifi_ap
+  password: !secret password_unifi_ap
+  interval_seconds: 60
+
+- platform: unifi_direct
+  host: !secret unifi_ap_sala
+  username: !secret username_unifi_ap
+  password: !secret password_unifi_ap
+  interval_seconds: 60
