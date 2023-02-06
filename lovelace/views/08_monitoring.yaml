@@ -95,25 +95,25 @@ cards:
         show_name: true
         columns: 4
         entities:
-          - entity: binary_sensor.pve_adguard_running
+          - entity: binary_sensor.pve_adguard
             name: Adguard
             icon: mdi:shield-check
-          - entity: binary_sensor.pve_plex_running
+          - entity: binary_sensor.pve_plex
             name: Plex
             icon: mdi:plex
-          - entity: binary_sensor.pve_docker_running
+          - entity: binary_sensor.pve_docker
             name: Docker
             icon: mdi:docker
-          - entity: binary_sensor.pve_sonarr_running
+          - entity: binary_sensor.pve_sonarr
             name: Sonarr-Radarr
             icon: mdi:radar
-          - entity: binary_sensor.pve_amplifi_running
+          - entity: binary_sensor.pve_amplifi
             name: UniFi
             icon: mdi:router-wireless
-          - entity: binary_sensor.pve_wireguard_running
+          - entity: binary_sensor.pve_wireguard
             name: WireGuard
             icon: mdi:vpn
-          - entity: binary_sensor.pve_calibre_running
+          - entity: binary_sensor.pve_calibre
             name: Calibre
             icon: mdi:bookshelf
 
@@ -211,7 +211,7 @@ cards:
             size: 30px
             tap_action:
               action: call-service
-              service: speedtestdotnet.speedtest
+              service: speedtest
               confirmation: true 
             styles:
               card:

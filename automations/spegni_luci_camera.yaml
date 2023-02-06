@@ -1,4 +1,5 @@
-- alias: "Spegni luci camera"
+- id: '326472369543'
+  alias: "Spegni luci camera"
   initial_state: true
   trigger:
     - platform: event

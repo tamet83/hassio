@@ -2,10 +2,12 @@
   alias: Effetto luci natale OFF
   description: ''
   trigger:
-  - entity_id: input_select.effetto_luci_preset
+  - entity_id: input_boolean.effetto
     platform: state
-    to: "spento"
+    from: 'on'
+    to: 'off'
   condition: []
   action:
   - entity_id: script.light_relax_off
     service: script.turn_on
+  mode: single

@@ -1,4 +1,4 @@
-- id: '1552742945167'
+- id: '3475821024'
   alias: Spegnimento led corridoio
   trigger:
   - platform: state

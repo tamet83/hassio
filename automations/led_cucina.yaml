@@ -2,14 +2,22 @@
   alias: Led Cucina
   description: ''
   trigger:
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: interruttore_led_cucina
-      event: 1002
-  condition: []
+    - platform: mqtt
+      topic: zigbee2mqtt/interruttore_led_cucina/action
+      payload: 'single'
   action:
-  - service: light.toggle
-    data:
-      entity_id: light.led_cucina
+    - service: light.toggle
+      data:
+        entity_id: light.led_cucina
   mode: single
+  # - platform: event
+  #   event_type: deconz_event
+  #   event_data:
+  #     id: interruttore_led_cucina
+  #     event: 1002
+  # condition: []
+  # action:
+  # - service: light.toggle
+  #   data:
+  #     entity_id: light.led_cucina
+  # mode: single

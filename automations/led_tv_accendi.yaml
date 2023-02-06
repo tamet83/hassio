@@ -1,0 +1,18 @@
+- alias: "led_tv_accendi"
+  mode: single
+  trigger:
+    - platform: state
+      entity_id:
+        - media_player.soggiorno
+      to: 
+        - playing
+  condition:
+    - condition: state
+      entity_id: switch.samsung_tv
+      state: "on"
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.led_tv
+      data:
+        effect: "USB Capture"

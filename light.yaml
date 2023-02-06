@@ -11,11 +11,18 @@
   entity_id: switch.faretti
 
 - platform: group
-  name: Hue Sala
+  name: Sala
   entities:
     - light.gina
     - light.tolomeo
+    - light.led_tv
+    - light.rami
+    - light.dario_sala
+- platform: group
+  name: Cucina
+  entities:
     - light.led_cucina
+    - light.faretti
 
 - platform: group
   name: Luci di Natale
@@ -28,19 +35,3 @@
   entities:
     - light.dario_camera
     - light.led_camera
-
-- platform: group
-  name: sala
-  entities:
-    - light.koogeek_ls1_2062df
-    - light.luci_albero
-    - light.luci_rami
-    - light.dario_sala
-    - light.faretti
-    - light.hue_sala
-    - light.led_cucina
-
-- platform: group
-  name: cucina
-  entities:
-    - light.led_cucina

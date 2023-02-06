@@ -49,3 +49,4 @@
         Stai lasciando tutte le finestre aperte
         {% endif %}
       title: NOTIFICA Finestra
+  mode: single

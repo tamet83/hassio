@@ -1,0 +1,15 @@
+- id: '1603454728009'
+  alias: Gina
+  description: ''
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: interruttore_1
+      event: 1002
+  condition: []
+  action:
+  - service: light.toggle
+    data:
+      entity_id: light.gina
+  mode: single

@@ -1,25 +1,25 @@
-- platform: plex_recently_added
-  name: Film
-  token: !secret plex_token
-  host: !secret plex_host
-  port: !secret plex_port
-  section_types:
-    - movie
-  max: 4
-  download_images: true
-  img_dir: '/plex_artwork/' # Film/'
-  # ssl: false
-  # ssl_cert: false
+# - platform: plex_recently_added
+#   name: Film
+#   token: !secret plex_token
+#   host: !secret plex_host
+#   port: !secret plex_port
+#   section_types:
+#     - movie
+#   max: 4
+#   download_images: true
+#   img_dir: '/plex_artwork/' # Film/'
+#   # ssl: false
+#   # ssl_cert: false
 
-- platform: plex_recently_added
-  name: Serie
-  token: !secret plex_token
-  host: !secret plex_host
-  port: !secret plex_port
-  section_types:
-    - show
-  max: 4
-  download_images: true
-  img_dir: '/plex_artwork/' #Serie/'
-  # ssl: false
-  # ssl_cert: false
+# - platform: plex_recently_added
+#   name: Serie
+#   token: !secret plex_token
+#   host: !secret plex_host
+#   port: !secret plex_port
+#   section_types:
+#     - show
+#   max: 4
+#   download_images: true
+#   img_dir: '/plex_artwork/' #Serie/'
+#   # ssl: false
+#   # ssl_cert: false

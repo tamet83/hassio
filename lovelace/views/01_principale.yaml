@@ -24,13 +24,9 @@ badges:
         {% elif is_state('lock.nuki_allegronte_lock','locked') %} #2879ae
         {% endif %};
         }
-    tap_action: 
-      action: toggle
     double_tap_action:
-      action: call-service
-      service: lock.open
-      data:
-        entity_id: lock.nuki_allegronte_lock
+      action: toggle
+    
   - entity: lock.nuki_portone_lock
     icon: mdi:door #va messa una icona qualsiasi
     name: Portone
@@ -350,7 +346,7 @@ cards:
     entities:
       - light.led_corridoio
       - binary_sensor.motion_corridoio
-    camera_image: camera.c1c
+    camera_image: camera.corridoio
     camera_view: live
     aspect_ratio: 16x9
 

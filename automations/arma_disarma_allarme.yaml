@@ -1,8 +1,10 @@
-- alias: webhook_allarme
+- id: '0003'
+  alias: webhook_allarme
   initial_state: true
   trigger:
     platform: webhook
     webhook_id: allarme
+  condition: []
   action:
     - service: script.toggle_allarme
     - service: script.alza_volume_echo_camera
@@ -21,3 +23,4 @@
           {% endif %}
     - delay: 00:00:10
     - service: script.abbassa_volume_echo_camera
+  mode: single

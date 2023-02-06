@@ -1,36 +1,36 @@
-- name: home
-  latitude: !secret home_latitude
-  longitude: !secret home_longitude
-  radius: 40
-  icon: mdi:home
-  #passive: true
- # track_ios: false
-- name: Lavoro_M
-  latitude: !secret work_m_latitude
-  longitude: !secret work_m_longitude
-  radius: 100
-  icon: mdi:office-building
-  #track_ios: false
-- name: Lavoro_C
-  latitude: !secret work_c_latitude
-  longitude: !secret work_c_longitude
-  radius: 100
-  icon: mdi:office-building
-  #track_ios: false
-- name: Zoagli
-  latitude: !secret mare_carlotta_latitude
-  longitude: !secret mare_carlotta_longitude
-  radius: 100
-  icon: mdi:beach
-  #track_ios: false
-- name: Pitta
-  latitude: !secret mare_pitta_latitude
-  longitude: !secret mare_pitta_longitude
-  radius: 100
-  icon: mdi:beach
-  #track_ios: false
-- name: Aosta
-  latitude: !secret aosta_latitude
-  longitude: !secret aosta_longitude
-  radius: 100
-  icon: mdi:image-filter-hdr
+# - name: home
+#   latitude: !secret home_latitude
+#   longitude: !secret home_longitude
+#   radius: 40
+#   icon: mdi:home
+#   #passive: true
+#  # track_ios: false
+# - name: Lavoro_M
+#   latitude: !secret work_m_latitude
+#   longitude: !secret work_m_longitude
+#   radius: 100
+#   icon: mdi:office-building
+#   #track_ios: false
+# - name: Lavoro_C
+#   latitude: !secret work_c_latitude
+#   longitude: !secret work_c_longitude
+#   radius: 100
+#   icon: mdi:office-building
+#   #track_ios: false
+# - name: Zoagli
+#   latitude: !secret mare_carlotta_latitude
+#   longitude: !secret mare_carlotta_longitude
+#   radius: 100
+#   icon: mdi:beach
+#   #track_ios: false
+# - name: Pitta
+#   latitude: !secret mare_pitta_latitude
+#   longitude: !secret mare_pitta_longitude
+#   radius: 100
+#   icon: mdi:beach
+#   #track_ios: false
+# - name: Aosta
+#   latitude: !secret aosta_latitude
+#   longitude: !secret aosta_longitude
+#   radius: 100
+#   icon: mdi:image-filter-hdr

@@ -1,0 +1,47 @@
+- alias: "led_tv_spegni"
+  mode: single
+  trigger:
+    - platform: state
+      entity_id:
+        - media_player.soggiorno
+      to: standby
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 10
+    - platform: state
+      entity_id:
+        - media_player.soggiorno
+      to: paused
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 10
+    - platform: state
+      entity_id:
+        - media_player.soggiorno
+      to: idle
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 10
+    # - platform: state
+    #   entity_id:
+    #     - media_player.soggiorno
+    #   to: pause
+  condition:
+    - condition: state
+      entity_id: switch.samsung_tv
+      state: "on"
+  action:
+    - type: turn_off
+      device_id: ed9219b63a31ca87e6e0686ed7a94a71
+      entity_id: light.led_tv
+      domain: light
+    # - service: remote.send_command
+    #   target:
+    #     entity_id: remote.rm_4_pro
+    #   data:
+    #     num_repeats: 1
+    #     delay_secs: 0.4
+    #     command: b64:JgBGAJCUEjgSOBI4ExISExITEhMSExI4EjgSOBITEhMSExITEhMSExI4ETkRFBITETkRORE5ETkRFBEUETkROREUEhMRFBEADQU=

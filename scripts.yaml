@@ -66,20 +66,20 @@ luci_natale_relax:
   alias: "Effetto luci natale"
   mode: queued
   sequence:
-    #CODICE PER IL RESTO DELL'ANNO
-    # - service: > 
-    #     {% if is_state('light.rami', 'on') %}
-    #       light.turn_off
-    #     {% else %}
-    #       light.turn_on
-    #       {% endif %}
-  #CODICE PER NATALE
+  #CODICE PER IL RESTO DELL'ANNO
     - service: > 
-        {% if is_state('light.rami', 'on') and is_state('light.albero', 'on') %}
+        {% if is_state('light.rami', 'on') %}
           light.turn_off
         {% else %}
           light.turn_on
         {% endif %}
+  #CODICE PER NATALE
+    # - service: > 
+    #     {% if is_state('light.rami', 'on') and is_state('light.albero', 'on') %}
+    #       light.turn_off
+    #     {% else %}
+    #       light.turn_on
+    #     {% endif %}
       data:
         entity_id: light.luci_di_natale
         transition: 10
@@ -106,10 +106,18 @@ light_relax_off:
         entity_id: script.light_relax_on
 
 #AGGIORNA TRAKING CELLULARI
-aggiorna_tracking:
-  alias: "Aggiorna traking cellulari"
-  mode: queued
+aggiorna_tracking_carlotta:
+  alias: "Aggiorna traking Carlotta"
+  mode: single
   sequence:
     - service: notify.mobile_app_iphone_di_carlotta
+      data:
+        message: request_location_update
+
+aggiorna_tracking_matteo:
+  alias: "Aggiorna traking Matteo"
+  mode: single
+  sequence:
+    - service: notify.mobile_app_iphone_di_matteo
       data:
         message: request_location_update

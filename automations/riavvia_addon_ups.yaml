@@ -1,4 +1,5 @@
-- alias: Riavvia Add-ON UPS
+- id: '1287493865'
+  alias: Riavvia Add-ON UPS
   trigger:
     - platform: state
       entity_id: sensor.ups_status
@@ -8,3 +9,4 @@
     - service: hassio.addon_restart
       data:
         addon: a0d7b954_nut
+  mode: single

@@ -15,12 +15,20 @@
 #   interval_seconds: 5
 - platform: unifi_direct
   host: !secret unifi_ap_camera
+  #host: !secret unifi_ap_sala
   username: !secret username_unifi_ap
   password: !secret password_unifi_ap
   interval_seconds: 60
+  consider_home: 180
+  new_device_defaults:
+      track_new_devices: false
+
 
 - platform: unifi_direct
   host: !secret unifi_ap_sala
   username: !secret username_unifi_ap
   password: !secret password_unifi_ap
   interval_seconds: 60
+  consider_home: 180
+  new_device_defaults:
+      track_new_devices: false

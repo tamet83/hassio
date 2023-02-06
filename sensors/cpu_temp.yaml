@@ -1,0 +1,10 @@
+- platform: ssh
+  host: !secret proxmox_host
+  name: 'NUC CPU Temp'
+  username: !secret proxmox_user
+  password: !secret proxmox_password
+  command: "sensors | grep 'Package id 0:' | cut -c17-20"
+  value_template: >-
+    {%- set line = value.split("\r\n") -%}
+    {{ line[1] }}
+  unit_of_measurement: '°C'

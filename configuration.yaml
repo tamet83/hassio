@@ -10,6 +10,7 @@ homeassistant:
   unit_system: metric
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Rome
+  country: IT
   # Customization file
   customize: !include customize.yaml
   packages: !include_dir_named packages
@@ -27,9 +28,11 @@ logger:
   #homeassistant.components.unifi: debug
   #homeassistant.components.device_tracker.unifi: debug
 mobile_app:
+default_config:
 #map:
 group: !include groups.yaml
-automation: !include_dir_merge_list automations
+automation yaml: !include_dir_merge_list automations
+automation: !include automations.yaml
 script: !include scripts.yaml
 http: !include http.yaml # Http configuration
 #tuya: !include tuya.yaml # Smart plug config
@@ -69,18 +72,10 @@ person:
 
 #owntracks:
 
-input_select:
-  effetto_luci_preset:
-    name: Effetto luci natale
-    options:
-      - acceso
-      - spento
-    initial: spento
-
 # Netatmo
-netatmo:
-  client_id: !secret netatmo_client_id
-  client_secret: !secret netatmo_client_secret
+# netatmo:
+#   client_id: !secret netatmo_client_id
+#   client_secret: !secret netatmo_client_secret
 
 #Proxmox
 proxmoxve:
@@ -128,16 +123,21 @@ spotcast:
 #   scan_interval: 15
 #   name: Transmission
 
-#climate:
-# - platform: netatmo
-
 lovelace:
-  resources: !include lovelace/resources/resources.yaml
-  mode: yaml
+  mode: storage
+  #dashboards:
+  #  lovelace-yaml:
+  #    mode: yaml
+  #    title: Allegronte
+  #    show_in_sidebar: true
+  #    filename: ui-lovelace.yaml
+# lovelace:
+#   mode: yaml
+#   resources: !include lovelace/resources/resources.yaml
+  # mode: yaml
 
 # Enables the frontend
 frontend:
-  #javascript_version: latest
   themes: !include_dir_merge_named themes
 
 # Allows you to issue voice commands from the frontend in enabled browsers
@@ -172,6 +172,7 @@ notify:
     services:
       - service: mobile_app_iphone_di_matteo
       - service: mobile_app_iphone_di_carlotta
+      - service: mobile_app_iphone
   - platform: alexa_media
     name: alexa
 
@@ -180,11 +181,11 @@ alexa_media:
     - email: !secret amazon_email
       password: !secret amazon_password
       url: amazon.it
-      # exclude_devices:
+      exclude_devices:
       #   - "Fire TV"
-      #   - "Matteo's Sonos Beam"
-      #   - 'This Device'
-      #   - Salotto
+        - "Matteo's Sonos Beam"
+        - 'This Device'
+        - Salotto
 
 # Text to speech
 tts:
@@ -192,10 +193,6 @@ tts:
     service_name: google_say
 
 system_health:
-
-# hacs:
-#   token: !secret hacs_token
-#   themes: true
 
 # TIPO
 variable:
@@ -209,7 +206,7 @@ variable:
     restore: true
 
 panel_iframe:
-  torrent_page:
-    title: "Transmission"
-    url: !secret transmission_iframe
-    icon: mdi:progress-download
+  homarr:
+    title: "Homarr"
+    url: !secret homarr_host
+    icon: mdi:bookmark

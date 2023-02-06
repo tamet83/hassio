@@ -11,7 +11,7 @@
     to: 'on'
   condition:
   - after: '23:00:00'
-    before: 07:15:00
+    before: 07:29:59
     condition: time
   - condition: state
     entity_id: light.led_corridoio

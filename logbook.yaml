@@ -1,6 +1,6 @@
 exclude:
   domains:
-    - sensor
+    #- sensor
     #- device_tracker
     - sun
     - group
@@ -19,21 +19,25 @@ include:
     - scene
     - script
     - device_tracker
-  entities:
-    #- device_tracker.carlotta_iphone8
-    #- device_tracker.matteo_iphonexr
-    - sensor.allegronte_tv_stato
-    - sensor.hacs
-    - sensor.luci_albero_status
-    - sensor.luci_rami_status
-    - sensor.pihole_status
-    - sensor.radarr_upcoming_media
-    - sensor.temperatura_camera
-    - sensor.temperatura_sala
-    - sensor.temperatura_corridoio
-    - sensor.temperatura_bagno
-    - sensor.apc_ups_status
-    - sensor.apc_ups_input_voltage
-    - sensor.apc_ups_battery_charge
-    - sensor.apc_ups_load
-    - sensor.apc_ups_battery_runtime
+    - sensor
+  # entities:
+  #   #- device_tracker.carlotta_iphone8
+  #   #- device_tracker.matteo_iphonexr
+  #   - sensor.allegronte_tv_stato
+  #   - sensor.hacs
+  #   - sensor.luci_albero_status
+  #   - sensor.luci_rami_status
+  #   - sensor.radarr_upcoming_media
+  #   - sensor.temperatura_camera_temperature
+  #   - sensor.temperatura_camera_humidity
+  #   - sensor.temperatura_sala_temperature
+  #   - sensor.temperatura_sala_humidity
+  #   - sensor.temperatura_corridoio_temperature
+  #   - sensor.temperatura_corridoio_humidity
+  #   - sensor.temperatura_bagno_temperature
+  #   - sensor.temperatura_bagno_humidity
+  #   - sensor.apc_ups_status
+  #   - sensor.apc_ups_input_voltage
+  #   - sensor.apc_ups_battery_charge
+  #   - sensor.apc_ups_load
+  #   - sensor.apc_ups_battery_runtime

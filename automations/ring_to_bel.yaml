@@ -1,0 +1,15 @@
+- id: '9752965923623'
+  alias: Ring to Bel
+  description: ''
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: smart_switch
+      event: 1002
+  condition: []
+  action:
+  - service: switch.toggle
+    data:
+      entity_id: switch.smart_plug_1
+  mode: single

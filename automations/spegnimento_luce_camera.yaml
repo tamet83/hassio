@@ -1,4 +1,4 @@
-- id: '1553628541692'
+- id: '923812930'
   alias: Spegnimento luce camera
   trigger:
   - entity_id: binary_sensor.motion_camera

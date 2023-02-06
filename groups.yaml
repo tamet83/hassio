@@ -14,10 +14,12 @@ luci_natale:
 motion_corridoio:
   name: movimento
   entities:
-    - binary_sensor.motion_corridoio
-    - binary_sensor.motion_corridoio_2
+    - binary_sensor.motion_corridoio_occupancy
+    - binary_sensor.motion_corridoio_2_occupancy
 
 persone:
   entities:
     - person.carlotta
     - person.matteo
+    - person.corrado
+    - person.francesca

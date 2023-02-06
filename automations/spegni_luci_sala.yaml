@@ -1,10 +1,10 @@
 - alias: "Spegni luci sala"
   initial_state: true
   trigger:
-    - platform: event
-      event_type: ios.action_fired
-      event_data:
-        actionName: 'Luci sala'
+    - platform: mqtt
+      topic: zigbee2mqtt/ikea_1/action
+      payload: 'on'
   action:
     service: light.turn_off
-    entity_id: light.luci_sala
+    entity_id: light.sala
+  mode: single

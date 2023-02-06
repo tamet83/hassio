@@ -1,4 +1,4 @@
-- id: '1556916806943'
+- id: '3472034709'
   alias: Spegni NAS
   trigger:
   - platform: state

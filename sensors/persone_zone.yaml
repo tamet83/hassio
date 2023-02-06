@@ -1,0 +1,14 @@
+- platform: template
+  sensors:
+    persone_casa:
+      friendly_name: 'Persone a casa'
+      value_template: >
+        {{ expand(states.group.persone)|selectattr('state','equalto','home')|list|length }}
+    persone_lavoro:
+      friendly_name: 'Persone a lavoro'
+      value_template: >
+        {{ expand(states.group.persone)|selectattr('state','equalto','work')|list|length }}
+    my_guests_counter:
+        friendly_name: Guests Presence
+        value_template: >-
+          {{ 2 | int }}

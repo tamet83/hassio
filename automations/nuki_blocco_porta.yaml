@@ -1,5 +1,5 @@
 - id: "1663709170266"
-  alias: Nuki
+  alias: Nuki blocco porta
   description: ""
   trigger:
     - platform: state
@@ -19,6 +19,9 @@
         entity_id: lock.nuki_allegronte_lock
     - service: notify.cellulari
       data:
-        title: "Blocco porta"
+        title: "NUKI"
         message: "Ho chiuso a chiave la porta"
+        data:
+          push:
+            interruption-level: time-sensitive
   mode: single

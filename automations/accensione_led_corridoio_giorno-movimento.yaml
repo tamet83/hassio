@@ -1,5 +1,6 @@
 - id: '1552740658917'
   alias: Accensione led corridoio giorno - movimento
+  description: ''
   trigger:
   - platform: state
     entity_id: group.motion_corridoio
@@ -26,3 +27,4 @@
       - 109
     entity_id: light.led_corridoio
     service: light.turn_on
+  mode: single

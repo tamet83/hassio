@@ -1,8 +1,8 @@
 
-  purge_keep_days: 7
+  purge_keep_days: 30
   exclude:
     domains:
-      - sensor
+      #- sensor
       #- device_tracker
       - sun
       - group
@@ -17,41 +17,42 @@
       #- input_select
       - light
       #- media_player
+      - sensor
       - person
       - scene
       - script
-    entities:
-      - sensor.allegronte_tv_stato
-      - sensor.corrado_stato
-      - sensor.hacs
-      - sensor.luci_albero_status
-      #- sensor.luci_rami_status
-      - sensor.pihole_status
-      - sensor.ping_medio
-      - sensor.radarr_upcoming_media
-      - sensor.tamet_stato
-      - sensor.temperatura_camera
-      - sensor.umidita_camera
-      - sensor.temperatura_sala
-      - sensor.umidita_sala
-      - sensor.temperatura_bagno
-      - sensor.umidita_bagno
-      - sensor.temperatura_corridoio
-      - sensor.umidita_corridoio
-      - sensor.temperatura_esterna
-      - sensor.umidita_esterna
-      - sensor.apc_ups_status
-      - sensor.apc_ups_input_voltage
-      - sensor.apc_ups_battery_charge
-      - sensor.apc_ups_load
-      - sensor.apc_ups_battery_runtime
-      - sensor.transmission_down_speed
-      - sensor.transmission_up_speed
-      - sensor.speedtest_download
-      - sensor.speedtest_upload
-      - sensor.usg_cpu
-      - sensor.usg_ram
-      - sensor.usg_uptime
-      - sensor.usg_ip
-      - sensor.usg_lan_clients
-      - sensor.usg_wlan_clients
+    # entities:
+    #   - sensor.allegronte_tv_stato
+    #   - sensor.corrado_stato
+    #   - sensor.hacs
+    #   - sensor.luci_albero_status
+    #   #- sensor.luci_rami_status
+    #   - sensor.pihole_status
+    #   - sensor.ping_medio
+    #   - sensor.radarr_upcoming_media
+    #   - sensor.tamet_stato
+    #   - sensor.temperatura_camera
+    #   - sensor.umidita_camera
+    #   - sensor.temperatura_sala
+    #   - sensor.umidita_sala
+    #   - sensor.temperatura_bagno
+    #   - sensor.umidita_bagno
+    #   - sensor.temperatura_corridoio
+    #   - sensor.umidita_corridoio
+    #   - sensor.temperatura_esterna
+    #   - sensor.umidita_esterna
+    #   - sensor.apc_ups_status
+    #   - sensor.apc_ups_input_voltage
+    #   - sensor.apc_ups_battery_charge
+    #   - sensor.apc_ups_load
+    #   - sensor.apc_ups_battery_runtime
+    #   - sensor.transmission_down_speed
+    #   - sensor.transmission_up_speed
+    #   - sensor.speedtest_download
+    #   - sensor.speedtest_upload
+    #   - sensor.usg_cpu
+    #   - sensor.usg_ram
+    #   - sensor.usg_uptime
+    #   - sensor.usg_ip
+    #   - sensor.usg_lan_clients
+    #   - sensor.usg_wlan_clients

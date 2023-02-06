@@ -16,7 +16,7 @@
           content-type: MPEG4
         push:
           category: camera
-        entity_id: camera.c1c
+        entity_id: camera.corridoio
           #thread-id: Allarme
     data_template:
       message: >
@@ -28,4 +28,5 @@
   #     entity_id: camera.c1c
   #     duration: 120
   #     filename: /config/www/snapshot/corridorio_{{ now().strftime("%Y-%m-%d %H.%M.%S") }}.mp4
+  mode: single
 

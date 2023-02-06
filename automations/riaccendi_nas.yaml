@@ -25,6 +25,7 @@
   action:
   - service: switch.turn_on
     entity_id: switch.nas
+  mode: single
 
     # trigger:
   # - entity_id: sensor.ups_status

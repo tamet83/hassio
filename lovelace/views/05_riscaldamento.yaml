@@ -34,7 +34,7 @@ cards:
               icon: false
               fill: fade
             entities:
-              - entity: sensor.temperatura_camera
+              - entity: sensor.temperatura_camera_temperature
                 #line_color: "#009FE3"
             color_thresholds:
               - value: 18
@@ -60,7 +60,7 @@ cards:
               icon: false
               fill: fade
             entities:
-              - entity: sensor.umidita_camera
+              - entity: sensor.temperatura_camera_humidity
                 #line_color: "#009FE3"
             # color_thresholds:
             #   - value: 18
